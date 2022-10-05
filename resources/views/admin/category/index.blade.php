@@ -9,35 +9,43 @@
             </a>
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">List Category</h3>
+                    <h1 class="card-title">LIST CATEGORY</h1>
                 </div>
                 <div class="card-body p-0">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th style="width: 10px">#</th>
-                                <th>Category</th>
-                                <th>Image</th>
+                                <th>Category Name</th>
+                                <th>Category Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($categories as $i => $category)
                                 <tr>
-                                    <td>{{ $categories->firstItem() }}</td>
+                                    <td>{{ $categories->firstItem() + $i }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td>
                                         <img src="{{ $category->image }}" class="img-fluid" width="20">
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-info btn-sm">
+                                        <a href="{{ route('admin.category.edit', $category->id) }}"
+                                            class="btn btn-info btn-sm">
                                             <i class="fas fa-edit"></i>
                                             Edit
                                         </a>
-                                        <a href="" class="btn btn-danger btn-sm">
+                                        <a href="#" onclick="deleteData({{ $category->id }})"
+                                            class="btn btn-danger btn-sm">
                                             <i class="fas fa-trash"></i>
                                             Delete
                                         </a>
+                                        <form id="delete-form-{{ $category->id }}"
+                                            action="{{ route('admin.category.destroy', $category->id) }}" method="POST"
+                                            style="display:none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

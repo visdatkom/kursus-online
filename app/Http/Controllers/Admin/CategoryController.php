@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -68,9 +69,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -80,9 +81,25 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $category->update([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
+
+        if($request->file('image')){
+            Storage::disk('local')->delete('public/categories/'.basename($category->image));
+
+            $image = $request->file('image');
+            $image->storeAs('public/categories', $image->hashName());
+
+            $category->update([
+                'image' => $image->hashName(),
+            ]);
+        }
+
+        return redirect(route('admin.category.index'));
     }
 
     /**
@@ -91,8 +108,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        Storage::disk('local')->delete('public/categories/'.basename($category->image));
+
+        $category->delete();
+
+        return back();
     }
 }
