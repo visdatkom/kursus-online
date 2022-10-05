@@ -19,4 +19,5 @@ Route::get('/', function () {
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/dashboard', App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
+    Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class);
 });
