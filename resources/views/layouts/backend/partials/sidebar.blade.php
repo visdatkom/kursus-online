@@ -70,8 +70,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/course" class="nav-link">
+                <li class="nav-item {{ Route::is('admin.course*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Route::is('admin.course*') ? 'active' : '' }}">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="icon icon-tabler icon-tabler-device-laptop nav-icon" width="24" height="24"
                             viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
@@ -83,8 +83,41 @@
                         </svg>
                         <p>
                             Course
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.course.index') }}"
+                                class="nav-link {{ Route::is('admin.course.index') ? 'active' : '' }}">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="icon icon-tabler icon-tabler-corner-down-right-double nav-icon"
+                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
+                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M4 5v6a3 3 0 0 0 3 3h7"></path>
+                                    <path d="M10 10l4 4l-4 4m5 -8l4 4l-4 4"></path>
+                                </svg>
+                                <p>List Course</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.course.create') }}"
+                                class="nav-link {{ Route::is('admin.course.create') ? 'active' : '' }}">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="icon icon-tabler icon-tabler-corner-down-right-double nav-icon"
+                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
+                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M4 5v6a3 3 0 0 0 3 3h7"></path>
+                                    <path d="M10 10l4 4l-4 4m5 -8l4 4l-4 4"></path>
+                                </svg>
+                                <p>Add New Course</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-header">Transaction</li>
                 <li class="nav-item">
