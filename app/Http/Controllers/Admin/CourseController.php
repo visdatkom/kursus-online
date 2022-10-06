@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -76,9 +77,11 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Course $course)
     {
-        //
+        $categories = Category::all();
+
+        return view('admin.course.edit', compact('categories', 'course'));
     }
 
     /**
@@ -88,9 +91,30 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Course $course)
     {
-        //
+        $course->update([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'price' => $request->price,
+            'description' => $request->description,
+            'level' => $request->level,
+            'category_id' => $request->category_id,
+            'status' => 'done',
+        ]);
+
+        if($request->file('image')){
+            Storage::disk('local')->delete('public/course/'.basename($course->image));
+
+            $image = $request->file('image');
+            $image->storeAs('public/course', $image->hashName());
+
+            $course->update([
+                'image' => $image->hashName(),
+            ]);
+        }
+
+        return redirect(route('admin.course.index'));
     }
 
     /**
@@ -99,8 +123,12 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Course $course)
     {
-        //
+        Storage::disk('local')->delete('public/course/'.basename($course->image));
+
+        $course->delete();
+
+        return back();
     }
 }

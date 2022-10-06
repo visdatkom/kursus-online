@@ -27,12 +27,18 @@
                                     <i class="fas fa-check"></i> {{ $course->status }}
                                 </span>
                             </li>
+                            <li class="list-group-item">
+                                <b>Episode</b>
+                                <span class="float-right text-success">
+                                    10
+                                </span>
+                            </li>
                         </ul>
                         <a href="#" class="btn btn-dark btn-sm">
                             <i class="fas fa-video mr-1"></i>
                             Add Video
                         </a>
-                        <a href="{{ route('admin.category.edit', $course->id) }}" class="btn btn-info btn-sm">
+                        <a href="{{ route('admin.course.edit', $course->id) }}" class="btn btn-info btn-sm">
                             <i class="fas fa-edit mr-1"></i>
                             Edit
                         </a>
