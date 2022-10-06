@@ -18,7 +18,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::paginate(12);
+        $courses = Course::withCount('videos')->paginate(12);
 
         return view('admin.course.index', compact('courses'));
     }

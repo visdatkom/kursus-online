@@ -21,4 +21,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], 
     Route::get('/dashboard', App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
     Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('/course', App\Http\Controllers\Admin\CourseController::class);
+    Route::controller(App\Http\Controllers\Admin\VideoController::class)->as('video.')->group(function(){
+        Route::get('/{course:slug}/create', 'create')->name('create');
+        Route::post('/{course:slug}/store', 'store')->name('store');
+    });
 });

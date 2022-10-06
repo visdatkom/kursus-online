@@ -30,13 +30,13 @@
                             <li class="list-group-item">
                                 <b>Episode</b>
                                 <span class="float-right text-success">
-                                    10
+                                    {{ $course->videos_count }}
                                 </span>
                             </li>
                         </ul>
-                        <a href="#" class="btn btn-dark btn-sm">
+                        <a href="{{ Route('admin.video.create', $course->slug) }}" class="btn btn-dark btn-sm">
                             <i class="fas fa-video mr-1"></i>
-                            Add Video
+                            Add Episode
                         </a>
                         <a href="{{ route('admin.course.edit', $course->id) }}" class="btn btn-info btn-sm">
                             <i class="fas fa-edit mr-1"></i>
@@ -46,8 +46,8 @@
                             <i class="fas fa-trash mr-1"></i>
                             Delete
                         </a>
-                        <form id="delete-form-{{ $course->id }}" action="{{ route('admin.course.destroy', $course->id) }}"
-                            method="POST" style="display:none;">
+                        <form id="delete-form-{{ $course->id }}"
+                            action="{{ route('admin.course.destroy', $course->id) }}" method="POST" style="display:none;">
                             @csrf
                             @method('DELETE')
                         </form>
