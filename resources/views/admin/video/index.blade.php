@@ -10,7 +10,7 @@
             Add New Episode
         </a>
     </div>
-    <div class="card">
+    <div class="card card-dark">
         <div class="card-header">
             <h3 class="card-title">List Episode - {{ $course->name }}</h3>
         </div>

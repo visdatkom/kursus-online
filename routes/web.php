@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/dashboard', App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
+    Route::resource('/tag', App\Http\Controllers\Admin\TagController::class);
     Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('/course', App\Http\Controllers\Admin\CourseController::class);
     Route::controller(App\Http\Controllers\Admin\VideoController::class)->as('video.')->group(function(){

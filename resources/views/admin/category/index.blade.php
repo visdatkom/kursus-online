@@ -7,7 +7,7 @@
                 <i class="fas fa-plus mr-1"></i>
                 Add New Category
             </a>
-            <div class="card">
+            <div class="card card-dark">
                 <div class="card-header">
                     <h1 class="card-title">LIST CATEGORY</h1>
                 </div>
