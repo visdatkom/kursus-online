@@ -5,45 +5,48 @@
         <div class="col-10">
             <div class="card card-dark">
                 <div class="card-header">
-                    <h3 class="card-title">CREATE NEW EPISODE</h3>
+                    <h3 class="card-title">EDIT EPISODE</h3>
                 </div>
-                <form action="{{ route('admin.video.store', $course->slug) }}" method="POST">
+                <form action="{{ route('admin.video.update', [$course->slug, $video->id]) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">Title</label>
                             <input type="text" name="name" class="form-control" id="name"
-                                placeholder="Enter video title">
+                                placeholder="Enter video title" value="{{ $video->name }}">
                         </div>
                         <div class="form-group">
                             <label for="videocode">Video Code</label>
                             <input type="text" name="video_code" class="form-control" id="videocode "
-                                placeholder="Enter video code">
+                                placeholder="Enter video code" value="{{ $video->video_code }}">
                         </div>
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="episode">Episode</label>
                                     <input type="number" name="episode" class="form-control" id="episode"
-                                        placeholder="Enter video episode">
+                                        placeholder="Enter video episode" value="{{ $video->episode }}">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="duration">Duration</label>
                                     <input type="number" name="duration" class="form-control" id="duration "
-                                        placeholder="Enter video duration">
+                                        placeholder="Enter video duration" value="{{ $video->duration }}">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="duration">Type</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="intro" value="0" checked>
+                                <input class="form-check-input" type="radio" name="intro" value="0"
+                                    @checked($video->intro == 0)>
                                 <label class="form-check-label">Free</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="intro" value="1">
+                                <input class="form-check-input" type="radio" name="intro" value="1"
+                                    @checked($video->intro == 1)>
                                 <label class="form-check-label">Premium</label>
                             </div>
                         </div>
@@ -53,7 +56,7 @@
                             <i class="fas fa-arrow-left"></i> Go Back
                         </a>
                         <button type="submit" class="btn btn-success">
-                            <i class="fas fa-check mr-1"></i> Create Episode
+                            <i class="fas fa-check mr-1"></i> Update Episode
                         </button>
                     </div>
                 </form>

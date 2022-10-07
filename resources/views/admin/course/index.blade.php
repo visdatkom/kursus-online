@@ -24,19 +24,24 @@
                             <li class="list-group-item">
                                 <b>Status</b>
                                 <span class="float-right text-success">
-                                    <i class="fas fa-check"></i> {{ $course->status }}
+                                    {{ $course->status }}
                                 </span>
                             </li>
                             <li class="list-group-item">
                                 <b>Episode</b>
-                                <span class="float-right text-success">
-                                    {{ $course->videos_count }}
+                                <span class="float-right text-dark">
+                                    {{ $course->videos_count }} <a href="">
+                                    </a>
                                 </span>
                             </li>
                         </ul>
                         <a href="{{ Route('admin.video.create', $course->slug) }}" class="btn btn-dark btn-sm">
                             <i class="fas fa-video mr-1"></i>
                             Add Episode
+                        </a>
+                        <a href="{{ Route('admin.video.index', $course->slug) }}" class="btn btn-warning btn-sm">
+                            <i class="fas fa-list"></i>
+                            List Eps
                         </a>
                         <a href="{{ route('admin.course.edit', $course->id) }}" class="btn btn-info btn-sm">
                             <i class="fas fa-edit mr-1"></i>
