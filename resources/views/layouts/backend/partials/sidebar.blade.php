@@ -123,7 +123,8 @@
                 </li>
                 <li class="nav-header">Transaction</li>
                 <li class="nav-item">
-                    <a href="/course" class="nav-link">
+                    <a href="{{ route('admin.transaction.index') }}"
+                        class="nav-link {{ Route::is('admin.transaction.index') ? 'active' : '' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt nav-icon"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

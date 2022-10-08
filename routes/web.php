@@ -30,4 +30,5 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], 
         Route::put('/update/{course:slug}/{video}', 'update')->name('update');
         Route::delete('/delete/{video}', 'destroy')->name('destroy');
     });
+    Route::get('/transaction', App\Http\Controllers\Admin\TransactionController::class)->name('transaction.index');
 });
