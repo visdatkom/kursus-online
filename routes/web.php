@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', App\Http\Controllers\HomeController::class);
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/dashboard', App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
