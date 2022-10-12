@@ -5,7 +5,7 @@
                 <img src="{{ asset('course.png') }}" class="w-10 h-10 object-center object-cover" />
                 <h1 class="text-white text-2xl">IDN COURSE</h1>
             </a>
-            <div class="flex gap-8 text-white">
+            <div class="hidden md:flex gap-8 text-white">
                 <a href="">All Boundle Courses</a>
                 <a href="">Article</a>
                 <a href="{{ route('login') }}">Sign In</a>
