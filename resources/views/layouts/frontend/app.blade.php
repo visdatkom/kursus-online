@@ -14,6 +14,7 @@
 <body style="font-family: 'Open Sans', sans-serif;">
     @include('layouts.frontend.partials.navbar')
     @yield('content')
+    @include('sweetalert::alert')
     @include('layouts.frontend.partials.footer')
 </body>
 

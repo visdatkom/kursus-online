@@ -3,90 +3,73 @@
 @section('content')
     <div class="w-full bg-slate-700 p-5 md:p-20">
         <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-4 md:gap-20">
-                <div class="md:col-span-2">
-                    <div class="flex flex-row gap-4 text-xs justify-center md:justify-start mt-4">
-                        <div class="text-slate-400 flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list w-5 h-5"
-                                width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <line x1="9" y1="6" x2="20" y2="6"></line>
-                                <line x1="9" y1="12" x2="20" y2="12"></line>
-                                <line x1="9" y1="18" x2="20" y2="18"></line>
-                                <line x1="5" y1="6" x2="5" y2="6.01"></line>
-                                <line x1="5" y1="12" x2="5" y2="12.01"></line>
-                                <line x1="5" y1="18" x2="5" y2="18.01"></line>
-                            </svg>
-                            {{ $course->videos()->count() }} Episode
-                        </div>
-                        <div class="text-slate-400 flex items-center gap-2 ">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users w-5 h-5"
-                                width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
-                            </svg>
-                            2 Member
-                        </div>
-                        <div class="text-slate-400 flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2 w-5 h-5"
-                                width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path
-                                    d="M12 20l-3 -3h-2a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-2l-3 3">
-                                </path>
-                                <line x1="8" y1="9" x2="16" y2="9"></line>
-                                <line x1="8" y1="13" x2="14" y2="13"></line>
-                            </svg> 10 Review
-                        </div>
-                    </div>
-                    <h1 class="text-lg font-semibold lg:text-2xl py-4 text-white text-center md:text-start">
-                        {{ $course->name }}
-                    </h1>
-                    <p class="text-sm text-center md:text-base md:text-justify text-gray-400">{{ $course->description }}</p>
-                    <div class="mt-5">
-                        <h1 class="text-3xl md:text-6xl text-green-500 font-mono text-center md:text-start">
-                            <sup>Rp</sup> {{ $course->price }}
-                        </h1>
-                        <div class="flex flex-row gap-4 items-center my-6 justify-center md:justify-start">
-                            <button type="submit"
-                                class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:scale-110 duration-200 flex items-center gap-2 text-sm border">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket w-5 h-5"
-                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
-                                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <polyline points="7 10 12 4 17 10"></polyline>
-                                    <path d="M21 10l-2 8a2 2.5 0 0 1 -2 2h-10a2 2.5 0 0 1 -2 -2l-2 -8z"></path>
-                                    <circle cx="12" cy="15" r="2"></circle>
-                                </svg>
-                                Beli Sekarang
-                            </button>
-                            <a href=""
-                                class="px-4 py-2 rounded-lg bg-red-800 text-white hover:scale-110 duration-200 flex items-center gap-2 text-sm border">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-brand-youtube h-5 w-5" width="24"
-                                    height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <rect x="3" y="5" width="18" height="14" rx="4">
-                                    </rect>
-                                    <path d="M10 9l5 3l-5 3z"></path>
-                                </svg>
-                                Lihat Demo
-                            </a>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-4">
+                <div class="col-span-12 md:col-span-7">
+                    <div class="aspect-w-16 aspect-h-9 md:aspect-w-10 md:aspect-h-5 border rounded-lg">
+                        <iframe src="https://www.youtube.com/embed/{{ $video->video_code }}" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen class="rounded-lg"></iframe>
                     </div>
                 </div>
-                <div class="aspect-w-16 aspect-h-9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $video->video_code }}"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                <div class="col-span-12 md:col-span-5">
+                    <div class="p-4">
+                        <h1 class="text-white text-base font-semibold">{{ $course->name }}</h1>
+                        <p class="text-sm text-gray-400 mb-2 text-justify">{{ $course->description }}</p>
+                        <div class="flex flex-row justify-end gap-2 pb-5">
+                            <p class="text-xs text-gray-400">{{ $course->videos->count() }} Episodes</p>
+                            <a href="" class="text-xs text-gray-400 underline hover:text-blue-400">
+                                {{ $course->category->name }}
+                            </a>
+                        </div>
+                        <div class="h-60 overflow-y-auto">
+                            @foreach ($videos as $video)
+                                <div
+                                    class="p-4 text-gray-100 {{ request()->segment(3) == $video->episode ? 'border rounded-lg bg-slate-800' : '' }}">
+                                    <div class="flex justify-between hover:text-red-500">
+                                        <a href="{{ route('course.video', [$course->slug, $video->episode]) }}"
+                                            class="flex flex-row items-center">
+                                            @if ($video->intro == 0)
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-free-rights w-5 h-5 text-green-500"
+                                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <circle cx="12" cy="12" r="9"></circle>
+                                                    <path
+                                                        d="M13.867 9.75c-.246 -.48 -.708 -.769 -1.2 -.75h-1.334c-.736 0 -1.333 .67 -1.333 1.5c0 .827 .597 1.499 1.333 1.499h1.334c.736 0 1.333 .671 1.333 1.5c0 .828 -.597 1.499 -1.333 1.499h-1.334c-.492 .019 -.954 -.27 -1.2 -.75">
+                                                    </path>
+                                                    <path d="M12 7v2"></path>
+                                                    <path d="M12 15v2"></path>
+                                                    <path d="M6 6l1.5 1.5"></path>
+                                                    <path d="M16.5 16.5l1.5 1.5"></path>
+                                                </svg>
+                                            @else
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-coin w-5 h-5 text-red-500"
+                                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <circle cx="12" cy="12" r="9"></circle>
+                                                    <path
+                                                        d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4h-2a2 2 0 0 1 -1.8 -1">
+                                                    </path>
+                                                    <path d="M12 7v10"></path>
+                                                </svg>
+                                            @endif
+                                            <p class="text-xs md:text-sm ml-2">
+                                                {{ $video->episode }}. {{ $video->name }}
+                                            </p>
+                                        </a>
+                                        <div class="text-xs md:text-sm">
+                                            {{ $video->duration }} Menit
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
