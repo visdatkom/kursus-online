@@ -10,25 +10,22 @@
                             <img class="img-fluid" src="{{ $course->image }}" alt="cover">
                         </div>
                         <h3 class="profile-username text-center">{{ $course->name }}</h3>
-                        <p class="text-danger text-center">{{ moneyFormat($course->price) }}</p>
+                        <h3 class="text-success text-center font-weight-bold">
+                            <sup>Rp</sup>
+                            {{ moneyFormat(discount($course->price, $course->discount)) }}
+                        </h3>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
                                 <b>Enrolled</b> <span class="float-right text-bold">1,322</span>
                             </li>
                             <li class="list-group-item">
-                                <b>Level</b>
-                                <span class="float-right text-info">
-                                    {{ $course->level }}
+                                <b>Discount</b>
+                                <span class="float-right text-danger">
+                                    {{ $course->discount }} %
                                 </span>
                             </li>
                             <li class="list-group-item">
-                                <b>Status</b>
-                                <span class="float-right text-success">
-                                    {{ $course->status }}
-                                </span>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Episode</b>
+                                <b>Episodes</b>
                                 <span class="float-right text-dark">
                                     {{ $course->videos_count }} <a href="">
                                     </a>

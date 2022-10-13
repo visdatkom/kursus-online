@@ -16,11 +16,6 @@
                             <input type="text" name="name" class="form-control" id="name"
                                 placeholder="Enter video title" value="{{ $video->name }}">
                         </div>
-                        <div class="form-group">
-                            <label for="videocode">Video Code</label>
-                            <input type="text" name="video_code" class="form-control" id="videocode "
-                                placeholder="Enter video code" value="{{ $video->video_code }}">
-                        </div>
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -31,9 +26,9 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="duration">Duration</label>
-                                    <input type="number" name="duration" class="form-control" id="duration "
-                                        placeholder="Enter video duration" value="{{ $video->duration }}">
+                                    <label for="videocode">Video Code</label>
+                                    <input type="text" name="video_code" class="form-control" id="videocode "
+                                        placeholder="Enter video code" value="{{ $video->video_code }}">
                                 </div>
                             </div>
                         </div>

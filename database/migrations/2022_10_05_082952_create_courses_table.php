@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('image');
-            $table->string('level');
-            $table->string('status');
+            $table->string('demo')->nullable();
+            $table->double('discount')->nullable();
             $table->text('description');
             $table->double('price');
             $table->timestamps();

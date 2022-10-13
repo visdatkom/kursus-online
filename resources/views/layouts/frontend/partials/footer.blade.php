@@ -3,7 +3,7 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center md:justify-items-start">
             <div class="text-center sm:text-start col-span-2">
                 <a href="/" class="font-bold text-2xl text-white">
-                    IDN COURSE
+                    LaraDev
                 </a>
                 <p class="max-w-md mt-2 text-sm text-center md:text-start text-gray-100">
                     Website Belajar Coding bahasa Indonesia terlengkap dan mudah dipahami.
@@ -33,7 +33,7 @@
         <hr class="h-px my-6 bg-white border-none">
         <div>
             <p class="text-center text-gray-300">
-                © IDN COURSE {{ date('Y') }}
+                © LaraDev {{ date('Y') }}
             </p>
         </div>
     </div>

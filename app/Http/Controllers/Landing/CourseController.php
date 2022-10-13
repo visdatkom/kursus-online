@@ -20,7 +20,7 @@ class CourseController extends Controller
     {
         $video = Video::whereBelongsTo($course)->where('episode', $episode)->first();
 
-        $videos = Video::whereBelongsTo($course)->get();
+        $videos = Video::whereBelongsTo($course)->orderBy('episode')->get();
 
         if($video->intro == 1){
             return back()->with('toast_error', 'Episode ini hanya untuk member premium');

@@ -51,11 +51,11 @@
                     <p class="text-sm text-center md:text-base md:text-justify text-gray-400">{{ $course->description }}</p>
                     <div class="mt-5">
                         <h1 class="text-3xl md:text-6xl text-green-500 font-mono text-center md:text-start">
-                            <sup>Rp</sup> {{ $course->price }}
+                            <sup>Rp</sup>{{ moneyFormat(discount($course->price, $course->discount)) }}
                         </h1>
                         <div class="flex flex-row gap-4 items-center my-6 justify-center md:justify-start">
                             <button type="submit"
-                                class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:scale-110 duration-200 flex items-center gap-2 text-sm border">
+                                class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket w-5 h-5"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -67,7 +67,7 @@
                                 Beli Sekarang
                             </button>
                             <a href=""
-                                class="px-4 py-2 rounded-lg bg-red-800 text-white hover:scale-110 duration-200 flex items-center gap-2 text-sm border">
+                                class="px-4 py-2 rounded-lg bg-red-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-brand-youtube h-5 w-5" width="24"
                                     height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -108,36 +108,44 @@
                                 <div class="flex justify-between">
                                     <a href="{{ route('course.video', [$course->slug, $video->episode]) }}"
                                         class="flex flex-row items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-corner-down-right w-5 h-5" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M6 6v6a3 3 0 0 0 3 3h10l-4 -4m0 8l4 -4"></path>
+                                        </svg>
+                                        <p class="text-xs md:text-sm ml-2 hover:text-red-500">{{ $video->episode }}.
+                                            {{ $video->name }}</p>
+                                    </a>
+                                    <div class="text-xs md:text-sm">
                                         @if ($video->intro == 0)
                                             <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-player-play w-5 h-5 text-green-500"
-                                                width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
+                                                class="icon icon-tabler icon-tabler-lock-open w-5 h-5" width="24"
+                                                height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                                 stroke="currentColor" fill="none" stroke-linecap="round"
                                                 stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M7 4v16l13 -8z"></path>
+                                                <rect x="5" y="11" width="14" height="10"
+                                                    rx="2"></rect>
+                                                <circle cx="12" cy="16" r="1"></circle>
+                                                <path d="M8 11v-5a4 4 0 0 1 8 0"></path>
                                             </svg>
                                         @else
                                             <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-coin w-5 h-5 text-red-500"
+                                                class="icon icon-tabler icon-tabler-lock text-red-500 w-5 h-5"
                                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                                 stroke="currentColor" fill="none" stroke-linecap="round"
                                                 stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <circle cx="12" cy="12" r="9"></circle>
-                                                <path
-                                                    d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4h-2a2 2 0 0 1 -1.8 -1">
-                                                </path>
-                                                <path d="M12 7v10"></path>
+                                                <rect x="5" y="11" width="14" height="10"
+                                                    rx="2"></rect>
+                                                <circle cx="12" cy="16" r="1"></circle>
+                                                <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
                                             </svg>
                                         @endif
-                                        <p class="text-xs md:text-sm ml-2">{{ $video->episode }}. {{ $video->name }}</p>
-                                    </a>
-                                    <div class="text-xs md:text-sm">
-                                        {{ $video->duration }} Menit
                                     </div>
                                 </div>
-
                             </div>
                         @endforeach
                     </div>

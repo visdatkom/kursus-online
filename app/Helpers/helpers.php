@@ -8,6 +8,18 @@ if (! function_exists('moneyFormat')) {
      * @return void
      */
     function moneyFormat($str) {
-        return 'Rp. ' . number_format($str, '0', '', '.');
+        return number_format($str, '0', '', '.');
+    }
+}
+
+if (! function_exists('discount')) {
+    /**
+     * moneyFormat
+     *
+     * @param  mixed $str
+     * @return void
+     */
+    function discount($price, $discount){
+        return $price - ($price * $discount / 100);
     }
 }

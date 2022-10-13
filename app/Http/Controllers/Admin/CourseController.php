@@ -52,23 +52,12 @@ class CourseController extends Controller
             'image' => $request->file('image') ? $image->hashName() : null,
             'price' => $request->price,
             'description' => $request->description,
-            'level' => $request->level,
+            'demo' => $request->demo,
             'category_id' => $request->category_id,
-            'status' => 'done',
+            'discount' => $request->discount,
         ]);
 
         return redirect(route('admin.course.index'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -98,9 +87,9 @@ class CourseController extends Controller
             'slug' => Str::slug($request->name),
             'price' => $request->price,
             'description' => $request->description,
-            'level' => $request->level,
+            'demo' => $request->demo,
             'category_id' => $request->category_id,
-            'status' => 'done',
+            'discount' => $request->discount,
         ]);
 
         if($request->file('image')){

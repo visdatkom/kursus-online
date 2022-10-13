@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="/" class="brand-link">
         <div class="text-center">
-            <span class="brand-text font-weight-bold">IDN Course</span>
+            <span class="brand-text font-weight-bold">LaraDev</span>
         </div>
     </a>
 

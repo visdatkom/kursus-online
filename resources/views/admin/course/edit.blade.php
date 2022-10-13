@@ -33,13 +33,14 @@
                                 placeholder="Enter course price" value="{{ $course->price }}">
                         </div>
                         <div class="form-group">
-                            <label>Level</label>
-                            <select class="form-control" name="level">
-                                <option value>Choose level</option>
-                                <option value="advanced" @selected($course->level == 'advanced')>Advanced</option>
-                                <option value="intermediate" @selected($course->level == 'intermediate')>Intermediate</option>
-                                <option value="beginner" @selected($course->level == 'beginner')>Beginner</option>
-                            </select>
+                            <label for="discount">Discount</label>
+                            <input type="number" name="discount" class="form-control" id="discount"
+                                placeholder="Enter course discount">
+                        </div>
+                        <div class="form-group">
+                            <label for="demo">Demo</label>
+                            <input type="text" name="demo" class="form-control" id="demo"
+                                placeholder="Enter course demo">
                         </div>
                         <div class="form-group">
                             <label for="cover">Cover</label>

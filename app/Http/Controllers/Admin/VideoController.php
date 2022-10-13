@@ -35,7 +35,6 @@ class VideoController extends Controller
             'episode' => $request->episode,
             'intro' => $request->intro,
             'video_code' => $request->video_code,
-            'duration' => $request->duration,
         ]);
 
         return redirect(route('admin.course.index'));
@@ -58,7 +57,6 @@ class VideoController extends Controller
             'episode' => $request->episode,
             'intro' => $request->intro,
             'video_code' => $request->video_code,
-            'duration' => $request->duration,
         ]);
 
         return redirect(route('admin.video.index', $course));
