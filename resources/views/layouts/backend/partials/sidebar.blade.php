@@ -38,20 +38,20 @@
                 </li>
                 <li class="nav-header">MASTER DATA</li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.tag.index') }}"
-                        class="nav-link {{ Route::is('admin.tag*') ? 'active' : '' }} ">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tags nav-icon"
+                    <a href="{{ route('admin.article.index') }}"
+                        class="nav-link {{ Route::is('admin.article*') ? 'active' : '' }} ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
                             fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path
-                                d="M7.859 6h-2.834a2.025 2.025 0 0 0 -2.025 2.025v2.834c0 .537 .213 1.052 .593 1.432l6.116 6.116a2.025 2.025 0 0 0 2.864 0l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-6.117 -6.116a2.025 2.025 0 0 0 -1.431 -.593z">
+                                d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18">
                             </path>
-                            <path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116"></path>
-                            <path d="M6 9h-.01"></path>
+                            <line x1="13" y1="8" x2="15" y2="8"></line>
+                            <line x1="13" y1="12" x2="15" y2="12"></line>
                         </svg>
                         <p>
-                            Tags
+                            Article
                         </p>
                     </a>
                 </li>
@@ -120,6 +120,24 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.tag.index') }}"
+                        class="nav-link {{ Route::is('admin.tag*') ? 'active' : '' }} ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tags nav-icon"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
+                            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M7.859 6h-2.834a2.025 2.025 0 0 0 -2.025 2.025v2.834c0 .537 .213 1.052 .593 1.432l6.116 6.116a2.025 2.025 0 0 0 2.864 0l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-6.117 -6.116a2.025 2.025 0 0 0 -1.431 -.593z">
+                            </path>
+                            <path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116"></path>
+                            <path d="M6 9h-.01"></path>
+                        </svg>
+                        <p>
+                            Tags
+                        </p>
+                    </a>
                 </li>
                 <li class="nav-header">Transaction</li>
                 <li class="nav-item">

@@ -29,6 +29,8 @@ Route::controller(App\Http\Controllers\Landing\CartController::class)->as('cart.
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     // admin dashboard route
     Route::get('/dashboard', App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
+    // admin article route
+    Route::resource('/article', App\Http\Controllers\Admin\ArticleController::class);
     // admin tag route
     Route::resource('/tag', App\Http\Controllers\Admin\TagController::class);
     // admin category route

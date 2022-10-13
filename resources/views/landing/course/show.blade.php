@@ -109,11 +109,12 @@
                                     <a href="{{ route('course.video', [$course->slug, $video->episode]) }}"
                                         class="flex flex-row items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-corner-down-right w-5 h-5" width="24"
+                                            class="icon icon-tabler icon-tabler-chevrons-right w-5 h-5" width="24"
                                             height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M6 6v6a3 3 0 0 0 3 3h10l-4 -4m0 8l4 -4"></path>
+                                            <polyline points="7 7 12 12 7 17"></polyline>
+                                            <polyline points="13 7 18 12 13 17"></polyline>
                                         </svg>
                                         <p class="text-xs md:text-sm ml-2 hover:text-red-500">{{ $video->episode }}.
                                             {{ $video->name }}</p>
