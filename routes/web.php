@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', App\Http\Controllers\HomeController::class);
+Route::controller(App\Http\Controllers\Landing\CourseController::class)->as('course.')->group(function(){
+    Route::get('/course/{course:slug}', 'show')->name('show');
+    Route::get('/course/{course:slug}/{video:episode}', 'video')->name('video');
+});
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/dashboard', App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');

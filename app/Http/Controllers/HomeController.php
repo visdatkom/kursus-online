@@ -12,6 +12,6 @@ class HomeController extends Controller
     {
         $courses = Course::withCount('videos')->get();
 
-        return view('home', compact('courses'));
+        return view('landing.home', compact('courses'));
     }
 }
