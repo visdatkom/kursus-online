@@ -37,4 +37,9 @@ class Course extends Model
     {
         return $this->hasMany(Video::class);
     }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }

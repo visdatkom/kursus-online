@@ -13,10 +13,55 @@
 </head>
 
 <body style="font-family: 'Open Sans', sans-serif;">
+    <!-- navbar -->
     @include('layouts.frontend.partials.navbar')
+
+    <!-- content -->
     @yield('content')
+
+    <!-- toastr -->
     @include('sweetalert::alert')
+
+    <!-- footer -->
     @include('layouts.frontend.partials.footer')
+
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        function deleteData(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: true
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Apakah anda ingin mengeluarkan item ini?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, tolong!',
+                cancelButtonText: 'Nope!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    event.preventDefault();
+                    document.getElementById('delete-form-' + id).submit();
+
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Data kamu aman !',
+                        '',
+                        'error'
+                    )
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

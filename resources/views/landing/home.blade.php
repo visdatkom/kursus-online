@@ -82,27 +82,4 @@
             @endforeach
         </div>
     </section>
-    <section class="bg-slate-700 p-10 w-full">
-        <div class="flex flex-col gap-2 text-center items-center mb-10">
-            <h1 class="text-2xl text-white font-semibold">ARTIKEL</h1>
-            <p class="text-sm text-gray-400 lg:mx-96">
-                Kami menyediakan berbagai macam artikel secara gratis yang dapat membantu menjadi seorang Developer
-                Profesional.
-            </p>
-            <div class="w-60 bg-slate-800 h-1 mt-2"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 container mx-auto my-5 items-start">
-            @foreach ($articles as $article)
-                <div class="bg-slate-800 rounded-lg shadow-custom">
-                    <img class="rounded-t-lg" src="{{ $article->cover }}" alt="product image">
-                    <div class="p-4 md:p-5 text-center">
-                        <a href="{{ route('article.show', $article->slug) }}"
-                            class="text-lg font-semibold text-white hover:text-red-500 hover:underline">
-                            {{ $article->title }}
-                        </a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </section>
 @endsection

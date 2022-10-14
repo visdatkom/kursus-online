@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 // home route
 Route::get('/', App\Http\Controllers\HomeController::class);
-// article route
-Route::controller(App\Http\Controllers\Landing\ArticleController::class)->as('article.')->group(function(){
-    Route::get('/article/{article:slug}', 'show')->name('show');
-});
 // course route
 Route::controller(App\Http\Controllers\Landing\CourseController::class)->as('course.')->group(function(){
     Route::get('/course/{course:slug}', 'show')->name('show');
@@ -27,6 +23,8 @@ Route::controller(App\Http\Controllers\Landing\CourseController::class)->as('cou
 // cart route
 Route::controller(App\Http\Controllers\Landing\CartController::class)->as('cart.')->group(function(){
     Route::get('/cart', 'index')->name('index');
+    Route::post('/cart/{course}', 'store')->name('store');
+    Route::delete('/cart/{cart}', 'delete')->name('destroy');
 });
 
 // admin route

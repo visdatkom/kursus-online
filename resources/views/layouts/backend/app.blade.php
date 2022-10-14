@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
     @stack('css')
 </head>
 
@@ -58,13 +57,6 @@
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <script>
         $('.select2').select2()
-    </script>
-    <!-- easymDE-->
-    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
-    <script>
-        const easyMDE = new EasyMDE({
-            element: document.getElementById('markdown')
-        });
     </script>
     <!--- Sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
