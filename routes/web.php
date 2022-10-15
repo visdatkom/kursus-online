@@ -1,8 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Landing\CartController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Landing\CheckoutContoller;
-use App\Http\Controllers\Landing\CheckoutController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Landing\CourseController as LandingCourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,35 +27,39 @@ use App\Http\Controllers\Landing\CheckoutController;
 */
 
 // home route
-Route::get('/', App\Http\Controllers\HomeController::class);
+Route::get('/', HomeController::class);
 // course route
-Route::controller(App\Http\Controllers\Landing\CourseController::class)->as('course.')->group(function(){
+Route::controller(LandingCourseController::class)->as('course.')->group(function(){
     Route::get('/course/{course:slug}', 'show')->name('show');
     Route::get('/course/{course:slug}/{video:episode}', 'video')->name('video');
 });
 // cart route
-Route::controller(App\Http\Controllers\Landing\CartController::class)->as('cart.')->group(function(){
+Route::controller(CartController::class)->as('cart.')->group(function(){
     Route::get('/cart', 'index')->name('index');
     Route::post('/cart/{course}', 'store')->name('store');
     Route::delete('/cart/{cart}', 'delete')->name('destroy');
 });
 // checkout route
-Route::get('/checkout', [App\Http\Controllers\Landing\CheckoutContoller::class, 'store'])->name('checkout.store');
+Route::get('/checkout', [CheckoutContoller::class, 'store'])->name('checkout.store');
 
 // admin route
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     // admin dashboard route
-    Route::get('/dashboard', App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
     // admin tag route
-    Route::resource('/tag', App\Http\Controllers\Admin\TagController::class);
+    Route::resource('/tag', TagController::class);
     // admin category route
-    Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('/category', CategoryController::class);
     // admin course route
-    Route::resource('/course', App\Http\Controllers\Admin\CourseController::class);
+    Route::resource('/course', CourseController::class);
     // admin permission route
-    Route::resource('/permission', App\Http\Controllers\Admin\PermissionController::class);
+    Route::resource('/permission', PermissionController::class)->except('show', 'edit', 'create');
+    // admin role route
+    Route::resource('/role', RoleController::class)->except('show', 'edit', 'create');
+    //admin user route
+    Route::resource('/user', UserController::class)->only('index', 'update', 'destroy');
     // admin video route
-    Route::controller(App\Http\Controllers\Admin\VideoController::class)->as('video.')->group(function(){
+    Route::controller(VideoController::class)->as('video.')->group(function(){
         Route::get('/{course:slug}/video', 'index')->name('index');
         Route::get('/{course:slug}/create', 'create')->name('create');
         Route::post('/{course:slug}/store', 'store')->name('store');
@@ -53,5 +68,5 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], 
         Route::delete('/delete/{video}', 'destroy')->name('destroy');
     });
     // admin transaction route
-    Route::resource('/transaction', App\Http\Controllers\Admin\TransactionController::class)->only('index', 'show');
+    Route::resource('/transaction', TransactionController::class)->only('index', 'show');
 });
