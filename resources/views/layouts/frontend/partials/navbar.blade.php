@@ -107,7 +107,7 @@
                     <a href="{{ route('register') }}">Register</a>
                 @endguest
                 @auth
-                    <div class="rounded-lg border px-4 py-2">
+                    <div class="rounded-lg border px-4 py-2 bg-slate-900 border-slate-700">
                         <a href="">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket w-5 h-5"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
@@ -121,8 +121,8 @@
                     </div>
                     <div class="relative" x-data="{ isOpen: false }">
                         <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
-                            class="flex items-center gap-2 border px-4 py-2 rounded-lg text-sm bg-slate-800 bg-opacity-80">
-                            <img src="http://www.gravatar.com/avatar?d=mm" alt="avatar" class="w-5 h-5 rounded-full">
+                            class="flex items-center gap-2 border px-4 py-2 rounded-lg text-sm bg-slate-900 border-slate-700">
+                            <img src="{{ Auth::user()->avatar }}" alt="avatar" class="w-5 h-5 rounded-full">
                             {{ Auth::user()->name }}
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 class="icon icon-tabler icon-tabler-chevron-down w-5 h-5" width="24" height="24"
@@ -133,7 +133,7 @@
                             </svg>
                         </button>
                         <ul x-cloak x-show="isOpen" @click.away="isOpen = false"
-                            class="absolute font-normal bg-slate-800 shadow overflow-hidden rounded-lg w-48 border border-slate-700 mt-2 py-1 right-0 z-20">
+                            class="absolute font-normal bg-slate-900 shadow overflow-hidden rounded-lg w-48 border border-slate-700 mt-2 py-1 right-0 z-20">
                             <li>
                                 <a href="#" class="flex items-center p-3 hover:text-red-500 rounded-lg text-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg"

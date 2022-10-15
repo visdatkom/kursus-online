@@ -51,6 +51,7 @@
                     </table>
                 </div>
             </div>
+            <div class="d-flex justify-content-end">{{ $transactions->links() }}</div>
         </div>
     </div>
 @endsection

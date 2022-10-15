@@ -20,8 +20,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-header">DASHBOARD</li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.dashboard') }}"
-                        class="nav-link {{ Route::is('admin.dashboard') ? 'active' : '' }} ">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ active('admin.dashboard') }} ">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="icon icon-tabler icon-tabler-brand-tabler nav-icon" width="24" height="24"
                             viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
@@ -38,8 +37,7 @@
                 </li>
                 <li class="nav-header">MASTER DATA</li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.category.index') }}"
-                        class="nav-link {{ Route::is('admin.category*') ? 'active' : '' }} ">
+                    <a href="{{ route('admin.category.index') }}" class="nav-link {{ active('admin.category*') }} ">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-2 nav-icon"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
                             fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -55,7 +53,7 @@
                     </a>
                 </li>
                 <li class="nav-item {{ Route::is('admin.course*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ Route::is('admin.course*') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ active('admin.course*') }}">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="icon icon-tabler icon-tabler-device-laptop nav-icon" width="24" height="24"
                             viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
@@ -73,7 +71,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('admin.course.index') }}"
-                                class="nav-link {{ Route::is('admin.course.index') ? 'active' : '' }}">
+                                class="nav-link {{ active('admin.course.index') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-corner-down-right-double nav-icon"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
@@ -88,7 +86,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.course.create') }}"
-                                class="nav-link {{ Route::is('admin.course.create') ? 'active' : '' }}">
+                                class="nav-link {{ active('admin.course.create') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-corner-down-right-double nav-icon"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
@@ -104,8 +102,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.tag.index') }}"
-                        class="nav-link {{ Route::is('admin.tag*') ? 'active' : '' }} ">
+                    <a href="{{ route('admin.tag.index') }}" class="nav-link {{ active('admin.tag*') }} ">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tags nav-icon"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -124,7 +121,7 @@
                 <li class="nav-header">Transaction</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.transaction.index') }}"
-                        class="nav-link {{ Route::is('admin.transaction.index') ? 'active' : '' }}">
+                        class="nav-link {{ active('admin.transaction*') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt nav-icon"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -140,7 +137,8 @@
                 </li>
                 <li class="nav-header">User Management</li>
                 <li class="nav-item">
-                    <a href="/course" class="nav-link">
+                    <a href="{{ route('admin.permission.index') }}"
+                        class="nav-link {{ active('admin.permission*') }}">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="icon icon-tabler icon-tabler-user-search nav-icon" width="24" height="24"
                             viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"

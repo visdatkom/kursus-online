@@ -41,6 +41,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], 
     Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class);
     // admin course route
     Route::resource('/course', App\Http\Controllers\Admin\CourseController::class);
+    // admin permission route
+    Route::resource('/permission', App\Http\Controllers\Admin\PermissionController::class);
     // admin video route
     Route::controller(App\Http\Controllers\Admin\VideoController::class)->as('video.')->group(function(){
         Route::get('/{course:slug}/video', 'index')->name('index');

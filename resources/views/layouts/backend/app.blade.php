@@ -44,6 +44,8 @@
             </section>
         </div>
 
+        @include('sweetalert::alert')
+
         @include('layouts.backend.partials.footer')
     </div>
 
