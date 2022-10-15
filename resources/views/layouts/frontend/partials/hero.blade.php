@@ -28,17 +28,15 @@
                     </button>
                     <a href=""
                         class="px-4 py-2 rounded-lg bg-red-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook w-5 h-5"
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-source-code w-5 h-5"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
                             fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path
-                                d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18">
-                            </path>
-                            <line x1="13" y1="8" x2="15" y2="8"></line>
-                            <line x1="13" y1="12" x2="15" y2="12"></line>
+                            <path d="M14.5 4h2.5a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-5"></path>
+                            <path d="M6 5l-2 2l2 2"></path>
+                            <path d="M10 9l2 -2l-2 -2"></path>
                         </svg>
-                        Baca Artikel
+                        Lihat Showcase
                     </a>
                 </div>
             </div>

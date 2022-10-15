@@ -13,9 +13,11 @@
                             <tr>
                                 <th style="width: 10px">#</th>
                                 <th>Invoice</th>
-                                <th>Customer</th>
-                                <th>Course</th>
-                                <th class="text-right">Price</th>
+                                <th>Email</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Detail</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,25 +25,27 @@
                                 <tr>
                                     <td>{{ $transactions->firstItem() + $i }}</td>
                                     <td>{{ $transaction->invoice }}</td>
-                                    <td>{{ $transaction->user->name }}</td>
+                                    <td>{{ $transaction->user->email }}</td>
                                     <td>
-                                        @foreach ($transaction->details as $transactionDetails)
-                                            {{ $transactionDetails->course->name }}
-                                        @endforeach
+                                        <sup>Rp</sup> {{ moneyFormat($transaction->grand_total) }}
                                     </td>
                                     <td>
-                                        {{ moneyFormat($transaction->grand_total) }}
+                                        @if ($transaction->status == 'pending')
+                                            <span class="badge badge-danger">{{ $transaction->status }}</span>
+                                        @elseif($transaction->status == 'success')
+                                            <span class="badge badge-success">{{ $transaction->status }}</span>
+                                        @else
+                                            <span class="badge badge-warning">{{ $transaction->status }}</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $transaction->created_at }}</td>
+                                    <td>
+                                        <a href="" class="btn btn-primary btn-sm">
+                                            Detail
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
-                            <tr>
-                                <td colspan="4" class="font-weight-bold text-uppercase">
-                                    Grand Total
-                                </td>
-                                <td class="font-weight-bold text-success text-right">
-                                    {{ moneyFormat($grandTotal) }}
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>

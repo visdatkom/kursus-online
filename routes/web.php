@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Landing\CheckoutContoller;
+use App\Http\Controllers\Landing\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,8 @@ Route::controller(App\Http\Controllers\Landing\CartController::class)->as('cart.
     Route::post('/cart/{course}', 'store')->name('store');
     Route::delete('/cart/{cart}', 'delete')->name('destroy');
 });
+// checkout route
+Route::get('/checkout', [App\Http\Controllers\Landing\CheckoutContoller::class, 'store'])->name('checkout.store');
 
 // admin route
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){

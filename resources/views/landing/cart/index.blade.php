@@ -1,7 +1,7 @@
 @extends('layouts.frontend.app', ['title' => 'Homepage'])
 
 @section('content')
-    <div class="w-full p-16 bg-gray-500">
+    <div class="w-full p-2 md:p-16 bg-gray-500">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div class="col-span-12 lg:col-span-8">
@@ -97,8 +97,7 @@
                     </div>
                 </div>
                 <div class="col-span-12 lg:col-span-4">
-                    <form action="http://inventory.appdev.my.id/transaction" method="POST">
-                        <input type="hidden" name="_token" value="pA3aqHVMQdzHO7yuv6ZsWvceuSQpisFNBxhHM8vu">
+                    <form action="{{ route('checkout.store') }}" method="get">
                         <div class="border rounded-lg overflow-hidden">
                             <div class="bg-white border-b px-4 py-3 text-gray-700 font-medium flex items-center gap-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt w-5 h-5"
@@ -135,7 +134,7 @@
                                         </label>
                                         <input type="email"
                                             class="rounded-lg border p-2 text-sm text-gray-700 focus:outline-none bg-gray-100 cursor-not-allowed"
-                                            value="{{ moneyFormat($total) }}" name="grand_total" readonly>
+                                            value="{{ $total }}" name="grand_total" readonly>
                                     </div>
                                 </div>
                             </div>
