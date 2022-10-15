@@ -40,7 +40,8 @@
                                     </td>
                                     <td>{{ $transaction->created_at }}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('admin.transaction.show', $transaction->id) }}"
+                                            class="btn btn-primary btn-sm">
                                             Detail
                                         </a>
                                     </td>

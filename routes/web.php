@@ -35,8 +35,6 @@ Route::get('/checkout', [App\Http\Controllers\Landing\CheckoutContoller::class, 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     // admin dashboard route
     Route::get('/dashboard', App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
-    // admin article route
-    Route::resource('/article', App\Http\Controllers\Admin\ArticleController::class);
     // admin tag route
     Route::resource('/tag', App\Http\Controllers\Admin\TagController::class);
     // admin category route
@@ -53,5 +51,5 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], 
         Route::delete('/delete/{video}', 'destroy')->name('destroy');
     });
     // admin transaction route
-    Route::get('/transaction', App\Http\Controllers\Admin\TransactionController::class)->name('transaction.index');
+    Route::resource('/transaction', App\Http\Controllers\Admin\TransactionController::class)->only('index', 'show');
 });
