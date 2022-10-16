@@ -27,7 +27,7 @@ use App\Http\Controllers\Landing\CourseController as LandingCourseController;
 */
 
 // home route
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 // course route
 Route::controller(LandingCourseController::class)->as('course.')->group(function(){
     Route::get('/course/{course:slug}', 'show')->name('show');
@@ -57,6 +57,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], 
     // admin role route
     Route::resource('/role', RoleController::class)->except('show', 'edit', 'create');
     //admin user route
+    Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
+    Route::put('/user/profile/{user}', [UserController::class, 'profileUpdate'])->name('user.profile.update');
+    Route::put('/user/profile/password/{user}', [UserController::class, 'updatePassword'])->name('user.profile.password');
     Route::resource('/user', UserController::class)->only('index', 'update', 'destroy');
     // admin video route
     Route::controller(VideoController::class)->as('video.')->group(function(){

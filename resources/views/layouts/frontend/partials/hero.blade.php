@@ -2,7 +2,17 @@
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
             <div class="col-span-12 md:col-span-7 flex flex-col gap-4 lg:gap-8">
-                <h1 class="text-center md:text-start text-2xl font-semibold md:text-6xl text-gray-50">
+                <h1
+                    class="text-center md:text-start text-2xl font-semibold md:text-6xl text-gray-50 flex items-center justify-center md:justify-start">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-brand-tabler w-10 h-10 md:w-20 md:h-20" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M8 9l3 3l-3 3"></path>
+                        <line x1="13" y1="15" x2="16" y2="15"></line>
+                        <rect x="4" y="4" width="16" height="16" rx="4"></rect>
+                    </svg>
                     LaraDev
                 </h1>
                 <p class="text-sm md:text-lg text-center md:text-start text-gray-100">
