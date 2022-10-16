@@ -42,4 +42,9 @@ class Course extends Model
     {
         return $this->hasMany(Cart::class);
     }
+
+    public function details()
+    {
+        return $this->hasMany(TransactionDetail::class);
+    }
 }

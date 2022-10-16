@@ -29,7 +29,7 @@ use App\Http\Controllers\Landing\CourseController as LandingCourseController;
 // home route
 Route::get('/', HomeController::class)->name('home');
 // course route
-Route::controller(LandingCourseController::class)->as('course.')->group(function(){
+Route::controller(LandingCourseController::class)->as('course.')->middleware('auth')->group(function(){
     Route::get('/course/{course:slug}', 'show')->name('show');
     Route::get('/course/{course:slug}/{video:episode}', 'video')->name('video');
 });

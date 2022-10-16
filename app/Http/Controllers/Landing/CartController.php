@@ -15,7 +15,9 @@ class CartController extends Controller
 
         $total = $carts->sum('price');
 
-        return view('landing.cart.index', compact('carts', 'total'));
+        $user = $request->user();
+
+        return view('landing.cart.index', compact('carts', 'total', 'user'));
     }
 
     public function store(Request $request, Course $course)

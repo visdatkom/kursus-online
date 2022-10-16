@@ -30,7 +30,7 @@
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                 <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                             </svg>
-                            2 Member
+                            {{ $enrolled }} Member
                         </div>
                         <div class="text-slate-400 flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2 w-5 h-5"
@@ -70,7 +70,7 @@
                                     Beli Sekarang
                                 </button>
                             </form>
-                            <a href=""
+                            <a href="{{ $course->demo }}" target="_blank"
                                 class="px-4 py-2 rounded-lg bg-red-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-brand-youtube h-5 w-5" width="24"

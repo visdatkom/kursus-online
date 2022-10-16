@@ -20,3 +20,9 @@ if (! function_exists('active')) {
     }
 }
 
+if (! function_exists('videoActive')) {
+    function videoActive($params){
+        return request()->segment(3) == $params ? 'border rounded-lg bg-slate-800' : '' ;
+    }
+}
+

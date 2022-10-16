@@ -16,7 +16,7 @@
                         </h3>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Enrolled</b> <span class="float-right text-bold">1,322</span>
+                                <b>Enrolled</b> <span class="float-right text-bold">0</span>
                             </li>
                             <li class="list-group-item">
                                 <b>Discount</b>

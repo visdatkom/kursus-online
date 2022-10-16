@@ -118,7 +118,7 @@
                                         </label>
                                         <input type="text"
                                             class="rounded-md border p-2 text-sm text-gray-700 focus:outline-none bg-gray-100 cursor-not-allowed"
-                                            value="Administrator" name="name" readonly="">
+                                            value="{{ $user->name }}" name="name" readonly="">
                                     </div>
                                     <div class="flex flex-col gap-y-2">
                                         <label class="text-base text-gray-700 font-medium">
@@ -126,7 +126,7 @@
                                         </label>
                                         <input type="email"
                                             class="rounded-lg border p-2 text-sm text-gray-700 focus:outline-none bg-gray-100 cursor-not-allowed"
-                                            value="admin@gmail.com" name="email" readonly="">
+                                            value="{{ $user->email }}" name="email" readonly="">
                                     </div>
                                     <div class="flex flex-col gap-y-2">
                                         <label class="text-base text-gray-700 font-medium">

@@ -4,13 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Course;
 use App\Models\Category;
+use App\Traits\hasCourse;
+use App\Models\Transaction;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\TransactionDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
+    use HasCourse;
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +22,13 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::withCount('videos')->paginate(12);
+        $courses = Course::withCount('videos', 'details')->paginate(12);
+
+        // $enrolled = Transaction::with('details.course')
+        //     ->where('status', 'success')
+        //     ->whereHas('details', function($query) use($data){
+        //         $query->where('course_id', $data->id);
+        //     })->get();
 
         return view('admin.course.index', compact('courses'));
     }
