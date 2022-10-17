@@ -15,29 +15,41 @@
                             <input type="text" name="name" class="form-control" id="name"
                                 placeholder="Enter course title">
                         </div>
-                        <div class="form-group">
-                            <label>Category</label>
-                            <select class="form-control" name="category_id">
-                                <option>Choose Category</option>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
-                            </select>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select class="form-control" name="category_id">
+                                        <option>Choose Category</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="demo">Demo</label>
+                                    <input type="text" name="demo" class="form-control" id="demo"
+                                        placeholder="Enter course demo">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="price">Price</label>
-                            <input type="number" name="price" class="form-control" id="price"
-                                placeholder="Enter course price">
-                        </div>
-                        <div class="form-group">
-                            <label for="discount">Discount</label>
-                            <input type="number" name="discount" class="form-control" id="discount"
-                                placeholder="Enter course discount">
-                        </div>
-                        <div class="form-group">
-                            <label for="demo">Demo</label>
-                            <input type="text" name="demo" class="form-control" id="demo"
-                                placeholder="Enter course demo">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="price">Price</label>
+                                    <input type="number" name="price" class="form-control" id="price"
+                                        placeholder="Enter course price">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="discount">Discount</label>
+                                    <input type="number" name="discount" class="form-control" id="discount"
+                                        placeholder="Enter course discount">
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="cover">Cover</label>

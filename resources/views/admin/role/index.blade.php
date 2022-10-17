@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-8">
+        <div class="col-12">
             <div class="card card-dark">
                 <div class="card-header">
                     <h1 class="card-title">LIST ROLE</h1>
@@ -97,39 +97,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card card-dark">
-                <div class="card-header">
-                    <h3 class="card-title">CREATE NEW ROLE</h3>
-                </div>
-                <form action="{{ route('admin.role.store') }}" method="POST">
-                    @csrf
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="name">Role Name</label>
-                            <input type="text" name="name" class="form-control" id="name"
-                                placeholder="Enter role name">
-                        </div>
-                        <div class="form-group">
-                            <label for="permissions">Permissions</label>
-                            <div class="select2-purple">
-                                <select class="select2" multiple="multiple" data-placeholder="Select Permissions"
-                                    data-dropdown-css-class="select2-purple" style="width: 100%;" name="permissions[]">
-                                    @foreach ($permissions as $permission)
-                                        <option value="{{ $permission->id }}">{{ $permission->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-success">
-                            <i class="fas fa-check mr-1"></i> Create Role
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

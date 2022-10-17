@@ -2,14 +2,6 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12">
-            <div class="alert alert-dark">
-                <i class="fas fa-user mr-1"></i> Selamat Datang Kembali,
-                <span class="text-danger">
-                    {{ Auth::user()->name }}
-                </span>
-            </div>
-        </div>
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box shadow-none">
                 <span class="info-box-icon bg-info">

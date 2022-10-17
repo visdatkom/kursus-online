@@ -66,7 +66,7 @@ class CheckoutContoller extends Controller
                     'id' => $cart->id,
                     'price' => $cart->price,
                     'quantity' => 1,
-                    'name' => $cart->course->name
+                    'name' => Str::limit($cart->course->name, 40)
                 ])
             ];
 

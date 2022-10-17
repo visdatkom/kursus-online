@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
 use App\Models\Course;
 use App\Models\Category;
 use App\Traits\hasCourse;
-use App\Models\Transaction;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Models\TransactionDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,13 +21,11 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::withCount('videos', 'details')->paginate(12);
-
-        // $enrolled = Transaction::with('details.course')
-        //     ->where('status', 'success')
-        //     ->whereHas('details', function($query) use($data){
-        //         $query->where('course_id', $data->id);
-        //     })->get();
+        $courses = Course::withCount(['videos', 'details as enrolled' => function($query){
+            $query->whereHas('transaction', function($query){
+                $query->where('status', 'success');
+            });
+        }])->paginate(12);
 
         return view('admin.course.index', compact('courses'));
     }
@@ -66,7 +63,6 @@ class CourseController extends Controller
             'category_id' => $request->category_id,
             'discount' => $request->discount,
         ]);
-
         return redirect(route('admin.course.index'));
     }
 

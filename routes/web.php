@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\CourseController;
@@ -11,9 +10,12 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Landing\CheckoutContoller;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\ShowcaseController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Landing\CourseController as LandingCourseController;
+use App\Http\Controllers\Member\MyCourseController as MemberMyCourseController;
+use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,12 +48,12 @@ Route::get('/checkout', [CheckoutContoller::class, 'store'])->name('checkout.sto
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     // admin dashboard route
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-    // admin tag route
-    Route::resource('/tag', TagController::class);
     // admin category route
     Route::resource('/category', CategoryController::class);
     // admin course route
     Route::resource('/course', CourseController::class);
+    // admin showcase route
+    Route::resource('/showcase', ShowcaseController::class);
     // admin permission route
     Route::resource('/permission', PermissionController::class)->except('show', 'edit', 'create');
     // admin role route
@@ -72,4 +74,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], 
     });
     // admin transaction route
     Route::resource('/transaction', TransactionController::class)->only('index', 'show');
+});
+
+Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth']], function(){
+    // member dashboard route
+    Route::get('/dashboard', MemberDashboardController::class)->name('dashboard');
+    // member course route
+    Route::get('/my-course', MemberMyCourseController::class)->name('mycourse');
 });
