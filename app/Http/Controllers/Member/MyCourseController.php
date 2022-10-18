@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Member;
 
+use App\Models\Review;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\TransactionDetail;
+use App\Http\Controllers\Controller;
 
 class MyCourseController extends Controller
 {
@@ -18,18 +19,10 @@ class MyCourseController extends Controller
     {
         $user = $request->user();
 
-        // $courses = Course::withCount(['videos', 'details as enrolled' => function($query) use($user){
-        //     $query->where('user_id', $user->id)->whereHas('transaction', function($query){
-        //         $query->where('status', 'success');
-        //     });
-        // }])->paginate(12);
-
-        $courses = TransactionDetail::with('transaction', 'course')
+        $courses = TransactionDetail::with('transaction', 'course.reviews')
                 ->whereHas('transaction', function($query) use($user){
                     $query->where('user_id', $user->id)->where('status', 'success');
                 })->paginate(3);
-
-        // dd($courses);
 
         return view('member.course.mycourse', compact('courses'));
     }

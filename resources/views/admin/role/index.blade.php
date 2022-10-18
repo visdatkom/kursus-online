@@ -50,7 +50,7 @@
                                                                 <label for="name">Role Name</label>
                                                                 <input type="text" name="name" class="form-control"
                                                                     id="name" placeholder="Enter role name"
-                                                                    value="{{ $role->name }}">
+                                                                    value="{{ $role->name }}" readonly>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="permissions">Permissions</label>

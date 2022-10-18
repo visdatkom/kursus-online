@@ -29,29 +29,130 @@
                             <div class="col-md-9 mb-3 text-dark">
                                 <h5 class="mt-2">{{ $data->course->name }}</h5>
                                 <!--mobile -->
-                                <div class="d-block d-md-none d-lg-none button-app mt-3">
+                                <div class="d-block d-md-none d-lg-none mt-3">
                                     <a href="{{ route('course.show', $data->course->slug) }}"
                                         class="btn shadow btn-dark btn-md mb-2 w-100">
                                         <i class="fas fa-play mr-1"></i>
                                         Lanjutkan Belajar
                                     </a>
-                                    <a href="/" class="btn shadow-custom btn-primary btn-md mb-2 w-100">
-                                        <i class="fas fa-comments mr-1"></i>
-                                        Review Course
-                                    </a>
+                                    <button type="button" class="btn btn-primary btn-md mb-2 w-100" data-toggle="modal"
+                                        data-target="#modal-default{{ $data->course->id }}">
+                                        <i class="fas fa-comments mr-1"></i> Review Course
+                                    </button>
+                                    <div class="modal fade" id="modal-default{{ $data->course->id }}">
+                                        <div class="modal-dialog">
+                                            <form action="{{ route('member.review', $data->course->id) }}" method="POST">
+                                                @csrf
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Review Course</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label for="name">Role Name</label>
+                                                            <input type="text" name="name" class="form-control"
+                                                                id="name" placeholder="Enter role name" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal">Close</button>
+                                                        <button class="btn btn-primary" type="submit">
+                                                            <i class="fas fa-check mr-1"></i> Update role
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- end mobile -->
                                 <!-- desktop -->
-                                <div class="d-none d-md-block d-lg-block button-app mt-3">
+                                <div class="d-none d-md-block d-lg-block mt-3">
                                     <a href="{{ route('course.show', $data->course->slug) }}"
                                         class="btn shadow btn-dark btn-md mb-2">
                                         <i class="fas fa-play mr-1"></i>
                                         Lanjutkan Belajar
                                     </a>
-                                    <a href="/" class="btn shadow-custom btn-primary btn-md mb-2">
-                                        <i class="fas fa-comments mr-1"></i>
-                                        Review Course
-                                    </a>
+                                    <button type="button" class="btn btn-primary btn-md mb-2" data-toggle="modal"
+                                        data-target="#modal-lg{{ $data->course->id }}">
+                                        <i class="fas fa-comments mr-1"></i> Review Course
+                                    </button>
+                                    <div class="modal fade" id="modal-lg{{ $data->course->id }}">
+                                        <div class="modal-dialog modal-lg">
+                                            <form action="{{ route('member.review', $data->course->id) }}" method="POST">
+                                                @csrf
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Review Course</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label>Rating</label>
+                                                            <select class="form-control" name="rating">
+                                                                <option value="1">1 </option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="name">Review</label>
+                                                            <textarea class="form-control" rows="4" name="review"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal">Close</button>
+                                                        <button class="btn btn-success" type="submit">
+                                                            <i class="fas fa-check mr-1"></i> Save Review
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="modal-default{{ $data->course->id }}">
+                                        <div class="modal-dialog">
+                                            <form action="{{ route('member.review', $data->course->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Review Course</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label for="name">Role Name</label>
+                                                            <input type="text" name="name" class="form-control"
+                                                                id="name" placeholder="Enter role name"
+                                                                value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal">Close</button>
+                                                        <button class="btn btn-primary" type="submit">
+                                                            <i class="fas fa-check mr-1"></i> Update role
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- end desktop -->
                                 <hr>

@@ -47,4 +47,9 @@ class Course extends Model
     {
         return $this->hasMany(TransactionDetail::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

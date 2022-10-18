@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Landing\CourseController as LandingCourseController;
 use App\Http\Controllers\Member\MyCourseController as MemberMyCourseController;
+use App\Http\Controllers\Member\ReviewController as MemberReviewController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 
 /*
@@ -81,4 +82,6 @@ Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth']
     Route::get('/dashboard', MemberDashboardController::class)->name('dashboard');
     // member course route
     Route::get('/my-course', MemberMyCourseController::class)->name('mycourse');
+    // member review route
+    Route::post('/review/{course}', [MemberReviewController::class, 'store'])->name('review');
 });
