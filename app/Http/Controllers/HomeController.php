@@ -13,11 +13,11 @@ class HomeController extends Controller
 
     public function __invoke()
     {
-        $courses = Course::withCount(['videos', 'details as enrolled' => function($query){
+        $courses = Course::withCount(['videos', 'reviews', 'details as enrolled' => function($query){
             $query->whereHas('transaction', function($query){
                 $query->where('status', 'success');
             });
-        }])->get();
+        }])->paginate(3);
 
         return view('landing.home', compact('courses'));
     }

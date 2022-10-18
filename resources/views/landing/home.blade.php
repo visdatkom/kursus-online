@@ -36,7 +36,7 @@
                                     <line x1="5" y1="12" x2="5" y2="12.01"></line>
                                     <line x1="5" y1="18" x2="5" y2="18.01"></line>
                                 </svg>
-                                {{ $course->videos()->count() }} Episode
+                                {{ $course->videos_count }} Episode
                             </div>
                             <div class="text-slate-400 flex items-center gap-2 ">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users w-5 h-5"
@@ -61,7 +61,8 @@
                                     </path>
                                     <line x1="8" y1="9" x2="16" y2="9"></line>
                                     <line x1="8" y1="13" x2="14" y2="13"></line>
-                                </svg> 10 Review
+                                </svg>
+                                {{ $course->reviews_count }} Review
                             </div>
                         </div>
                         <div class="flex justify-between items-center mt-5">
@@ -80,6 +81,20 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="flex justify-center text-center mt-14">
+            <a href=""
+                class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:bg-sky-800 hover:duration-200 flex items-center gap-2 text-lg border">
+                Lihat Semua Course
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right w-5 h-5"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
+                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <line x1="15" y1="16" x2="19" y2="12"></line>
+                    <line x1="15" y1="8" x2="19" y2="12"></line>
+                </svg>
+            </a>
         </div>
     </section>
 @endsection

@@ -14,14 +14,26 @@
                 <div class="col-span-12 md:col-span-5">
                     <div class="p-0 md:p-4">
                         <h1 class="text-white text-base font-semibold">{{ $course->name }}</h1>
-                        <p class="text-sm text-gray-400 mb-2 text-justify">{{ $course->description }}</p>
-                        <div class="flex flex-row justify-end gap-2 pb-5">
+                        <p class="text-sm text-gray-400 mb-2 text-justify mt-1">{{ $course->description }}</p>
+                        <div class="flex flex-row items-center justify-end gap-2 pb-5 mt-5">
                             <p class="text-xs text-gray-400">{{ $course->videos->count() }} Episodes</p>
                             <a href="" class="text-xs text-gray-400 underline hover:text-blue-400">
                                 {{ $course->category->name }}
                             </a>
+                            <div class="flex items-center text-xs text-yellow-500 gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="icon icon-tabler icon-tabler-star w-3 h-3 fill-yellow-500" width="24"
+                                    height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z">
+                                    </path>
+                                </svg>
+                                {{ round($avgRating, 1) }} ( {{ $course->reviews->count() }} Rating )
+                            </div>
                         </div>
-                        <div class="h-80 overflow-y-auto">
+                        <div class="h-52 md:h-80 overflow-y-auto">
                             @foreach ($videos as $video)
                                 <div class="p-4 text-gray-100 {{ videoActive($video->episode) }}">
                                     <div class="flex justify-between items-center">
@@ -106,8 +118,7 @@
                     <div class="p-4 flex justify-end">
                         @if ($alreadyBought)
                             <div
-                                class="px-4 py-2 rounded-lg bg-slate-800 text-white flex items-center gap-2 text-sm border cursor-not-allowed">
-                                Anda Telah Memiliki Course Ini
+                                class="px-4 py-2 rounded-lg bg-sky-800 text-white flex items-center gap-2 text-sm border cursor-not-allowed">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-discount-check w-5 h-5" width="24"
                                     height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -118,6 +129,7 @@
                                     </path>
                                     <path d="M9 12l2 2l4 -4"></path>
                                 </svg>
+                                Premium Akses
                             </div>
                         @else
                             <button type="submit"
@@ -134,6 +146,53 @@
                                 Beli Sekarang
                             </button>
                         @endif
+                    </div>
+                </div>
+                <div class="col-span-12 border-t p-4 border-dashed">
+                    <div class="flex flex-col gap-2 text-center items-center mb-10">
+                        <h1 class="text-2xl text-white font-semibold">Review</h1>
+                        <p class="text-sm text-gray-400 lg:mx-96">
+                            Kumpulan review dari para member yang telah membeli course ini
+                        </p>
+                        <div class="w-60 bg-slate-800 h-1 mt-2"></div>
+                    </div>
+                    <div class="flex flex-row overflow-x-auto md:grid md:grid-cols-3 gap-4 items-start">
+                        @foreach ($reviews as $review)
+                            <div class="min-w-full bg-slate-800 rounded-lg border border-slate-600">
+                                <div class="flex justify-between p-4">
+                                    <div class="flex space-x-4">
+                                        <div>
+                                            <img src="{{ $review->user->avatar }}" alt=""
+                                                class="object-cover w-12 h-12 rounded-full border">
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-white">{{ $review->user->name }}</h4>
+                                            <span class="text-xs text-gray-400">
+                                                {{ Carbon\Carbon::parse($review->created_at)->diffForHumans() }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2 text-yellow-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-star fill-yellow-500 w-5 h-5"
+                                            width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
+                                            stroke="currentColor" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path
+                                                d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z">
+                                            </path>
+                                        </svg>
+                                        <span class="text-xl font-bold">
+                                            {{ $review->rating }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="p-4 space-y-2 text-sm text-gray-300">
+                                    <p>{{ $review->review }}</p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

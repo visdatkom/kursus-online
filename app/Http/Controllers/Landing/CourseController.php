@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Landing;
 
 use App\Models\Video;
 use App\Models\Course;
+use App\Models\Review;
+use App\Traits\HasCourse;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Traits\HasCourse;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -18,7 +21,14 @@ class CourseController extends Controller
 
         $enrolled = $this->enrolled($course)->count();
 
-        return view('landing.course.show', compact('course', 'videos', 'enrolled'));
+        $alreadyBought = Transaction::with('details.course')
+            ->where('status', 'success')
+            ->where('user_id', Auth::id())
+            ->whereHas('details', function($query) use($course){
+                $query->where('course_id', $course->id);
+            })->first();
+
+        return view('landing.course.show', compact('course', 'videos', 'enrolled', 'alreadyBought'));
     }
 
     public function video(Course $course, $episode)
@@ -26,6 +36,10 @@ class CourseController extends Controller
         $video = Video::whereBelongsTo($course)->where('episode', $episode)->first();
 
         $transaction = $this->userCourse($course)->get();
+
+        $reviews = Review::where('course_id', $course->id)->get();
+
+        $avgRating = Review::where('course_id', $course->id)->avg('rating');
 
         if($transaction->count() > 0){
             $alreadyBought = $this->userCourse($course)->get();
@@ -39,6 +53,6 @@ class CourseController extends Controller
             return back()->with('toast_error', 'Episode ini hanya untuk member premium');
         }
 
-        return view('landing.course.video', compact('course','video', 'videos', 'alreadyBought'));
+        return view('landing.course.video', compact('course','video', 'videos', 'alreadyBought', 'reviews', 'avgRating'));
     }
 }
