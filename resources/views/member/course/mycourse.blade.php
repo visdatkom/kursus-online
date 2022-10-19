@@ -21,7 +21,7 @@
                         </div>
                     </form>
                     <hr>
-                    @foreach ($courses as $data)
+                    @forelse ($courses as $data)
                         <div class="row">
                             <div class="col-md-3 mb-3">
                                 <img src="{{ $data->course->image }}" class="mr-3 shadow-custom w-100">
@@ -167,7 +167,27 @@
                             </div>
                         </div>
                         <hr>
-                    @endforeach
+                    @empty
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <img src="{{ asset('course.svg') }}" class="img-fluid" width="30%">
+                            </div>
+                            <div class="col-12 my-4">
+                                <h5 class="text-center font-weight-bold text-md">
+                                    Anda belum memiliki course apapun !
+                                </h5>
+                                <p class="text-center text-secondary text-sm">
+                                    Silahkan tambahkan playlist course anda, dan mulailah bangun diri anda sesuai dengan
+                                    yang anda impikan.
+                                </p>
+                                <div class="d-flex justify-content-center">
+                                    <a href="{{ route('home') }}" class="btn btn-dark btn-sm">
+                                        Lihat Daftar Course
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforelse
                     <div class="d-flex justify-content-end">{{ $courses->links() }}</div>
                 </div>
             </div>

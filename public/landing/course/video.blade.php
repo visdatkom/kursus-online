@@ -57,7 +57,7 @@
                                             @if ($video->intro == 0)
                                                 @if ($alreadyBought)
                                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="icon icon-tabler icon-tabler-rocket w-5 h-5 text-blue-500"
+                                                        class="icon icon-tabler icon-tabler-rocket w-5 h-5 text-blue-500 fill-white"
                                                         width="24" height="24" viewBox="0 0 24 24"
                                                         stroke-width="1.25" stroke="currentColor" fill="none"
                                                         stroke-linecap="round" stroke-linejoin="round">
@@ -84,7 +84,7 @@
                                             @else
                                                 @if ($alreadyBought)
                                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="icon icon-tabler icon-tabler-rocket w-5 h-5 text-blue-500"
+                                                        class="icon icon-tabler icon-tabler-rocket w-5 h-5 text-blue-500 fill-white"
                                                         width="24" height="24" viewBox="0 0 24 24"
                                                         stroke-width="1.25" stroke="currentColor" fill="none"
                                                         stroke-linecap="round" stroke-linejoin="round">
@@ -132,19 +132,22 @@
                                 Premium Akses
                             </div>
                         @else
-                            <button type="submit"
-                                class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-basket w-5 h-5" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <polyline points="7 10 12 4 17 10"></polyline>
-                                    <path d="M21 10l-2 8a2 2.5 0 0 1 -2 2h-10a2 2.5 0 0 1 -2 -2l-2 -8z"></path>
-                                    <circle cx="12" cy="15" r="2"></circle>
-                                </svg>
-                                Beli Sekarang
-                            </button>
+                            <form action="{{ route('cart.store', $course->id) }}" method="POST">
+                                @csrf
+                                <button type="submit"
+                                    class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="icon icon-tabler icon-tabler-basket w-5 h-5" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <polyline points="7 10 12 4 17 10"></polyline>
+                                        <path d="M21 10l-2 8a2 2.5 0 0 1 -2 2h-10a2 2.5 0 0 1 -2 -2l-2 -8z"></path>
+                                        <circle cx="12" cy="15" r="2"></circle>
+                                    </svg>
+                                    Beli Sekarang
+                                </button>
+                            </form>
                         @endif
                     </div>
                 </div>

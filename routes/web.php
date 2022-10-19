@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Landing\CourseController as LandingCourseController;
 use App\Http\Controllers\Member\MyCourseController as MemberMyCourseController;
 use App\Http\Controllers\Member\ReviewController as MemberReviewController;
+use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
+use App\Http\Controllers\Member\ProfileController as MemberProfileController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 
 /*
@@ -84,4 +86,12 @@ Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth']
     Route::get('/my-course', MemberMyCourseController::class)->name('mycourse');
     // member review route
     Route::post('/review/{course}', [MemberReviewController::class, 'store'])->name('review');
+    // member transaction route
+    Route::resource('/transaction', MemberTransactionController::class)->only('index', 'show');
+    // member profile route
+    Route::controller(MemberProfileController::class)->as('profile.')->group(function(){
+        Route::get('/profile', 'index')->name('index');
+        Route::put('/profile/{user}', 'updateProfile')->name('update');
+        Route::put('/profile/password/{user}', 'updatePassword')->name('password');
+    });
 });
