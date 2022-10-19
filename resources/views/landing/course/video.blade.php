@@ -115,7 +115,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="p-4 flex justify-end">
+                    <div class="p-4 flex justify-end gap-4">
                         @if ($alreadyBought)
                             <div
                                 class="px-4 py-2 rounded-lg bg-sky-800 text-white flex items-center gap-2 text-sm border cursor-not-allowed">

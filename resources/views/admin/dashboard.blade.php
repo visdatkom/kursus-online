@@ -10,84 +10,17 @@
                 </span>
             </div>
         </div>
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow-none">
-                <span class="info-box-icon bg-info">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-2 " width="24"
-                        height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M14 4h6v6h-6z"></path>
-                        <path d="M4 14h6v6h-6z"></path>
-                        <circle cx="17" cy="17" r="3"></circle>
-                        <circle cx="7" cy="7" r="3"></circle>
-                    </svg>
-                </span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Category</span>
-                    <span class="info-box-number">{{ $category }}</span>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>
+                        <sup>Rp</sup> {{ moneyFormat($revenue) }}
+                    </h3>
+                    <p>All Revenue</p>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow-none">
-                <span class="info-box-icon bg-info">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-laptop nav-icon"
-                        width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <line x1="3" y1="19" x2="21" y2="19"></line>
-                        <rect x="5" y="6" width="14" height="10" rx="1">
-                        </rect>
-                    </svg>
-                </span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Tags</span>
-                    <span class="info-box-number">{{ $category }}</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow-none">
-                <span class="info-box-icon bg-info">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-laptop nav-icon"
-                        width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <line x1="3" y1="19" x2="21" y2="19"></line>
-                        <rect x="5" y="6" width="14" height="10" rx="1">
-                        </rect>
-                    </svg>
-                </span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Course</span>
-                    <span class="info-box-number">{{ $category }}</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow-none">
-                <span class="info-box-icon bg-info">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-laptop nav-icon"
-                        width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <line x1="3" y1="19" x2="21" y2="19"></line>
-                        <rect x="5" y="6" width="14" height="10" rx="1">
-                        </rect>
-                    </svg>
-                </span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Transaction</span>
-                    <span class="info-box-number">{{ $category }}</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow-none">
-                <span class="info-box-icon bg-success">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24"
-                        height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="48"
+                        height="48" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path
@@ -95,11 +28,175 @@
                         </path>
                         <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
                     </svg>
-                </span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Revenue</span>
-                    <span class="info-box-number">{{ $category }}</span>
                 </div>
+                <a href="{{ route('admin.transaction.index') }}" class="small-box-footer">
+                    More info <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3>
+                        <sup>Rp</sup> {{ moneyFormat($revenueToday) }}
+                    </h3>
+                    <p>Revenue Today</p>
+                </div>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moneybag" width="48"
+                        height="48" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path
+                            d="M9.5 3h5a1.5 1.5 0 0 1 1.5 1.5a3.5 3.5 0 0 1 -3.5 3.5h-1a3.5 3.5 0 0 1 -3.5 -3.5a1.5 1.5 0 0 1 1.5 -1.5z">
+                        </path>
+                        <path d="M4 17v-1a8 8 0 1 1 16 0v1a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path>
+                    </svg>
+                </div>
+                <a href="{{ route('admin.transaction.index') }}" class="small-box-footer">
+                    More info <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-lightblue">
+                <div class="inner">
+                    <h3>
+                        {{ $course }}
+                    </h3>
+                    <p>Course</p>
+                </div>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-laptop"
+                        width="48" height="48" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
+                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <line x1="3" y1="19" x2="21" y2="19"></line>
+                        <rect x="5" y="6" width="14" height="10" rx="1"></rect>
+                    </svg>
+                </div>
+                <a href="{{ route('admin.course.index') }}" class="small-box-footer">
+                    More info <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>
+                        {{ $category }}
+                    </h3>
+                    <p>Category</p>
+                </div>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-2" width="48"
+                        height="48" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M14 4h6v6h-6z"></path>
+                        <path d="M4 14h6v6h-6z"></path>
+                        <circle cx="17" cy="17" r="3"></circle>
+                        <circle cx="7" cy="7" r="3"></circle>
+                    </svg>
+                </div>
+                <a href="{{ route('admin.category.index') }}" class="small-box-footer">
+                    More info <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-maroon">
+                <div class="inner">
+                    <h3>
+                        {{ $showcase }}
+                    </h3>
+                    <p>Showcase</p>
+                </div>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-source-code "
+                        width="48" height="48" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
+                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M14.5 4h2.5a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-5"></path>
+                        <path d="M6 5l-2 2l2 2"></path>
+                        <path d="M10 9l2 -2l-2 -2"></path>
+                    </svg>
+                </div>
+                <a href="{{ route('admin.showcase.index') }}" class="small-box-footer">
+                    More info <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-olive">
+                <div class="inner">
+                    <h3>
+                        {{ $review }}
+                    </h3>
+                    <p>Review</p>
+                </div>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2" width="48"
+                        height="48" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path
+                            d="M12 20l-3 -3h-2a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-2l-3 3">
+                        </path>
+                        <line x1="8" y1="9" x2="16" y2="9"></line>
+                        <line x1="8" y1="13" x2="14" y2="13"></line>
+                    </svg>
+                </div>
+                <a href="{{ route('admin.review.index') }}" class="small-box-footer">
+                    More info <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-teal">
+                <div class="inner">
+                    <h3>
+                        {{ $transaction }}
+                    </h3>
+                    <p>Transaction</p>
+                </div>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt" width="48"
+                        height="48" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path
+                            d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2m4 -14h6m-6 4h6m-2 4h2">
+                        </path>
+                    </svg>
+                </div>
+                <a href="{{ route('admin.transaction.index') }}" class="small-box-footer">
+                    More info <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-navy">
+                <div class="inner">
+                    <h3>
+                        {{ $member }}
+                    </h3>
+                    <p>Member</p>
+                </div>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users text-secondary"
+                        width="48" height="48" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
+                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                    </svg>
+                </div>
+                <a href="{{ route('admin.user.index') }}" class="small-box-footer">
+                    More info <i class="fas fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
     </div>

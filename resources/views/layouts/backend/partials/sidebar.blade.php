@@ -261,6 +261,7 @@
                             </p>
                         </a>
                     </li>
+                    {{-- @can('create-course') --}}
                     <li class="nav-header">MASTER DATA</li>
                     <li class="nav-item {{ Route::is('admin.course*') ? 'menu-open' : '' }}">
                         <a href="#" class="nav-link {{ active('admin.course*') }}">
@@ -311,6 +312,7 @@
                             </li>
                         </ul>
                     </li>
+                    {{-- @endcan --}}
                     <li class="nav-header">LEARN</li>
                     <li class="nav-item">
                         <a href="{{ route('member.mycourse') }}" class="nav-link {{ active('member.mycourse*') }} ">
@@ -329,7 +331,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('member.showcase.index') }}"
+                            class="nav-link {{ active('member.showcase*') }}">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 class="icon icon-tabler icon-tabler-source-code nav-icon" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"

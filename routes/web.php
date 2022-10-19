@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Landing\CheckoutContoller;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\ShowcaseController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\UserController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Member\ReviewController as MemberReviewController;
 use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
 use App\Http\Controllers\Member\ProfileController as MemberProfileController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
+use App\Http\Controllers\Member\ShowcaseController as MemberShowcaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +59,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], 
     Route::resource('/course', CourseController::class);
     // admin showcase route
     Route::resource('/showcase', ShowcaseController::class);
+    // admin review route
+    Route::get('/review', ReviewController::class)->name('review.index');
     // admin permission route
     Route::resource('/permission', PermissionController::class)->except('show', 'edit', 'create');
     // admin role route
@@ -94,4 +98,6 @@ Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth']
         Route::put('/profile/{user}', 'updateProfile')->name('update');
         Route::put('/profile/password/{user}', 'updatePassword')->name('password');
     });
+    // member showcase route
+    Route::resource('/showcase', MemberShowcaseController::class);
 });
