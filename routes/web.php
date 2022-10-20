@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Landing\CourseController as LandingCourseController;
 use App\Http\Controllers\Landing\ReviewController as LandingReviewController;
+use App\Http\Controllers\Landing\ShowcaseController as LandingShowcaseController;
+use App\Http\Controllers\Landing\CategoryController as LandingCategoryController;
 use App\Http\Controllers\Member\MyCourseController as MemberMyCourseController;
 use App\Http\Controllers\Member\ReviewController as MemberReviewController;
 use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
@@ -42,10 +44,14 @@ Route::controller(LandingCourseController::class)->as('course.')->group(function
     Route::get('/course/{course:slug}', 'show')->name('show');
     Route::get('/course/{course:slug}/{video:episode}', 'video')->name('video')->middleware('auth');
 });
+// category route
+Route::get('/category/{category:slug}', LandingCategoryController::class)->name('category');
 // review route
 Route::get('/review', LandingReviewController::class)->name('review');
+// showcase route
+Route::get('/showcase', LandingShowcaseController::class)->name('showcase');
 // cart route
-Route::controller(CartController::class)->as('cart.')->group(function(){
+Route::controller(CartController::class)->middleware('auth')->as('cart.')->group(function(){
     Route::get('/cart', 'index')->name('index');
     Route::post('/cart/{course}', 'store')->name('store');
     Route::delete('/cart/{cart}', 'delete')->name('destroy');
