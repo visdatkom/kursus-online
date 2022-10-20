@@ -15,6 +15,15 @@ class CourseController extends Controller
 {
     use HasCourse;
 
+    public function index()
+    {
+        $courses = Course::get();
+
+        $course = Course::latest()->first();
+
+        return view('landing.course.index', compact('courses', 'course'));
+    }
+
     public function show(Course $course)
     {
         $videos = Video::whereBelongsTo($course)->get();

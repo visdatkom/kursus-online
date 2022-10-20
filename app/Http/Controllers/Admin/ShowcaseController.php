@@ -15,7 +15,7 @@ class ShowcaseController extends Controller
      */
     public function index()
     {
-        $showcases = Showcase::paginate(10);
+        $showcases = Showcase::paginate(9);
 
         return view('admin.showcase.index', compact('showcases'));
     }

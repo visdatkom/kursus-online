@@ -31,7 +31,8 @@
                     </a>
                 </li>
                 <li class="hidden md:flex">
-                    <a href="" class="text-sm font-semibold text-white flex items-center gap-2">
+                    <a href="{{ route('course.index') }}"
+                        class="text-sm font-semibold text-white flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="icon icon-tabler icon-tabler-device-laptop w-5 h-5" width="24" height="24"
                             viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
@@ -264,7 +265,7 @@
                 @endauth
             </div>
             <!-- Mobile Nav -->
-            <div class="flex gap-1 md:hidden">
+            <div class="flex gap-1 items-center md:hidden">
                 <div class="rounded-lg border px-4 py-2 bg-slate-900 border-slate-700 text-white">
                     <a href="{{ route('cart.index') }}">
                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -281,7 +282,7 @@
                 <div class="text-white relative" x-data="{ isOpen: false }">
                     @guest
                         <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
-                            class="flex items-center gap-2">
+                            class="flex items-center gap-2 border rounded-lg px-4 py-2 bg-slate-900 border-slate-700">
                             <svg xmlns="http://www.w3.org/2000/svg" x-show="!isOpen"
                                 class="icon icon-tabler icon-tabler-align-right w-5 h-5" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"

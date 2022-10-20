@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Showcase extends Model
 {
@@ -12,6 +13,14 @@ class Showcase extends Model
     protected $fillable = [
         'user_id', 'course_id', 'title', 'cover', 'description'
     ];
+
+
+    protected function cover(): Attribute
+    {
+        return Attribute::make(
+            get: fn($cover) => asset('storage/showcases/' . $cover),
+        );
+    }
 
     public function user()
     {

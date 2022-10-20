@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Course;
 use App\Traits\HasCourse;
 use App\Models\Transaction;
@@ -17,8 +18,10 @@ class HomeController extends Controller
             $query->whereHas('transaction', function($query){
                 $query->where('status', 'success');
             });
-        }])->paginate(3);
+        }])->paginate(6);
 
-        return view('landing.home', compact('courses'));
+        $user = User::role('member')->get();
+
+        return view('landing.home', compact('courses', 'user'));
     }
 }

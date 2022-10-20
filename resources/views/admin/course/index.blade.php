@@ -57,5 +57,8 @@
                 </div>
             </div>
         @endforeach
+        <div class="d-flex justify-content-end">
+            {{ $courses->links() }}
+        </div>
     </div>
 @endsection
