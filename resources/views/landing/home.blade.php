@@ -67,11 +67,12 @@
                             </div>
                         </div>
                         <div class="flex justify-between items-center mt-5">
-                            <span class="text-base p-1.5 border bg-red-500 text-white rounded font-semibold">
+                            <span
+                                class="text-base p-1.5 border bg-red-800 text-white rounded font-semibold border-dashed border-red-700">
                                 Discount {{ $course->discount }}%
                             </span>
                             <div class="flex flex-col">
-                                <span class="line-through text-rose-500 font-mono">
+                                <span class="line-through text-red-500 font-mono">
                                     <sup>Rp</sup>{{ moneyFormat($course->price) }}
                                 </span>
                                 <span class="text-green-500 font-mono">
@@ -85,7 +86,7 @@
         </div>
         <div class="flex justify-center text-center mt-14">
             <a href=""
-                class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:bg-red-800 hover:duration-200 flex items-center gap-2 text-lg border">
+                class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:bg-red-800 hover:duration-200 flex items-center gap-2 text-lg border border-slate-500 hover:border-red-600 hover:transition-colors">
                 Lihat Semua Course
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right w-5 h-5"
                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -100,7 +101,9 @@
     </section>
     <section class="w-full p-6 bg-gray-800 border-t border-b border-dashed border-gray-700">
         <div class="flex flex-col items-center justify-center p-4 space-y-8 md:p-10 md:px-24 xl:px-48">
-            <h1 class="text-2xl md:text-3xl font-bold leading-none text-center text-white">TUNGGU APA LAGI</h1>
+            <h1 class="text-2xl md:text-3xl font-bold leading-none text-center text-white">
+                TUNGGU APA LAGI ?
+            </h1>
             <p class="text-sm md:text-base font-medium text-center text-gray-400">
                 Belajar lebih terarah dan sistematis dengan materi berkualitas
                 tinggi beserta pendampingan mentoring secara intensif.

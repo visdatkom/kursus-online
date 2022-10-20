@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ShowcaseController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Landing\CourseController as LandingCourseController;
+use App\Http\Controllers\Landing\ReviewController as LandingReviewController;
 use App\Http\Controllers\Member\MyCourseController as MemberMyCourseController;
 use App\Http\Controllers\Member\ReviewController as MemberReviewController;
 use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
@@ -39,8 +40,10 @@ Route::get('/', HomeController::class)->name('home');
 Route::controller(LandingCourseController::class)->as('course.')->group(function(){
     Route::get('/course', 'index')->name('index');
     Route::get('/course/{course:slug}', 'show')->name('show');
-    Route::get('/course/{course:slug}/{video:episode}', 'video')->name('video');
+    Route::get('/course/{course:slug}/{video:episode}', 'video')->name('video')->middleware('auth');
 });
+// review route
+Route::get('/review', LandingReviewController::class)->name('review');
 // cart route
 Route::controller(CartController::class)->as('cart.')->group(function(){
     Route::get('/cart', 'index')->name('index');
