@@ -76,7 +76,7 @@
                                         {{ $order->course->name }}
                                     </td>
                                     <td class="text-right">
-                                        <sup>Rp</sup> {{ moneyFormat($order->course->price) }}
+                                        <sup>Rp</sup> {{ moneyFormat($order->price) }}
                                     </td>
                                 </tr>
                             @endforeach

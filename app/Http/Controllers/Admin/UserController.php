@@ -22,7 +22,8 @@ class UserController extends Controller
         $users = User::with('roles')
             ->search('name')
             ->latest()
-            ->paginate(10);
+            ->paginate(10)
+            ->withQueryString();
 
         // get all role
         $roles = Role::get();

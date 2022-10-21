@@ -26,7 +26,7 @@
                         <form action="{{ route('admin.markNotification', $notification->id) }}" method="POST">
                             @csrf
                             <button type="submit" class="dropdown-item">
-                                <i class="fas fa-user mr-2"></i>{{ $notification->data['message'] }}
+                                <i class="fas fa-info-circle mr-2"></i>{{ $notification->data['message'] }}
                                 <span
                                     class="float-right text-muted text-sm">{{ $notification->created_at->diffForHumans() }}</span>
                             </button>

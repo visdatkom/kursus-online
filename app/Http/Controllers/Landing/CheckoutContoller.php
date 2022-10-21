@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Landing;
 
 use Midtrans\Snap;
 use App\Models\Cart;
+use App\Models\User;
 use App\Models\Transaction;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Notifications\NewTransaction;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Notification;
 
 class CheckoutContoller extends Controller
 {
@@ -77,6 +80,12 @@ class CheckoutContoller extends Controller
             $invoice->save();
 
             $carts->delete();
+
+            // notification
+            $admin = User::role('admin')->get();
+
+            // send notification
+            Notification::send($admin, new NewTransaction($invoice));
 
             return $this->response['snapToken'] = $snapToken;
         });

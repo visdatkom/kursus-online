@@ -3,6 +3,17 @@
 @section('content')
     <div class="row">
         <div class="col-8">
+            <form action="{{ route('admin.permission.index') }}" method="GET">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search permission by name.."
+                        value="{{ request()->search }}" name="search">
+                    <span class="input-group-append">
+                        <button type="button" class="btn btn-dark">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
             <div class="card card-dark">
                 <div class="card-header">
                     <h1 class="card-title">LIST PERMISSION</h1>

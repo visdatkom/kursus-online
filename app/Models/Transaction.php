@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\HasScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    use HasFactory;
+    use HasFactory, HasScope;
 
     protected $fillable = [
         'user_id', 'invoice', 'name', 'status', 'grand_total', 'snap_token'

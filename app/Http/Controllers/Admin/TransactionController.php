@@ -19,7 +19,9 @@ class TransactionController extends Controller
     {
         $transactions = Transaction::with('details.course', 'user')
                 ->latest()
-                ->paginate(10);
+                ->search('status')
+                ->paginate(10)
+                ->withQueryString();
 
         $grandTotal = $transactions->sum('grand_total');
 
