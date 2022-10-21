@@ -16,7 +16,11 @@ class ReviewController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $reviews = Review::paginate(10);
+        $reviews = Review::search('rating')
+            ->multiSearch('course', 'name')
+            ->multiSearch('user', 'name')
+            ->paginate(2)
+            ->withQueryString();
 
         return view('admin.review.index', compact('reviews'));
     }
