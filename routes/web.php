@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Landing\CartController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\NotificationDatabaseController;
 use App\Http\Controllers\Landing\CheckoutContoller;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ReviewController;
@@ -63,6 +64,11 @@ Route::get('/checkout', [CheckoutContoller::class, 'store'])->name('checkout.sto
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     // admin dashboard route
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    // admin marknotification route
+    Route::controller(NotificationDatabaseController::class)->group(function(){
+        Route::post('/mark-as-read/{id}', 'readNotification')->name('markNotification');
+        Route::post('/mark-all-read', 'readAllNotification')->name('markAllRead');
+    });
     // admin category route
     Route::resource('/category', CategoryController::class);
     // admin course route

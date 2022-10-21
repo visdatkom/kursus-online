@@ -5,9 +5,11 @@ namespace App\Actions\Fortify;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use App\Notifications\NewMember;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Notification;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
@@ -44,6 +46,12 @@ class CreateNewUser implements CreatesNewUsers
         ]);
 
         $user->assignRole($role);
+
+        // setup notification table
+        $admin = User::role('admin')->get();
+
+        // send notification
+        Notification::send($admin, new NewMember($user));
 
         return $user;
     }

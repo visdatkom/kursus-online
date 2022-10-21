@@ -135,7 +135,7 @@
                             <form action="{{ route('cart.store', $course->id) }}" method="POST">
                                 @csrf
                                 <button type="submit"
-                                    class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border">
+                                    class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border border-slate-600">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="icon icon-tabler icon-tabler-basket w-5 h-5" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
