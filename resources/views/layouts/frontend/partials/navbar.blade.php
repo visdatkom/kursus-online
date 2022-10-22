@@ -330,7 +330,7 @@
                         class="absolute font-normal bg-slate-800 shadow overflow-hidden rounded-lg w-48 border border-slate-700 mt-2 py-1 right-0 z-20">
                         <li>
                             <a href="{{ route('home') }}"
-                                class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500 {{ Route::is('home') ? 'text-blue-500' : '' }}">
+                                class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500 {{ activeNav('home') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-home w-5 h-5" width="24" height="24"
                                     viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
@@ -344,8 +344,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href=""
-                                class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500">
+                            <a href="{{ route('course.index') }}"
+                                class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500 {{ activeNav('course*') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-device-laptop w-5 h-5" width="24"
                                     height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -361,7 +361,7 @@
                         <li>
                             <div class="relative" x-data="{ isOpen: false }">
                                 <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
-                                    class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500">
+                                    class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500 {{ activeNav('category*') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="icon icon-tabler icon-tabler-category-2 w-5 h-5" width="24"
                                         height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -391,7 +391,7 @@
                                 <ul x-cloak x-show="isOpen" @click.away="isOpen = false" class="mt-2 py-1">
                                     @foreach ($categories as $category)
                                         <li>
-                                            <a href="#"
+                                            <a href="{{ route('category', $category->slug) }}"
                                                 class="flex items-center p-3 hover:text-blue-500 text-sm text-white ml-3">
                                                 <img src="{{ $category->image }}" class="w-5 h-5 object-cover" />
                                                 <span class="ml-2">{{ $category->name }}</span>
@@ -402,8 +402,8 @@
                             </div>
                         </li>
                         <li>
-                            <a href=""
-                                class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500">
+                            <a href="{{ route('review') }}"
+                                class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500 {{ activeNav('review') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-message-2 w-5 h-5" width="24"
                                     height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -419,8 +419,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href=""
-                                class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500">
+                            <a href="{{ route('showcase') }}"
+                                class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500 {{ activeNav('showcase') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-source-code w-5 h-5" width="24"
                                     height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -467,41 +467,80 @@
                             </li>
                         @endguest
                         @auth
-                            <li class="border-t border-dashed border-slate-700">
-                                <a href="{{ route('register') }}"
-                                    class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-apps w-5 h-5" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <rect x="4" y="4" width="6" height="6"
-                                            rx="1"></rect>
-                                        <rect x="4" y="14" width="6" height="6"
-                                            rx="1"></rect>
-                                        <rect x="14" y="14" width="6" height="6"
-                                            rx="1"></rect>
-                                        <line x1="14" y1="7" x2="20" y2="7"></line>
-                                        <line x1="17" y1="4" x2="17" y2="10"></line>
-                                    </svg>
-                                    <span class="ml-2">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="border-b border-dashed border-slate-700">
-                                <a href="{{ route('register') }}"
-                                    class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-user-circle w-5 h-5" width="24"
-                                        height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <circle cx="12" cy="12" r="9"></circle>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                        <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
-                                    </svg>
-                                    <span class="ml-2">Profile</span>
-                                </a>
-                            </li>
+                            @role('admin')
+                                <li class="border-t border-dashed border-slate-700">
+                                    <a href="{{ route('admin.dashboard') }}"
+                                        class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-apps w-5 h-5" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <rect x="4" y="4" width="6" height="6"
+                                                rx="1"></rect>
+                                            <rect x="4" y="14" width="6" height="6"
+                                                rx="1"></rect>
+                                            <rect x="14" y="14" width="6" height="6"
+                                                rx="1"></rect>
+                                            <line x1="14" y1="7" x2="20" y2="7"></line>
+                                            <line x1="17" y1="4" x2="17" y2="10"></line>
+                                        </svg>
+                                        <span class="ml-2">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li class="border-b border-dashed border-slate-700">
+                                    <a href="{{ route('admin.user.profile') }}"
+                                        class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-user-circle w-5 h-5" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                            <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
+                                        </svg>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                </li>
+                            @endrole
+                            @role('member')
+                                <li class="border-t border-dashed border-slate-700">
+                                    <a href="{{ route('member.dashboard') }}"
+                                        class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-apps w-5 h-5" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <rect x="4" y="4" width="6" height="6"
+                                                rx="1"></rect>
+                                            <rect x="4" y="14" width="6" height="6"
+                                                rx="1"></rect>
+                                            <rect x="14" y="14" width="6" height="6"
+                                                rx="1"></rect>
+                                            <line x1="14" y1="7" x2="20" y2="7"></line>
+                                            <line x1="17" y1="4" x2="17" y2="10"></line>
+                                        </svg>
+                                        <span class="ml-2">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li class="border-b border-dashed border-slate-700">
+                                    <a href="{{ route('member.profile.index') }}"
+                                        class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-user-circle w-5 h-5" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                            <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
+                                        </svg>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                </li>
+                            @endrole
                             <li>
                                 <a href="{{ route('logout') }}"
                                     class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500"
