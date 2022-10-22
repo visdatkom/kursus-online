@@ -22,6 +22,7 @@ use App\Http\Controllers\Landing\CategoryController as LandingCategoryController
 use App\Http\Controllers\Member\MyCourseController as MemberMyCourseController;
 use App\Http\Controllers\Member\CourseController as MemberCourseController;
 use App\Http\Controllers\Member\ReviewController as MemberReviewController;
+use App\Http\Controllers\Member\VideoController as MemberVideoController;
 use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
 use App\Http\Controllers\Member\ProfileController as MemberProfileController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
@@ -88,7 +89,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::put('/user/profile/password/{user}', [UserController::class, 'updatePassword'])->name('user.profile.password');
     Route::resource('/user', UserController::class)->only('index', 'update', 'destroy');
     // admin video route
-    Route::controller(VideoController::class)->as('video.')->group(function(){
+    Route::controller(MemberVideoController::class)->as('video.')->group(function(){
         Route::get('/{course:slug}/video', 'index')->name('index');
         Route::get('/{course:slug}/create', 'create')->name('create');
         Route::post('/{course:slug}/store', 'store')->name('store');
@@ -106,6 +107,15 @@ Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth',
     // member course route
     Route::get('/my-course', MemberMyCourseController::class)->name('mycourse');
     Route::resource('/course', MemberCourseController::class);
+    // member video route
+    Route::controller(MemberVideoController::class)->as('video.')->group(function(){
+        Route::get('/{course:slug}/video', 'index')->name('index');
+        Route::get('/{course:slug}/create', 'create')->name('create');
+        Route::post('/{course:slug}/store', 'store')->name('store');
+        Route::get('/edit/{course:slug}/{video}', 'edit')->name('edit');
+        Route::put('/update/{course:slug}/{video}', 'update')->name('update');
+        Route::delete('/delete/{video}', 'destroy')->name('destroy');
+    });
     // member review route
     Route::post('/review/{course}', [MemberReviewController::class, 'store'])->name('review');
     // member transaction route

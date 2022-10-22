@@ -1,0 +1,86 @@
+<?php
+
+namespace App\Http\Controllers\Member;
+
+use App\Models\Video;
+use App\Models\Course;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class VideoController extends Controller
+{
+    public function index($slug)
+    {
+        // tampung data course kedalam variabel $course, yang dimana slugnya sama dengan variabel $slug.
+        $course = Course::where('slug', $slug)->first();
+
+        // tampung seluruh data video kedalam variabel $videos, yang dimana course_idnya sama dengan variable $course->id.
+        $videos = Video::where('course_id', $course->id)->get();
+
+        // passing variabel $videos dan $course kedalam view.
+        return view('member.video.index', compact('videos', 'course'));
+    }
+    public function create($slug)
+    {
+        // tampung data course kedalam variabel $course, yang dimana slugnya sama dengan variabel $slug.
+        $course = Course::where('slug', $slug)->first();
+
+        // passing variable $course kedalam view.
+        return view('member.video.create', compact('course'));
+    }
+
+    public function store($slug, Request $request)
+    {
+        // tampung data course kedalam variabel $course, yang dimana slugnya sama dengan variabel $slug.
+        $course = Course::where('slug', $slug)->first();
+
+        // masukan data baru video dengan course_id sesuai dengan variabel $course
+        $course->videos()->create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'episode' => $request->episode,
+            'intro' => $request->intro,
+            'video_code' => $request->video_code,
+        ]);
+
+        // kembali kehalaman sebelumnya dengan membawa toastr.
+        return redirect(route('member.course.index'))->with('toast_success', 'Video Created');
+    }
+
+    public function edit($slug, Video $video)
+    {
+        // tampung data course kedalam variabel $course, yang dimana slugnya sama dengan variabel $slug.
+        $course = Course::where('slug', $slug)->first();
+
+        // passing variable $course dan $video kedalam view.
+        return view('member.video.edit', compact('course','video'));
+    }
+
+    public function update(Request $request, $slug, Video $video)
+    {
+        // tampung data course kedalam variabel $course, yang dimana slugnya sama dengan variabel $slug.
+        $course = Course::where('slug', $slug)->first();
+
+        // update data video berdasarkan id
+        $video->update([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'episode' => $request->episode,
+            'intro' => $request->intro,
+            'video_code' => $request->video_code,
+        ]);
+
+        // kembali kehalaman member video index dengan variabel $course dan toastr.
+        return redirect(route('member.video.index', $course))->with('toast_success', 'Video Updated');
+    }
+
+    public function destroy(Video $video)
+    {
+        // hapus data video berdasarkan id
+        $video->delete();
+
+        // kembali kehalaman sebelumnya dengan membawa toastr
+        return back()->with('toast_success', 'Video Deleted');
+    }
+}
