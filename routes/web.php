@@ -20,6 +20,7 @@ use App\Http\Controllers\Landing\ReviewController as LandingReviewController;
 use App\Http\Controllers\Landing\ShowcaseController as LandingShowcaseController;
 use App\Http\Controllers\Landing\CategoryController as LandingCategoryController;
 use App\Http\Controllers\Member\MyCourseController as MemberMyCourseController;
+use App\Http\Controllers\Member\CourseController as MemberCourseController;
 use App\Http\Controllers\Member\ReviewController as MemberReviewController;
 use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
 use App\Http\Controllers\Member\ProfileController as MemberProfileController;
@@ -61,7 +62,7 @@ Route::controller(CartController::class)->middleware('auth')->as('cart.')->group
 Route::get('/checkout', [CheckoutContoller::class, 'store'])->name('checkout.store');
 
 // admin route
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function(){
     // admin dashboard route
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     // admin marknotification route
@@ -99,11 +100,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth']], 
     Route::resource('/transaction', TransactionController::class)->only('index', 'show');
 });
 
-Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth']], function(){
+Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth', 'role:member']], function(){
     // member dashboard route
     Route::get('/dashboard', MemberDashboardController::class)->name('dashboard');
     // member course route
     Route::get('/my-course', MemberMyCourseController::class)->name('mycourse');
+    Route::resource('/course', MemberCourseController::class);
     // member review route
     Route::post('/review/{course}', [MemberReviewController::class, 'store'])->name('review');
     // member transaction route

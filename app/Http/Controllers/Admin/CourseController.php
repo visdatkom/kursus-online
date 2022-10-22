@@ -63,7 +63,7 @@ class CourseController extends Controller
             'category_id' => $request->category_id,
             'discount' => $request->discount,
         ]);
-        return redirect(route('admin.course.index'));
+        return redirect(route('admin.course.index'))->with('toast_success', 'Course Created');
     }
 
     /**
@@ -109,7 +109,7 @@ class CourseController extends Controller
             ]);
         }
 
-        return redirect(route('admin.course.index'));
+        return redirect(route('admin.course.index'))->with('toast_success', 'Course Updated');
     }
 
     /**
@@ -124,6 +124,6 @@ class CourseController extends Controller
 
         $course->delete();
 
-        return back();
+        return back()->with('toast_success', 'Course Deleted');
     }
 }

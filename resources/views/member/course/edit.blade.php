@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <h3 class="card-title">EDIT COURSE</h3>
                 </div>
-                <form action="{{ route('admin.course.update', $course->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('member.course.update', $course->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="card-body">
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="{{ route('admin.category.index') }}" class="btn btn-danger">
+                        <a href="{{ route('member.course.index') }}" class="btn btn-danger">
                             <i class="fas fa-arrow-left"></i> Go Back
                         </a>
                         <button type="submit" class="btn btn-success">
