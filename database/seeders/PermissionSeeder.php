@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class RoleSeeder extends Seeder
+class PermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,8 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        collect([['name' => 'admin'],['name' => 'member'], ['name' => 'author']])
-            ->each(fn ($data) => Role::create($data));
+        collect([
+            ['name' => 'author'],
+        ])->each(fn ($q) => Permission::create($q));
     }
 }

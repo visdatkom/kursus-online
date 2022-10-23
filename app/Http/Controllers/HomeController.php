@@ -18,7 +18,7 @@ class HomeController extends Controller
             $query->whereHas('transaction', function($query){
                 $query->where('status', 'success');
             });
-        }])->paginate(6);
+        }])->limit(6)->latest()->get();
 
         $user = User::role('member')->get();
 

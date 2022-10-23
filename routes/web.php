@@ -27,6 +27,7 @@ use App\Http\Controllers\Member\TransactionController as MemberTransactionContro
 use App\Http\Controllers\Member\ProfileController as MemberProfileController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 use App\Http\Controllers\Member\ShowcaseController as MemberShowcaseController;
+use App\Http\Controllers\Member\RevenueController as MemberRevenueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,7 +90,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::put('/user/profile/password/{user}', [UserController::class, 'updatePassword'])->name('user.profile.password');
     Route::resource('/user', UserController::class)->only('index', 'update', 'destroy');
     // admin video route
-    Route::controller(MemberVideoController::class)->as('video.')->group(function(){
+    Route::controller(VideoController::class)->as('video.')->group(function(){
         Route::get('/{course:slug}/video', 'index')->name('index');
         Route::get('/{course:slug}/create', 'create')->name('create');
         Route::post('/{course:slug}/store', 'store')->name('store');
@@ -101,7 +102,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/transaction', TransactionController::class)->only('index', 'show');
 });
 
-Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth', 'role:member']], function(){
+Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth', 'role:member|author']], function(){
     // member dashboard route
     Route::get('/dashboard', MemberDashboardController::class)->name('dashboard');
     // member course route
@@ -120,6 +121,11 @@ Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth',
     Route::post('/review/{course}', [MemberReviewController::class, 'store'])->name('review');
     // member transaction route
     Route::resource('/transaction', MemberTransactionController::class)->only('index', 'show');
+    // member revenue route
+    Route::controller(MemberRevenueController::class)->as('revenue.')->group(function(){
+        Route::get('/revenue', 'index')->name('index');
+        Route::get('/revenue/{transaction}', 'show')->name('show');
+    });
     // member profile route
     Route::controller(MemberProfileController::class)->as('profile.')->group(function(){
         Route::get('/profile', 'index')->name('index');

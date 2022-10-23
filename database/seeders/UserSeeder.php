@@ -24,8 +24,6 @@ class UserSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
 
-        $permissions = Permission::all();
-
         $role = Role::find(1);
 
         $user->assignRole($role);

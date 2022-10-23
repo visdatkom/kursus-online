@@ -85,7 +85,7 @@
             @endforeach
         </div>
         <div class="flex justify-center text-center mt-14">
-            <a href=""
+            <a href="{{ route('course.index') }}"
                 class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:bg-red-800 hover:duration-200 flex items-center gap-2 text-lg border border-slate-500 hover:border-red-600 hover:transition-colors">
                 Lihat Semua Course
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right w-5 h-5"

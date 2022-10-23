@@ -23,9 +23,13 @@
                                     <td>{{ $roles->firstItem() + $i }}</td>
                                     <td>{{ $role->name }}</td>
                                     <td>
-                                        @foreach ($role->permissions as $permission)
-                                            <li>{{ $permission->name }}</li>
-                                        @endforeach
+                                        @if ($role->name == 'admin')
+                                            <span class="badge badge-success">All Permission</span>
+                                        @else
+                                            @foreach ($role->permissions as $permission)
+                                                <span class="badge badge-warning">{{ $permission->name }}</span>
+                                            @endforeach
+                                        @endif
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
