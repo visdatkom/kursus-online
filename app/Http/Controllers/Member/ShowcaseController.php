@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\TransactionDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ShowcaseController extends Controller
 {
@@ -61,25 +62,21 @@ class ShowcaseController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Showcase $showcase)
     {
-        //
+        $user = Auth::user();
+
+        $courses = TransactionDetail::with('transaction', 'course.reviews')
+                ->whereHas('transaction', function($query) use($user){
+                    $query->where('user_id', $user->id)->where('status', 'success');
+                })->get();
+
+        return view('member.showcase.edit', compact('showcase', 'courses'));
     }
 
     /**
@@ -89,9 +86,26 @@ class ShowcaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Showcase $showcase)
     {
-        //
+        $request->user()->showcases()->update([
+            'course_id' => $request->course_id,
+            'title' => $request->title,
+            'description' => $request->description
+        ]);
+
+        if($request->file('cover')){
+            Storage::disk('local')->delete('public/showcases/'.basename($showcase->cover));
+
+            $cover = $request->file('cover');
+            $cover->storeAs('public/showcases/', $cover->hashName());
+
+            $showcase->update([
+                'cover' => $cover->hashName(),
+            ]);
+        }
+
+        return redirect(route('member.showcase.index'))->with('toast_success', 'Showcase Updated');
     }
 
     /**
@@ -100,8 +114,12 @@ class ShowcaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Showcase $showcase)
     {
-        //
+        Storage::disk('local')->delete('public/showcases/'.basename($showcase->cover));
+
+        $showcase->delete();
+
+        return back()->with('toast_success', 'Showcase Deleted');
     }
 }

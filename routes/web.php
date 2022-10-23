@@ -27,7 +27,6 @@ use App\Http\Controllers\Member\TransactionController as MemberTransactionContro
 use App\Http\Controllers\Member\ProfileController as MemberProfileController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 use App\Http\Controllers\Member\ShowcaseController as MemberShowcaseController;
-use App\Http\Controllers\Member\RevenueController as MemberRevenueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,10 +79,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/showcase', ShowcaseController::class);
     // admin review route
     Route::get('/review', ReviewController::class)->name('review.index');
-    // admin permission route
-    Route::resource('/permission', PermissionController::class)->except('show', 'edit', 'create');
-    // admin role route
-    Route::resource('/role', RoleController::class)->except('show', 'edit', 'create');
     //admin user route
     Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
     Route::put('/user/profile/{user}', [UserController::class, 'profileUpdate'])->name('user.profile.update');
@@ -108,6 +103,8 @@ Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth',
     // member course route
     Route::get('/my-course', MemberMyCourseController::class)->name('mycourse');
     Route::resource('/course', MemberCourseController::class);
+    // member showcase route
+    Route::resource('/showcase', MemberShowcaseController::class);
     // member video route
     Route::controller(MemberVideoController::class)->as('video.')->group(function(){
         Route::get('/{course:slug}/video', 'index')->name('index');
@@ -121,17 +118,10 @@ Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth',
     Route::post('/review/{course}', [MemberReviewController::class, 'store'])->name('review');
     // member transaction route
     Route::resource('/transaction', MemberTransactionController::class)->only('index', 'show');
-    // member revenue route
-    Route::controller(MemberRevenueController::class)->as('revenue.')->group(function(){
-        Route::get('/revenue', 'index')->name('index');
-        Route::get('/revenue/{transaction}', 'show')->name('show');
-    });
     // member profile route
     Route::controller(MemberProfileController::class)->as('profile.')->group(function(){
         Route::get('/profile', 'index')->name('index');
         Route::put('/profile/{user}', 'updateProfile')->name('update');
         Route::put('/profile/password/{user}', 'updatePassword')->name('password');
     });
-    // member showcase route
-    Route::resource('/showcase', MemberShowcaseController::class);
 });

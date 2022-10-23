@@ -30,7 +30,7 @@ class DashboardController extends Controller
 
         $revenue = Transaction::where('status', 'success')->sum('grand_total');
 
-        $revenueToday = Transaction::where('status', 'success')->whereDate('created_at', today())->sum('grand_total');
+        $author = User::role('author')->count();
 
         $showcase = Showcase::count();
 
@@ -61,6 +61,6 @@ class DashboardController extends Controller
             }
 
 
-        return view('admin.dashboard', compact('category', 'course', 'transaction', 'revenue', 'revenueToday', 'showcase', 'review', 'member', 'label', 'total'));
+        return view('admin.dashboard', compact('category', 'course', 'transaction', 'revenue', 'author', 'showcase', 'review', 'member', 'label', 'total'));
     }
 }

@@ -10,11 +10,12 @@
                     </h1>
                 </div>
                 <div class="card-body">
-                    <form action="" method="GET" class="mb-3 mt-3">
+                    <form action="{{ route('member.mycourse') }}" method="GET" class="mb-3 mt-3">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search by course title...">
+                            <input type="text" class="form-control" placeholder="Search by course title..."
+                                value="{{ request()->search }}" name="search">
                             <span class="input-group-append">
-                                <button type="button" class="btn btn-info btn-flat">
+                                <button type="button" class="btn btn-info">
                                     <i class="fas fa-search"></i> Search
                                 </button>
                             </span>

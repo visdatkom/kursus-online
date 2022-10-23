@@ -37,23 +37,6 @@ class DashboardController extends Controller
 
         $showcase = Showcase::where('user_id', $user->id)->count();
 
-        $revenues = TransactionDetail::with('transaction', 'course')
-                ->whereHas('course', function($query) use($user){
-                    $query->where('user_id', $user->id);
-                })->whereHas('transaction', function($query){
-                    $query->Where('status', 'success');
-                })->get();
-
-        $revenueTransaction = $revenues->sum('price');
-
-        $tax30 = $revenueTransaction * 30/100;
-
-        $revenueEarning = $revenueTransaction - $tax30;
-
-        $taxTransaction = $revenues->count() * 5000;
-
-        $revenueTax = $revenueEarning - $taxTransaction;
-
-        return view('member.dashboard', compact('course', 'review', 'transaction', 'showcase', 'revenues', 'revenueTransaction', 'revenueEarning', 'revenueTax'));
+        return view('member.dashboard', compact('course', 'review', 'transaction', 'showcase'));
     }
 }

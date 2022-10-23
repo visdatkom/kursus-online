@@ -6,15 +6,6 @@
     </a>
 
     <div class="sidebar">
-        {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-            </div>
-        </div> --}}
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -155,40 +146,6 @@
                     </li>
                     <li class="nav-header">User Management</li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.permission.index') }}"
-                            class="nav-link {{ active('admin.permission*') }}">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-user-search nav-icon" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                                <path d="M6 21v-2a4 4 0 0 1 4 -4h1"></path>
-                                <circle cx="16.5" cy="17.5" r="2.5"></circle>
-                                <path d="M18.5 19.5l2.5 2.5"></path>
-                            </svg>
-                            <p>
-                                Permissions
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('admin.role.index') }}" class="nav-link {{ active('admin.role*') }}">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-user-check nav-icon" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                                <path d="M16 11l2 2l4 -4"></path>
-                            </svg>
-                            <p>
-                                Roles
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('admin.user.index') }}" class="nav-link {{ active('admin.user.index') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users nav-icon"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
@@ -204,7 +161,6 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-header">Configuration</li>
                     <li class="nav-item">
                         <a href="{{ route('admin.user.profile') }}" class="nav-link {{ active('admin.user.profile') }}">
                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -241,7 +197,7 @@
                             </p>
                         </a>
                     </li>
-                    @can('author')
+                    @role('author')
                         <li class="nav-header">MASTER DATA</li>
                         <li class="nav-item {{ Route::is('member.course*') ? 'menu-open' : '' }}">
                             <a href="#" class="nav-link {{ active('member.course*') }}">
@@ -344,27 +300,6 @@
                             </p>
                         </a>
                     </li>
-                    @can('author')
-                        <li class="nav-item">
-                            <a href="{{ route('member.revenue.index') }}" class="nav-link {{ active('member.revenue*') }}">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-device-analytics nav-icon" width="24"
-                                    height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <rect x="3" y="4" width="18" height="12" rx="1">
-                                    </rect>
-                                    <line x1="7" y1="20" x2="17" y2="20"></line>
-                                    <line x1="9" y1="16" x2="9" y2="20"></line>
-                                    <line x1="15" y1="16" x2="15" y2="20"></line>
-                                    <path d="M8 12l3 -3l2 2l3 -3"></path>
-                                </svg>
-                                <p>
-                                    My Revenue
-                                </p>
-                            </a>
-                        </li>
-                    @endcan
                     <li class="nav-header">CONFIGURATION</li>
                     <li class="nav-item">
                         <a href="{{ route('member.profile.index') }}"

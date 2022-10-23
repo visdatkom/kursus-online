@@ -22,6 +22,8 @@ class MyCourseController extends Controller
         $courses = TransactionDetail::with('transaction', 'course.reviews')
                 ->whereHas('transaction', function($query) use($user){
                     $query->where('user_id', $user->id)->where('status', 'success');
+                })->whereHas('course', function($query){
+                    $query->where('name', 'like', '%'. request()->search .'%');
                 })->paginate(3);
 
         return view('member.course.mycourse', compact('courses'));

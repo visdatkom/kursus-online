@@ -20,7 +20,6 @@
                     <tr>
                         <th>Episode</th>
                         <th>Title</th>
-                        <th>Duration</th>
                         <th>Type</th>
                         <th>Action</th>
                     </tr>
@@ -30,7 +29,6 @@
                         <tr>
                             <td>{{ $video->episode }}</td>
                             <td>{{ $video->name }}</td>
-                            <td>{{ $video->duration }}</td>
                             <td>
                                 <span class="badge badge-{{ $video->intro == 1 ? 'danger' : 'primary' }}">
                                     {{ $video->intro == 1 ? 'premium' : 'free' }}

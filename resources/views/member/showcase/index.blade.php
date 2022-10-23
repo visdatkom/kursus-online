@@ -32,7 +32,7 @@
                                     </td>
                                     <td>{{ $showcase->description }}</td>
                                     <td>
-                                        <a href="{{ route('admin.showcase.edit', $showcase->id) }}"
+                                        <a href="{{ route('member.showcase.edit', $showcase->id) }}"
                                             class="btn btn-info btn-sm">
                                             <i class="fas fa-edit"></i>
                                             Edit
@@ -43,7 +43,7 @@
                                             Delete
                                         </a>
                                         <form id="delete-form-{{ $showcase->id }}"
-                                            action="{{ route('admin.showcase.destroy', $showcase->id) }}" method="POST"
+                                            action="{{ route('member.showcase.destroy', $showcase->id) }}" method="POST"
                                             style="display:none;">
                                             @csrf
                                             @method('DELETE')
