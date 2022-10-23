@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Member;
 use App\Models\Review;
 use App\Models\Category;
 use App\Models\Showcase;
+use App\Traits\HasCourse;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\TransactionDetail;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
+    use HasCourse;
     /**
      * Handle the incoming request.
      *
@@ -34,6 +37,23 @@ class DashboardController extends Controller
 
         $showcase = Showcase::where('user_id', $user->id)->count();
 
-        return view('member.dashboard', compact('course', 'review', 'transaction', 'showcase'));
+        $revenues = TransactionDetail::with('transaction', 'course')
+                ->whereHas('course', function($query) use($user){
+                    $query->where('user_id', $user->id);
+                })->whereHas('transaction', function($query){
+                    $query->Where('status', 'success');
+                })->get();
+
+        $revenueTransaction = $revenues->sum('price');
+
+        $tax30 = $revenueTransaction * 30/100;
+
+        $revenueEarning = $revenueTransaction - $tax30;
+
+        $taxTransaction = $revenues->count() * 5000;
+
+        $revenueTax = $revenueEarning - $taxTransaction;
+
+        return view('member.dashboard', compact('course', 'review', 'transaction', 'showcase', 'revenues', 'revenueTransaction', 'revenueEarning', 'revenueTax'));
     }
 }

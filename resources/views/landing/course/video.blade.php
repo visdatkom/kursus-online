@@ -14,7 +14,9 @@
                 <div class="col-span-12 md:col-span-5">
                     <div class="p-0 md:p-4">
                         <h1 class="text-white text-base font-semibold">{{ $course->name }}</h1>
-                        <p class="text-sm text-gray-400 mb-2 text-justify mt-1">{{ $course->description }}</p>
+                        <p class="text-sm text-gray-400 mb-2 text-justify mt-1">
+                            {{ $course->description }}
+                        </p>
                         <div class="flex flex-row items-center justify-end gap-2 pb-5 mt-5">
                             <p class="text-xs text-gray-400">{{ $course->videos->count() }} Episodes</p>
                             <a href="" class="text-xs text-gray-400 underline hover:text-blue-400">
@@ -116,6 +118,20 @@
                         </div>
                     </div>
                     <div class="p-4 flex justify-end gap-2">
+                        <a href="#review"
+                            class="px-4 py-2 rounded-lg bg-cyan-800 text-white flex items-center gap-2 text-sm border border-cyan-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2 w-5 h-5"
+                                width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
+                                stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M12 20l-3 -3h-2a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-2l-3 3">
+                                </path>
+                                <line x1="8" y1="9" x2="16" y2="9"></line>
+                                <line x1="8" y1="13" x2="14" y2="13"></line>
+                            </svg>
+                            {{ $course->reviews->count() }} Review
+                        </a>
                         @if ($alreadyBought)
                             <div
                                 class="px-4 py-2 rounded-lg bg-sky-800 text-white flex items-center gap-2 text-sm border cursor-not-allowed border-sky-600">
@@ -135,7 +151,7 @@
                             <form action="{{ route('cart.store', $course->id) }}" method="POST">
                                 @csrf
                                 <button type="submit"
-                                    class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border border-slate-600">
+                                    class="px-4 py-2 rounded-lg bg-green-800 text-white flex items-center gap-2 text-sm border border-green-700">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="icon icon-tabler icon-tabler-basket w-5 h-5" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
@@ -149,20 +165,6 @@
                                 </button>
                             </form>
                         @endif
-                        <a href="#review"
-                            class="px-4 py-2 rounded-lg bg-red-800 text-white flex items-center gap-2 text-sm border border-red-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2 w-5 h-5"
-                                width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
-                                stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path
-                                    d="M12 20l-3 -3h-2a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-2l-3 3">
-                                </path>
-                                <line x1="8" y1="9" x2="16" y2="9"></line>
-                                <line x1="8" y1="13" x2="14" y2="13"></line>
-                            </svg>
-                            {{ $course->reviews->count() }} Review
-                        </a>
                     </div>
                 </div>
             </div>

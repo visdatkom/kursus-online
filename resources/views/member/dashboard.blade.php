@@ -108,7 +108,7 @@
             <div class="small-box bg-dark">
                 <div class="inner">
                     <h3>
-                        {{ $course }}
+                        {{ $revenues->count() }}
                     </h3>
                     <p>Total Orders</p>
                 </div>
@@ -128,7 +128,7 @@
             <div class="small-box bg-dark">
                 <div class="inner">
                     <h3>
-                        {{ $showcase }}
+                        <sup>Rp</sup> {{ moneyFormat($revenueTransaction) }}
                     </h3>
                     <p>Total Transaction</p>
                 </div>
@@ -148,7 +148,7 @@
             <div class="small-box bg-dark">
                 <div class="inner">
                     <h3>
-                        {{ $review }}
+                        <sup>Rp</sup> {{ moneyFormat($revenueEarning) }}
                     </h3>
                     <p>Total Earning</p>
                 </div>
@@ -168,7 +168,7 @@
             <div class="small-box bg-dark">
                 <div class="inner">
                     <h3>
-                        {{ $transaction }}
+                        <sup>Rp</sup> {{ moneyFormat($revenueTax) }}
                     </h3>
                     <p>Total Earning (After Tax)</p>
                 </div>
@@ -182,45 +182,6 @@
                         <circle cx="14.5" cy="13.5" r=".5" fill="currentColor"></circle>
                         <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2"></path>
                     </svg>
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="card card-dark card-outline collapsed-card">
-                <div class="card-header">
-                    <h3 class="card-title">My Revenue</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body p-0">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Month</th>
-                                <th>Order</th>
-                                <th>Transaction</th>
-                                <th>Earning (70%)</th>
-                                <th>Tax</th>
-                                <th>Earning (After Tax)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Oktober</td>
-                                <td>6</td>
-                                <td>Rp. 1.695.000</td>
-                                <td>Rp. 1.186.500</td>
-                                <td>Rp. 30.000</td>
-                                <td>Rp. 1.156.500</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@
                         LaraDev
                     </a>
                 </li>
-                <li class="hidden md:flex">
+                <li class="hidden lg:flex">
                     <a href="{{ route('home') }}"
                         class="text-sm font-semibold text-white flex items-center gap-2 {{ activeNav('home') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home w-5 h-5"
@@ -30,7 +30,7 @@
                         Home
                     </a>
                 </li>
-                <li class="hidden md:flex">
+                <li class="hidden lg:flex">
                     <a href="{{ route('course.index') }}"
                         class="text-sm font-semibold text-white flex items-center gap-2 {{ activeNav('course.index') }}">
                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@
                         Course
                     </a>
                 </li>
-                <li class="hidden md:flex">
+                <li class="hidden lg:flex">
                     <div class="relative" x-data="{ isOpen: false }">
                         <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
                             class="flex items-center gap-2 text-sm text-white {{ activeNav('category*') }}">
@@ -88,7 +88,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="hidden md:flex">
+                <li class="hidden lg:flex">
                     <a href="{{ route('review') }}"
                         class="text-sm font-semibold text-white flex items-center gap-2 {{ activeNav('review') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2 w-5 h-5"
@@ -104,7 +104,7 @@
                         Review
                     </a>
                 </li>
-                <li class="hidden md:flex">
+                <li class="hidden lg:flex">
                     <a href="{{ route('showcase') }}"
                         class="text-sm font-semibold text-white flex items-center gap-2 {{ activeNav('showcase') }}">
                         <svg xmlns="http://www.w3.org/2000/svg"

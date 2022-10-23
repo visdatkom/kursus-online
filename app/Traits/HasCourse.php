@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Models\Transaction;
+use App\Models\TransactionDetail;
 use Illuminate\Support\Facades\Auth;
 
 trait hasCourse
@@ -30,5 +31,17 @@ trait hasCourse
             });
 
         return $enrolled;
+    }
+
+    public function revenue()
+    {
+        $user = Auth::user();
+
+        return TransactionDetail::with('transaction', 'course')
+                ->whereHas('course', function($query) use($user){
+                    $query->where('user_id', $user->id);
+                })->whereHas('transaction', function($query){
+                    $query->Where('status', 'success');
+                });
     }
 }

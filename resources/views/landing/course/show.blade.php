@@ -57,7 +57,7 @@
                         <div class="flex flex-row gap-4 items-center my-6 justify-center md:justify-start">
                             @if ($alreadyBought)
                                 <div
-                                    class="px-4 py-2 rounded-lg bg-sky-800 text-white flex items-center gap-2 text-sm border cursor-not-allowed">
+                                    class="px-4 py-2 rounded-lg bg-sky-800 text-white flex items-center gap-2 text-sm border border-sky-600 cursor-not-allowed">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="icon icon-tabler icon-tabler-discount-check w-5 h-5" width="24"
                                         height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -74,7 +74,7 @@
                                 <form action="{{ route('cart.store', $course->id) }}" method="POST">
                                     @csrf
                                     <button type="submit"
-                                        class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border">
+                                        class="px-4 py-2 rounded-lg bg-green-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border border-green-600">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             class="icon icon-tabler icon-tabler-basket w-5 h-5" width="24"
                                             height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -89,7 +89,7 @@
                                 </form>
                             @endif
                             <a href="{{ $course->demo }}" target="_blank"
-                                class="px-4 py-2 rounded-lg bg-red-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border">
+                                class="px-4 py-2 rounded-lg bg-red-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border border-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-brand-youtube h-5 w-5" width="24"
                                     height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -112,8 +112,8 @@
         </div>
     </div>
     <div class="w-full bg-white">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div class="container mx-auto p-4">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                 <div class="col-span-12 md:col-span-12">
                     <div class="p-4">
                         <div class="flex flex-col gap-2 mb-3">
