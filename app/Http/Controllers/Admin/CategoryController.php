@@ -22,7 +22,7 @@ class CategoryController extends Controller
             selanjutnya kita pecah data category yang kita tampilkan hanya 10 per halaman
             dengan urutan terbaru.
         */
-        $categories = Category::paginate(10)->latest();
+        $categories = Category::latest()->paginate(10);
 
         // passing varibel $categories kedalam view.
         return view('admin.category.index', compact('categories'));
