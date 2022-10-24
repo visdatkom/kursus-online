@@ -115,13 +115,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        // hapus image category berdasarkan id
+        // hapus image category berdasarkan id.
         Storage::disk('local')->delete('public/categories/'.basename($category->image));
 
-        // hapus data category berdasarkan id
+        // hapus data category berdasarkan id.
         $category->delete();
 
-        // kembali kehalaman sebelumnya dengan membawa toastr
+        // kembali kehalaman sebelumnya dengan membawa toastr.
         return back()->with('toast_success', 'Category Deleted');
     }
 }
