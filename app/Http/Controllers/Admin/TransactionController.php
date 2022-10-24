@@ -39,7 +39,7 @@ class TransactionController extends Controller
     {
         // tampung data transaction detail kedalam variabel $orders, yang dimana "transaction_id"nya sama dengan variabel $transaction->id.
         $orders = TransactionDetail::with('transaction', 'course')
-            ->where('tranasction_id', $transaction->id)
+            ->where('transaction_id', $transaction->id)
             ->get();
 
         // ambil data "snap_token" dari variabel $transactions kemudian tampung data tersebut kedalam variabel $snapToken.

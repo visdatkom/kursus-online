@@ -3,41 +3,17 @@
 @section('content')
     <div class="row d-flex justify-content-center">
         <div class="col-10">
-            <div class="card card-dark">
-                <div class="card-header">
-                    <h3 class="card-title">EDIT CATEGORY</h3>
-                </div>
-                <form action="{{ route('admin.category.update', $category->id) }}" method="POST"
-                    enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
+            <form action="{{ route('admin.category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <x-card-form title="EDIT CATEGORY" url="{{ route('admin.category.index') }}" titleBtn="Update Category">
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="name">Category Name</label>
-                            <input type="text" name="name" class="form-control" id="name"
-                                placeholder="Enter category name" value="{{ $category->name }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Image</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="image" name="image"
-                                        value="{{ $category->image }}">
-                                    <label class="custom-file-label" for="image">Choose file</label>
-                                </div>
-                            </div>
-                        </div>
+                        <x-input title="Title" type="text" name="name" placeholder="Enter category title"
+                            value="{{ $category->name }}" />
+                        <x-upload-file title="Image" name="image" value="{{ $category->image }}" />
                     </div>
-                    <div class="card-footer">
-                        <a href="{{ route('admin.category.index') }}" class="btn btn-danger">
-                            <i class="fas fa-arrow-left"></i> Go Back
-                        </a>
-                        <button type="submit" class="btn btn-success">
-                            <i class="fas fa-check mr-1"></i> Update Category
-                        </button>
-                    </div>
-                </form>
-            </div>
+                </x-card-form>
+            </form>
         </div>
     </div>
 @endsection

@@ -54,7 +54,6 @@ class CategoryController extends Controller
         // masukan data baru category kedalam database.
         Category::create([
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
             'image' => $request->file('image') ? $image->hashName() : null,
         ]);
 
@@ -86,7 +85,6 @@ class CategoryController extends Controller
         // update data category berdasarkan id.
         $category->update([
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
         ]);
 
         // cek apakah user mengirimkan request file image.
