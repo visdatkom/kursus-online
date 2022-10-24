@@ -76,7 +76,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     // admin course route
     Route::resource('/course', CourseController::class);
     // admin showcase route
-    Route::resource('/showcase', ShowcaseController::class);
+    Route::get('/showcase', ShowcaseController::class)->name('showcase.index');
     // admin review route
     Route::get('/review', ReviewController::class)->name('review.index');
     //admin user route

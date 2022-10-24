@@ -9,80 +9,21 @@ use App\Http\Controllers\Controller;
 class ShowcaseController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Handle the incoming request.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __invoke(Request $request)
     {
-        $showcases = Showcase::paginate(9);
+        /*
+            tampung seluruh data showcase kedalam variabel $showcases, selanjutnya
+            kita pecah data showcase yang kita tampilkan hanya 9 per halaman
+            dengan urutan terbaru.
+        */
+        $showcases = Showcase::latest()->paginate(9);
 
+        // passing variabel $showcases kedalam view.
         return view('admin.showcase.index', compact('showcases'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
