@@ -41,7 +41,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        // tampung seluruh data category kedalam variabel categories.
+        // tampung seluruh data category kedalam variabel $categories.
         $categories = Category::all();
 
         // passing variabel $categories kedalam view.
