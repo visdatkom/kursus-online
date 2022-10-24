@@ -27,7 +27,7 @@
                             <li class="list-group-item">
                                 <b>Episodes</b>
                                 <span class="float-right text-dark">
-                                    {{ $course->videos_count }} <a href="">
+                                    {{ $course->video }} <a href="">
                                     </a>
                                 </span>
                             </li>

@@ -97,7 +97,7 @@ class CategoryController extends Controller
             $image = $request->file('image');
             // request yang telah kita tampung kedalam variabel kita masukan kedalam folder public/categories.
             $image->storeAs('public/categories', $image->hashName());
-            // update data category image.
+            // update data category image berdasarkan id.
             $category->update([
                 'image' => $image->hashName(),
             ]);
