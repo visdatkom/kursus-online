@@ -17,8 +17,14 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10);
+        /*
+            tampung seluruh data category kedalam variabel $categories,
+            selanjutnya kita pecah data category yang kita tampilkan hanya 10 per halaman
+            dengan urutan terbaru.
+        */
+        $categories = Category::paginate(10)->latest();
 
+        // passing varibel $categories kedalam view.
         return view('admin.category.index', compact('categories'));
     }
 
@@ -40,27 +46,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        // tampung request file image kedalam variable $image.
         $image = $request->file('image');
+        // request yang telah kita tampung kedalam variabel, kita masukan kedalam folder public/categories.
         $image->storeAs('public/categories', $image->hashName());
 
+        // masukan data baru category kedalam database.
         Category::create([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
             'image' => $request->file('image') ? $image->hashName() : null,
         ]);
 
-        return redirect(route('admin.category.index'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        // kembali kehalaman admin/category/index dengan membawa toastr.
+        return redirect(route('admin.category.index'))->with('toast_success');
     }
 
     /**
@@ -71,6 +70,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        // passing varibel $category kedalam view.
         return view('admin.category.edit', compact('category'));
     }
 
@@ -83,23 +83,28 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        // update data category berdasarkan id.
         $category->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
         ]);
 
+        // cek apakah user mengirimkan request file image.
         if($request->file('image')){
+            // hapus image category yang sebelumnya.
             Storage::disk('local')->delete('public/categories/'.basename($category->image));
-
+            // tampung request file image kedalam variabel $image.
             $image = $request->file('image');
+            // request yang telah kita tampung kedalam variabel kita masukan kedalam folder public/categories.
             $image->storeAs('public/categories', $image->hashName());
-
+            // update data category image.
             $category->update([
                 'image' => $image->hashName(),
             ]);
         }
 
-        return redirect(route('admin.category.index'));
+        // kembali kehalaman admin/category/index dengan membawa toastr.
+        return redirect(route('admin.category.index'))->with('toast_success', 'Category Updated');
     }
 
     /**
@@ -110,10 +115,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        // hapus image category berdasarkan id
         Storage::disk('local')->delete('public/categories/'.basename($category->image));
 
+        // hapus data category berdasarkan id
         $category->delete();
 
-        return back();
+        // kembali kehalaman sebelumnya dengan membawa toastr
+        return back()->with('toast_success', 'Category Deleted');
     }
 }

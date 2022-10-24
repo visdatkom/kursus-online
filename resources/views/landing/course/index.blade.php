@@ -42,50 +42,21 @@
         <div class="container mx-auto">
             <div class="flex justify-end items-center">
                 <div class="flex flex-row items-center gap-2">
-                    <input type="text" placeholder="Cari Course.."
-                        class="p-2 rounded-lg text-white bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm border border-slate-700" />
-                    <div class="relative" x-data="{ isOpen: false }">
-                        <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
-                            class="flex items-center gap-2 text-sm text-white border p-2 rounded-lg bg-slate-800 border-slate-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter w-5 h-5"
+                    <form action="{{ route('course.index') }}" method="GET" class="flex items-center gap-1">
+                        <input type="text" placeholder="Cari Course.."
+                            class="p-2 rounded-lg text-white bg-slate-900 focus:outline-none focus:ring-1 focus:ring-slate-700 text-sm border border-slate-800"
+                            name="search" value="{{ request()->search }}" />
+                        <button type="submit"
+                            class="p-2 rounded-lg text-white bg-slate-900 focus:outline-none focus:ring-1 focus:ring-slate-500 text-sm border border-slate-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search w-5 h-5"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M5.5 5h13a1 1 0 0 1 .5 1.5l-5 5.5l0 7l-4 -3l0 -4l-5 -5.5a1 1 0 0 1 .5 -1.5">
-                                </path>
-                            </svg>
-                            Filter
-                            <svg xmlns="http://www.w3.org/2000/svg" x-show="!isOpen"
-                                class="icon icon-tabler icon-tabler-chevron-down w-4 h-4" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" x-cloak x-show="isOpen"
-                                class="icon icon-tabler icon-tabler-chevron-up w-4 h-4" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <polyline points="6 15 12 9 18 15"></polyline>
+                                <circle cx="10" cy="10" r="7"></circle>
+                                <line x1="21" y1="21" x2="15" y2="15"></line>
                             </svg>
                         </button>
-                        <ul x-cloak x-show="isOpen" @click.away="isOpen = false"
-                            class="absolute font-normal bg-slate-800 shadow overflow-hidden rounded-lg w-20 border border-slate-700 mt-2 py-1 right-0 z-20">
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-3 hover:text-blue-500 rounded-lg text-sm text-white">
-                                    Terbaru
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-3 hover:text-blue-500 rounded-lg text-sm text-white">
-                                    Populer
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
