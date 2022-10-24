@@ -12,10 +12,10 @@ class VideoController extends Controller
 {
     public function index($slug)
     {
-        // tampung data course kedalam variabel $course, yang dimana slugnya sama dengan variabel $slug.
+        // tampung data course kedalam variabel $course, yang dimana "slug"nya sama dengan variabel $slug.
         $course = Course::where('slug', $slug)->first();
 
-        // tampung seluruh data video kedalam variabel $videos, yang dimana course_idnya sama dengan variable $course->id.
+        // tampung seluruh data video kedalam variabel $videos, yang dimana "course_id"nya sama dengan variable $course->id.
         $videos = Video::where('course_id', $course->id)->get();
 
         // passing variabel $videos dan $course kedalam view.
@@ -23,7 +23,7 @@ class VideoController extends Controller
     }
     public function create($slug)
     {
-        // tampung data course kedalam variabel $course, yang dimana slugnya sama dengan variabel $slug.
+        // tampung data course kedalam variabel $course, yang dimana "slug"nya sama dengan variabel $slug.
         $course = Course::where('slug', $slug)->first();
 
         // passing variable $course kedalam view.
@@ -32,10 +32,10 @@ class VideoController extends Controller
 
     public function store($slug, Request $request)
     {
-        // tampung data course kedalam variabel $course, yang dimana slugnya sama dengan variabel $slug.
+        // tampung data course kedalam variabel $course, yang dimana "slug"nya sama dengan variabel $slug.
         $course = Course::where('slug', $slug)->first();
 
-        // masukan data baru video dengan course_id sesuai dengan variabel $course
+        // masukan data baru video dengan "course_id" sesuai dengan variabel $course
         $course->videos()->create([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
@@ -50,7 +50,7 @@ class VideoController extends Controller
 
     public function edit($slug, Video $video)
     {
-        // tampung data course kedalam variabel $course, yang dimana slugnya sama dengan variabel $slug.
+        // tampung data course kedalam variabel $course, yang dimana "slug"nya sama dengan variabel $slug.
         $course = Course::where('slug', $slug)->first();
 
         // passing variable $course dan $video kedalam view.
@@ -59,7 +59,7 @@ class VideoController extends Controller
 
     public function update(Request $request, $slug, Video $video)
     {
-        // tampung data course kedalam variabel $course, yang dimana slugnya sama dengan variabel $slug.
+        // tampung data course kedalam variabel $course, yang dimana "slug"nya sama dengan variabel $slug.
         $course = Course::where('slug', $slug)->first();
 
         // update data video berdasarkan id
@@ -71,7 +71,7 @@ class VideoController extends Controller
             'video_code' => $request->video_code,
         ]);
 
-        // kembali kehalaman member video index dengan variabel $course dan toastr.
+        // kembali kehalaman member/video/index dengan variabel $course dan toastr.
         return redirect(route('member.video.index', $course))->with('toast_success', 'Video Updated');
     }
 
