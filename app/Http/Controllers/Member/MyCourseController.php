@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Member;
 
-use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Models\TransactionDetail;
 use App\Http\Controllers\Controller;

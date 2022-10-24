@@ -38,7 +38,6 @@ class VideoController extends Controller
         // masukan data baru video dengan "course_id" sesuai dengan variabel $course
         $course->videos()->create([
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
             'episode' => $request->episode,
             'intro' => $request->intro,
             'video_code' => $request->video_code,
@@ -65,7 +64,6 @@ class VideoController extends Controller
         // update data video berdasarkan id
         $video->update([
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
             'episode' => $request->episode,
             'intro' => $request->intro,
             'video_code' => $request->video_code,

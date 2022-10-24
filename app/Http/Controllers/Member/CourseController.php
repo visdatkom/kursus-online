@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Member;
 
 use App\Models\Course;
 use App\Models\Category;
-use App\Traits\HasCourse;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,7 +12,6 @@ use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
-    use HasCourse;
     /**
      * Display a listing of the resource.
      *

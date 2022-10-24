@@ -32,10 +32,6 @@
                                 </span>
                             </li>
                         </ul>
-                        <a href="{{ Route('admin.video.create', $course->slug) }}" class="btn btn-dark btn-sm">
-                            <i class="fas fa-video mr-1"></i>
-                            Add Episode
-                        </a>
                         <a href="{{ Route('admin.video.index', $course->slug) }}" class="btn btn-warning btn-sm">
                             <i class="fas fa-list"></i>
                             List Eps
@@ -57,8 +53,8 @@
                 </div>
             </div>
         @endforeach
-        <div class="d-flex justify-content-end">
-            {{ $courses->links() }}
-        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        {{ $courses->links() }}
     </div>
 @endsection

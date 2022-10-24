@@ -16,7 +16,7 @@ class ReviewController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $reviews = Review::get();
+        $reviews = Review::latest()->get();
 
         return view('landing.review.index', compact('reviews'));
     }

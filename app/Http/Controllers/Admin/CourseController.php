@@ -4,15 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Course;
 use App\Models\Category;
-use App\Traits\hasCourse;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CourseRequest;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
-    use HasCourse;
     /**
      * Display a listing of the resource.
      *
@@ -22,13 +21,13 @@ class CourseController extends Controller
     {
         /*
             tampung semua data course kedalam variabel $courses, kemudian kita memanggil relasi menggunakan withcount,
-            selanjutnya pada saat melakukan pemanggilan relasi details yang kita ubah namanya menjadi enrolled, disini kita melakukan sebuah query untuk mengambil data transaksi yang memiliki status success, selanjutnya kita pecah data course yang kita tampilkan hanya 12 per halaman dengan urutan terbaru.
+            selanjutnya pada saat melakukan pemanggilan relasi details yang kita ubah namanya menjadi enrolled, disini kita melakukan sebuah query untuk mengambil data transaksi yang memiliki status success, selanjutnya kita pecah data course yang kita tampilkan hanya 3 per halaman dengan urutan terbaru.
         */
         $courses = Course::withCount(['videos as video', 'details as enrolled' => function($query){
             $query->whereHas('transaction', function($query){
                 $query->where('status', 'success');
             });
-        }])->latest()->paginate(12);
+        }])->latest()->paginate(3);
 
         // passing variabel $courses kedalam view.
         return view('admin.course.index', compact('courses'));
@@ -54,7 +53,7 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
         // tampung request file image kedalam variable $image.
         $image = $request->file('image');
@@ -64,7 +63,6 @@ class CourseController extends Controller
         // masukan data baru course dengan user_id sesuai dengan user yang sedang memberikan request
         $request->user()->courses()->create([
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
             'image' => $request->file('image') ? $image->hashName() : null,
             'price' => $request->price,
             'description' => $request->description,
@@ -99,12 +97,11 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(CourseRequest $request, Course $course)
     {
         // update data course berdasarkan id.
         $course->update([
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
             'price' => $request->price,
             'description' => $request->description,
             'demo' => $request->demo,

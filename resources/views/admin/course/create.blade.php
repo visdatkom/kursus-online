@@ -3,78 +3,43 @@
 @section('content')
     <div class="row d-flex justify-content-center">
         <div class="col-10">
-            <div class="card card-dark">
-                <div class="card-header">
-                    <h3 class="card-title">CREATE NEW COURSE</h3>
-                </div>
-                <form action="{{ route('admin.course.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+            <form action="{{ route('admin.course.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <x-card-form title="CREATE NEW COURSE" url="{{ route('admin.course.index') }}" titleBtn="Create Course">
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="name">Title</label>
-                            <input type="text" name="name" class="form-control" id="name"
-                                placeholder="Enter course title">
-                        </div>
+                        <x-input title="Title" type="text" name="name" placeholder="Enter course title"
+                            value="" />
                         <div class="row">
                             <div class="col-6">
-                                <div class="form-group">
-                                    <label>Category</label>
-                                    <select class="form-control" name="category_id">
-                                        <option>Choose Category</option>
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                <x-select title="Category" name="category_id">
+                                    <option selected disabled>Select Category</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </x-select>
                             </div>
                             <div class="col-6">
-                                <div class="form-group">
-                                    <label for="demo">Demo</label>
-                                    <input type="text" name="demo" class="form-control" id="demo"
-                                        placeholder="Enter course demo">
-                                </div>
+                                <x-input title="Demo" type="text" name="demo" placeholder="Enter course demo url"
+                                    value="" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <div class="form-group">
-                                    <label for="price">Price</label>
-                                    <input type="number" name="price" class="form-control" id="price"
-                                        placeholder="Enter course price">
-                                </div>
+                                <x-input title="Price" type="number" name="price" placeholder="Enter course price"
+                                    value="" />
                             </div>
                             <div class="col-6">
-                                <div class="form-group">
-                                    <label for="discount">Discount</label>
-                                    <input type="number" name="discount" class="form-control" id="discount"
-                                        placeholder="Enter course discount">
-                                </div>
+                                <x-input title="Discount" type="number" name="discount" placeholder="Enter course discount"
+                                    value="" />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="cover">Cover</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="cover" name="image">
-                                    <label class="custom-file-label" for="cover">Choose file</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control" rows="4" placeholder="Enter course description" name="description"></textarea>
-                        </div>
+                        <x-upload-file title="Cover" name="image" value="" />
+                        <x-textarea title="Description" name="description" placeholder="Enter course description" />
                     </div>
-                    <div class="card-footer">
-                        <a href="{{ route('admin.category.index') }}" class="btn btn-danger">
-                            <i class="fas fa-arrow-left"></i> Go Back
-                        </a>
-                        <button type="submit" class="btn btn-success">
-                            <i class="fas fa-check mr-1"></i> Create Course
-                        </button>
-                    </div>
-                </form>
-            </div>
+                </x-card-form>
+            </form>
         </div>
     </div>
 @endsection

@@ -16,7 +16,7 @@ class ShowcaseController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $showcases = Showcase::get();
+        $showcases = Showcase::latest()->get();
 
         return view('landing.showcase.index', compact('showcases'));
     }

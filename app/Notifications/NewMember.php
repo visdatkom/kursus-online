@@ -56,7 +56,7 @@ class NewMember extends Notification
     {
         return [
             'message' => 'New Member',
-            'data' => $this->user
+            'data' => $this->user['name']
         ];
     }
 }

@@ -5,13 +5,14 @@ namespace App\Models;
 use App\Models\User;
 use App\Models\Category;
 use App\Traits\HasScope;
+use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Course extends Model
 {
-    use HasFactory, HasScope;
+    use HasFactory, HasScope, HasSlug;
 
     protected $fillable = [
         'name', 'image', 'slug', 'category_id', 'user_id', 'demo', 'description', 'discount', 'price'

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Landing;
 use App\Models\Video;
 use App\Models\Course;
 use App\Models\Review;
-use App\Traits\HasCourse;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,8 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
-    use HasCourse;
-
     public function index()
     {
         $courses = Course::search('name')->latest()->get();
@@ -26,7 +23,11 @@ class CourseController extends Controller
     {
         $videos = Video::whereBelongsTo($course)->get();
 
-        $enrolled = $this->enrolled($course)->count();
+        $enrolled = Transaction::with('details.course')
+            ->where('status', 'success')
+            ->whereHas('details', function($query) use($course){
+                $query->where('course_id', $course->id);
+            })->count();
 
         $alreadyBought = Transaction::with('details.course')
             ->where('status', 'success')
@@ -40,16 +41,23 @@ class CourseController extends Controller
 
     public function video(Course $course, $episode)
     {
+        $user = Auth::user();
+
         $video = Video::whereBelongsTo($course)->where('episode', $episode)->first();
 
-        $transaction = $this->userCourse($course)->get();
+        $transaction = Transaction::with('user', 'details.course')
+            ->where('user_id', $user->id)
+            ->where('status', 'success')
+            ->whereHas('details', function($query) use($course){
+                $query->where('course_id', $course->id);
+            })->get();
 
         $reviews = Review::where('course_id', $course->id)->get();
 
         $avgRating = Review::where('course_id', $course->id)->avg('rating');
 
         if($transaction->count() > 0){
-            $alreadyBought = $this->userCourse($course)->get();
+            $alreadyBought = $transaction;
         }else{
             $alreadyBought = 0;
         }
