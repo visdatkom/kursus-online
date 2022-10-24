@@ -21,14 +21,20 @@ class CourseController extends Controller
      */
     public function index()
     {
+        // tampung data user yang sedang login kedalam variabel $user.
         $user = Auth::user();
 
-        $courses = Course::withCount(['videos', 'details as enrolled' => function($query){
+        /*
+            tampung semua data course kedalam variabel $courses, kemudian kita memanggil relasi menggunakan withcount,
+            selanjutnya pada saat melakukan pemanggilan relasi details yang kita ubah namanya menjadi enrolled, disini kita melakukan sebuah query untuk mengambil data transaksi yang memiliki status success, selanjutnya kita pecah data course yang kita tampilkan hanya 12 per halaman dengan urutan terbaru dan juga kita hanya menampilkan data course yang dimiliki oleh user yang sedang login.
+        */
+        $courses = Course::withCount(['videos as video', 'details as enrolled' => function($query){
             $query->whereHas('transaction', function($query){
                 $query->where('status', 'success');
             });
-        }])->where('user_id', $user->id)->paginate(12);
+        }])->where('user_id', $user->id)->latest()->paginate(12);
 
+        // passing variabel $courses kedalam view.
         return view('member.course.index', compact('courses'));
     }
 

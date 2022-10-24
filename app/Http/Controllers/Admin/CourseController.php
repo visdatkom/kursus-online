@@ -22,7 +22,7 @@ class CourseController extends Controller
     {
         /*
             tampung semua data course kedalam variabel $courses, kemudian kita memanggil relasi menggunakan withcount,
-            selanjutnya pada saat melakukan pemanggilan relasi details yang kita ubah namanya menjadi enrolled, disini kita melakukan sebuah query untuk mengambil data transaksi yang memiliki status success, selanjutnya kita pecah data category yang kita tampilkan hanya 12 per halaman dengan urutan terbaru.
+            selanjutnya pada saat melakukan pemanggilan relasi details yang kita ubah namanya menjadi enrolled, disini kita melakukan sebuah query untuk mengambil data transaksi yang memiliki status success, selanjutnya kita pecah data course yang kita tampilkan hanya 12 per halaman dengan urutan terbaru.
         */
         $courses = Course::withCount(['videos as video', 'details as enrolled' => function($query){
             $query->whereHas('transaction', function($query){

@@ -17,13 +17,16 @@ class ProfileController extends Controller
      */
     public function index(Request $request)
     {
+        // tampung data user yang sedang login kedalam variabel $user.
         $user = $request->user();
 
+        // passing varibel $user kedalam view.
         return view('member.profile.index', compact('user'));
     }
 
     public function updateProfile(Request $request, User $user)
     {
+        // update data user bedasarkan id.
         $user->update([
             'name' => $request->name,
             'username' => $request->username,
@@ -32,39 +35,43 @@ class ProfileController extends Controller
             'about' => $request->about,
         ]);
 
+        // cek apakah user mengirimkan request file avatar.
         if($request->file('avatar')){
+            // hapus avatar user sebelumnya.
             Storage::disk('local')->delete('public/avatar/'.basename($user->avatar));
-
+            // tampung request file avatar kedalam variabel $avatar.
             $avatar = $request->file('avatar');
+            // request yang telah kita tampung kedalam variabel kita masukan kedalam folder public/avatar.
             $avatar->storeAs('public/avatar/', $avatar->hashName());
-
+            // update data user avatar.
             $user->update([
                 'avatar' => $avatar->hashName(),
             ]);
         }
 
+        // kembali kehalaman sebelumnya dengan membawa toastr.
         return back()->with('toast_succes', 'Profile Updated');
     }
 
     public function updatePassword(Request $request, User $user)
     {
-        // validate request password
+        // validasi request password sebelum kita masukan kedalam database.
         $request->validate([
             'password' => 'confirmed|required|min:6',
         ]);
 
-        // check old password by user password
+        // kita lakukan pengecekan apakah password yang lama sesuai dengan password yang kita masukan.
         if(!(Hash::check($request->get('current_password'), $user->password))){
-            // return back to view with toastr
+            // kembali kehalaman sebelumnya dengan sebuah toastr.
             return back()->with('toast_error', 'Your Old Password Wrong');
         }else{
-            // update old password by id
+            // update data password user bedasarkan id.
             $user->update([
                 'password' => Hash::make($request->get('password')),
             ]);
         }
 
-        // return back to view with toastr
+        // kembali kehalaman sebelumnya dengan sebuah toastr.
         return back()->with('toast_success', 'Password Changed');
     }
 }
