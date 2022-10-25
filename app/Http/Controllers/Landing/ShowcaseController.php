@@ -16,8 +16,10 @@ class ShowcaseController extends Controller
      */
     public function __invoke(Request $request)
     {
+        // tampung seluruh data showcase kedalam variabel $showcases, kemudian data showcase kita urutan dari yang paling terbaru.
         $showcases = Showcase::latest()->get();
 
+        // passing variabel $showcases kedalam view.
         return view('landing.showcase.index', compact('showcases'));
     }
 }

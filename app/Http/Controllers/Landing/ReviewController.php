@@ -16,8 +16,10 @@ class ReviewController extends Controller
      */
     public function __invoke(Request $request)
     {
+        // tampung seluruh data review kedalam variabel reviews, kemudian data review kita urutan dari yang paling terbaru.
         $reviews = Review::latest()->get();
 
+        // passing variabel $reviews kedama view.
         return view('landing.review.index', compact('reviews'));
     }
 }
