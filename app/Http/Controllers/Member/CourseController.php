@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CourseRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -54,14 +55,13 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
         $image = $request->file('image');
         $image->storeAs('public/course', $image->hashName());
 
         $request->user()->courses()->create([
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
             'image' => $request->file('image') ? $image->hashName() : null,
             'price' => $request->price,
             'description' => $request->description,
@@ -96,7 +96,6 @@ class CourseController extends Controller
     {
         $course->update([
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
             'price' => $request->price,
             'description' => $request->description,
             'demo' => $request->demo,

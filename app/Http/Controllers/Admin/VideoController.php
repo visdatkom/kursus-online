@@ -6,6 +6,7 @@ use App\Models\Video;
 use App\Models\Course;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\VideoRequest;
 use App\Http\Controllers\Controller;
 
 class VideoController extends Controller
@@ -30,7 +31,7 @@ class VideoController extends Controller
         return view('admin.video.create', compact('course'));
     }
 
-    public function store($slug, Request $request)
+    public function store($slug, VideoRequest $request)
     {
         // tampung data course kedalam variabel $course, yang dimana "slug"nya sama dengan variabel $slug.
         $course = Course::where('slug', $slug)->first();
@@ -56,7 +57,7 @@ class VideoController extends Controller
         return view('admin.video.edit', compact('course','video'));
     }
 
-    public function update(Request $request, $slug, Video $video)
+    public function update(VideoRequest $request, $slug, Video $video)
     {
         // tampung data course kedalam variabel $course, yang dimana "slug"nya sama dengan variabel $slug.
         $course = Course::where('slug', $slug)->first();

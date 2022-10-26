@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\TransactionDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ShowcaseRequest;
 use Illuminate\Support\Facades\Storage;
 
 class ShowcaseController extends Controller
@@ -58,7 +59,7 @@ class ShowcaseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ShowcaseRequest $request)
     {
         // tampung request file cover kedalam variable $cover.
         $cover = $request->file('cover');
@@ -108,7 +109,7 @@ class ShowcaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Showcase $showcase)
+    public function update(ShowcaseRequest $request, Showcase $showcase)
     {
         // update data showcase berdasrkan showcase id dan "user_id" sesuai dengan user yang sedang login
         $request->user()->showcases()->update([
