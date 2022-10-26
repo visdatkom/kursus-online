@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'name' => 'Rafi Taufiqurrahman',
             'username' => 'Raf-Taufiqurrahman',
             'email' => 'admin@gmail.com',
-            'password' => bcrypt('password')
+            'password' => bcrypt('rafi1702')
         ]);
 
         $role = Role::find(1);
