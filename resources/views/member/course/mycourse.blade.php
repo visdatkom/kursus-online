@@ -175,7 +175,7 @@
                             </div>
                             <div class="col-12 my-4">
                                 <h5 class="text-center font-weight-bold text-md">
-                                    Anda belum memiliki course apapun !
+                                    Anda belum memiliki course !
                                 </h5>
                                 <p class="text-center text-secondary text-sm">
                                     Silahkan tambahkan playlist course anda, dan mulailah bangun diri anda sesuai dengan

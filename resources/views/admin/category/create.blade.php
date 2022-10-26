@@ -6,11 +6,8 @@
             <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <x-card-form title="CREATE NEW CATEGORY" url="{{ route('admin.category.index') }}" titleBtn="Create Category">
-                    <div class="card-body">
-                        <x-input title="Title" type="text" name="name" placeholder="Enter category title"
-                            value="" />
-                        <x-upload-file title="Image" name="image" value="" />
-                    </div>
+                    <x-input title="Title" type="text" name="name" placeholder="Enter category title" value="" />
+                    <x-upload-file title="Image" name="image" value="" />
                 </x-card-form>
             </form>
         </div>

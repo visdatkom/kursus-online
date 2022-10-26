@@ -5,7 +5,7 @@
         <div class="col-10">
             <form action="{{ route('admin.course.update', $course->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <x-card-form title="EDIT COURSE" url="{{ route('admin.category.index') }}" titleBtn="Update Course">
+                <x-card-form title="EDIT COURSE" url="{{ route('admin.course.index') }}" titleBtn="Update Course">
                     <div class="card-body">
                         <x-input title="Title" type="text" name="name" placeholder="Enter course title"
                             value="{{ $course->name }}" />

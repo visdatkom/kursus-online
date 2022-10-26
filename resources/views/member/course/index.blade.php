@@ -27,15 +27,11 @@
                             <li class="list-group-item">
                                 <b>Episodes</b>
                                 <span class="float-right text-dark">
-                                    {{ $course->videos_count }} <a href="">
+                                    {{ $course->video }} <a href="">
                                     </a>
                                 </span>
                             </li>
                         </ul>
-                        <a href="{{ Route('member.video.create', $course->slug) }}" class="btn btn-dark btn-sm">
-                            <i class="fas fa-video mr-1"></i>
-                            Add Episode
-                        </a>
                         <a href="{{ Route('member.video.index', $course->slug) }}" class="btn btn-warning btn-sm">
                             <i class="fas fa-list"></i>
                             List Eps
@@ -58,8 +54,8 @@
                 </div>
             </div>
         @endforeach
-        <div class="d-flex justify-content-end">
-            {{ $courses->links() }}
-        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        {{ $courses->links() }}
     </div>
 @endsection

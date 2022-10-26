@@ -7,11 +7,9 @@
                 @csrf
                 @method('PUT')
                 <x-card-form title="EDIT CATEGORY" url="{{ route('admin.category.index') }}" titleBtn="Update Category">
-                    <div class="card-body">
-                        <x-input title="Title" type="text" name="name" placeholder="Enter category title"
-                            value="{{ $category->name }}" />
-                        <x-upload-file title="Image" name="image" value="{{ $category->image }}" />
-                    </div>
+                    <x-input title="Title" type="text" name="name" placeholder="Enter category title"
+                        value="{{ $category->name }}" />
+                    <x-upload-file title="Image" name="image" value="{{ $category->image }}" />
                 </x-card-form>
             </form>
         </div>

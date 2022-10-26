@@ -49,94 +49,46 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="profile">
-                            <form class="form-horizontal" action="{{ route('member.profile.update', $user->id) }}"
+                            <form class="form-horizontal" action="{{ route('admin.user.profile.update', $user->id) }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Avatar</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" class="custom-file-input" id="avatar" name="avatar">
-                                        <label class="custom-file-label" for="avatar">Choose file</label>
-                                    </div>
+                                <x-upload-file title="Avatar" name="avatar" :value="$user->avatar" />
+                                <x-input title="Full Name" type="text" name="name" :value="$user->name" placeholder="" />
+                                <x-input title="Username" type="text" name="username" :value="$user->username" placeholder="" />
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" name="email" class="form-control" value="{{ $user->email }}"
+                                        disabled>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Full Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" value="{{ $user->name }}"
-                                            name="name">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Username</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" value="{{ $user->username }}"
-                                            name="username">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="email"
-                                            value="{{ $user->email }}" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Github</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control"
-                                            placeholder="https://github.com/example" value="{{ $user->github }}"
-                                            name="github">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Instagram</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control"
-                                            placeholder="https://github.com/example" value="{{ $user->instagram }}"
-                                            name="instagram">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">About Me</label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" placeholder="Cuma Hooman yang suka Laravel" name="about">{{ $user->about }}</textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="offset-sm-2 col-sm-10">
-                                        <button type="submit" class="btn btn-danger">Update</button>
-                                    </div>
+                                <x-input title="Github" type="text" name="github" :value="$user->github"
+                                    placeholder="your github" />
+                                <x-input title="Instagram" type="text" name="instagram" :value="$user->instagram"
+                                    placeholder="your instagram" />
+                                <x-textarea title="About Me" name="about" placeholder="Cuma Hooman yang suka Laravel">
+                                    {{ $user->about }}</x-textarea>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-check mr-1"></i> Update Profile
+                                    </button>
                                 </div>
                             </form>
                         </div>
                         <div class="tab-pane" id="password">
-                            <form class="form-horizontal" action="{{ route('member.profile.password', $user->id) }}"
+                            <form class="form-horizontal" action="{{ route('admin.user.profile.password', $user->id) }}"
                                 method="POST">
                                 @csrf
                                 @method('PUT')
+                                <x-input title="Current Password" type="password" name="current_password" value=""
+                                    placeholder="" />
+                                <x-input title="New Password" type="password" name="password" value=""
+                                    placeholder="" />
+                                <x-input title="Password Confirmation" type="password" name="password_confirmation"
+                                    value="" placeholder="" />
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Current Password</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" name="current_password">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">New Password</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" name="password">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Password Confirmation</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" name="password_confirmation">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="offset-sm-2 col-sm-10">
-                                        <button type="submit" class="btn btn-danger">Update</button>
-                                    </div>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-check mr-1"></i> Update Password
+                                    </button>
                                 </div>
                             </form>
                         </div>

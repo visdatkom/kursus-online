@@ -100,7 +100,7 @@ class CheckoutContoller extends Controller
             Notification::send($admin, new NewTransaction($invoice));
 
             // isi data response['snapToken] dengan variabel $snapToken.
-            return dd($this->response['snapToken'] = $snapToken);
+            return $this->response['snapToken'] = $snapToken;
         });
 
         // passing variabel $snapToken kedalam view.
