@@ -16,8 +16,15 @@ class ShowcaseController extends Controller
      */
     public function __invoke(Request $request)
     {
-        // tampung seluruh data showcase kedalam variabel $showcases, kemudian data showcase kita urutan dari yang paling terbaru.
-        $showcases = Showcase::latest()->get();
+        /*
+            tampung seluruh data review kedalam variabel $reviews, disini
+            kita juga menambahkan method search dan multiSearch
+            yang kita dapatkan dari sebuah trait hasScope, selanjutnya
+            kita pecah data review yang kita tampilkan hanya 8 per halaman
+            dengan urutan terbaru.
+        */
+        $showcases = Showcase::multiSearch('course', 'name')
+            ->multiSearch('user', 'name')->latest()->get();
 
         // passing variabel $showcases kedalam view.
         return view('landing.showcase.index', compact('showcases'));

@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Course;
 use App\Models\Category;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CourseRequest;
 use Illuminate\Support\Facades\Storage;

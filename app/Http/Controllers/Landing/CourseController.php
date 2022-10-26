@@ -13,10 +13,15 @@ class CourseController extends Controller
 {
     public function index()
     {
-        /*  tampung seluruh data course kedalam variabel $courses, disini
-            kita juga menambahkan method search yang kita dapatkan dari sebuah trait hasScope, kemudian data course kita urutan dari yang paling terbaru.
+        /*
+            tampung semua data course kedalam variabel $courses, kemudian kita memanggil relasi menggunakan withcount,
+            selanjutnya pada saat melakukan pemanggilan relasi details yang kita ubah namanya menjadi enrolled, disini kita melakukan sebuah query untuk mengambil data transaksi yang memiliki status "success", disini kita juga menambahkan method search yang kita dapatkan dari sebuah trait hasScope, dan juga kita urutkan datanya dari yang paling baru.
         */
-        $courses = Course::search('name')->latest()->get();
+        $courses = Course::withCount(['videos', 'reviews', 'details as enrolled' => function($query){
+            $query->whereHas('transaction', function($query){
+                $query->where('status', 'success');
+            });
+        }])->search('name')->latest()->get();
 
         // passing variabel $courses kedalam view.
         return view('landing.course.index', compact('courses'));
