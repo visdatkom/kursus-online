@@ -8,7 +8,7 @@
                 <x-card-form title="CREATE NEW COURSE" url="{{ route('admin.course.index') }}" titleBtn="Create Course">
                     <div class="card-body">
                         <x-input title="Title" type="text" name="name" placeholder="Enter course title"
-                            value="" />
+                            value="{{ old('name') }}" />
                         <div class="row">
                             <div class="col-6">
                                 <x-select title="Category" name="category_id">
@@ -22,21 +22,22 @@
                             </div>
                             <div class="col-6">
                                 <x-input title="Demo" type="text" name="demo" placeholder="Enter course demo url"
-                                    value="" />
+                                    :value="old('demo')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
                                 <x-input title="Price" type="number" name="price" placeholder="Enter course price"
-                                    value="" />
+                                    value="{{ old('price') }}" />
                             </div>
                             <div class="col-6">
                                 <x-input title="Discount" type="number" name="discount" placeholder="Enter course discount"
-                                    value="" />
+                                    value="{{ old('discount') }}" />
                             </div>
                         </div>
-                        <x-upload-file title="Cover" name="image" value="" />
-                        <x-textarea title="Description" name="description" placeholder="Enter course description" />
+                        <x-upload-file title="Cover" name="image" value="{{ old('image') }}" />
+                        <x-textarea title="Description" name="description" placeholder="Enter course description"
+                            value="{{ old('description') }}" />
                     </div>
                 </x-card-form>
             </form>

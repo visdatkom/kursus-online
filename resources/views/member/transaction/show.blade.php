@@ -34,11 +34,16 @@
                                 <td width="30%">Status</td>
                                 <td>
                                     @if ($transaction->status == 'success')
-                                        <button class="btn btn-primary btn-sm" disabled>Pembayaran Telah Diverifikasi
-                                            Sistem</button>
+                                        <button class="btn btn-primary btn-sm" disabled>
+                                            Pembayaran Telah Diverifikasi Sistem
+                                        </button>
                                     @elseif($transaction->status == 'pending')
                                         <button id="pay-button" class="btn btn-danger btn-sm">
                                             Lanjutkan Pembayaran
+                                        </button>
+                                    @else
+                                        <button class="btn btn-warning btn-sm" disabled>
+                                            Silahkan Lakukan Order Kembali
                                         </button>
                                     @endif
                                 </td>
@@ -100,7 +105,20 @@
     <script type="text/javascript">
         var payButton = document.getElementById('pay-button');
         payButton.addEventListener('click', function() {
-            window.snap.pay('{{ $snapToken }}');
-        });
+            window.snap.pay('{{ $snapToken }}', {
+                // Optional
+                onSuccess: function() {
+                    window.location.href = "{{ route('home') }}";
+                },
+                // Optional
+                onPending: function() {
+                    window.location.href = "{{ route('home') }}";
+                },
+                // Optional
+                onError: function() {
+                    window.location.href = "{{ route('home') }}";
+                }
+            });
+        })
     </script>
 @endpush

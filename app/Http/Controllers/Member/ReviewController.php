@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Member;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ReviewRequest;
 
 class ReviewController extends Controller
 {
-    public function store(Request $request, Course $course)
+    public function store(ReviewRequest $request, Course $course)
     {
         /*
             masukan data baru review dengan "course_id" sesuai dengan variabel $course, karena disini kita menggunakan

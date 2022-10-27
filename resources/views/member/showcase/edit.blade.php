@@ -18,7 +18,8 @@
                         @endforeach
                     </x-select>
                     <x-upload-file title="Cover" name="cover" :value="$showcase->cover" />
-                    <x-textarea title="Description" name="description" placeholder="Enter showcase description">
+                    <x-textarea title="Description" name="description" placeholder="Enter showcase description"
+                        value="">
                         {{ $showcase->description }}</x-textarea>
                 </x-card-form>
             </form>

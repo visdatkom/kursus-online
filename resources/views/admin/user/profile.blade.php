@@ -65,7 +65,8 @@
                                     placeholder="your github" />
                                 <x-input title="Instagram" type="text" name="instagram" :value="$user->instagram"
                                     placeholder="your instagram" />
-                                <x-textarea title="About Me" name="about" placeholder="Cuma Hooman yang suka Laravel">
+                                <x-textarea title="About Me" name="about" placeholder="Cuma Hooman yang suka Laravel"
+                                    value="">
                                     {{ $user->about }}</x-textarea>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">

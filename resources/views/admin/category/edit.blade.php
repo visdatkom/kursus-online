@@ -8,8 +8,8 @@
                 @method('PUT')
                 <x-card-form title="EDIT CATEGORY" url="{{ route('admin.category.index') }}" titleBtn="Update Category">
                     <x-input title="Title" type="text" name="name" placeholder="Enter category title"
-                        value="{{ $category->name }}" />
-                    <x-upload-file title="Image" name="image" value="{{ $category->image }}" />
+                        :value="$category->name" />
+                    <x-upload-file title="Image" name="image" :value="$category->image" />
                 </x-card-form>
             </form>
         </div>

@@ -34,7 +34,20 @@
     <script type="text/javascript">
         var payButton = document.getElementById('pay-button');
         payButton.addEventListener('click', function() {
-            window.snap.pay('{{ $snapToken }}');
+            window.snap.pay('{{ $snapToken }}', {
+                // Optional
+                onSuccess: function() {
+                    window.location.href = "{{ route('home') }}";
+                },
+                // Optional
+                onPending: function() {
+                    window.location.href = "{{ route('home') }}";
+                },
+                // Optional
+                onError: function() {
+                    window.location.href = "{{ route('home') }}";
+                }
+            });
         });
     </script>
 @endpush

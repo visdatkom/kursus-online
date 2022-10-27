@@ -37,7 +37,8 @@
                             </div>
                         </div>
                         <x-upload-file title="Cover" name="image" value="{{ $course->image }}" />
-                        <x-textarea title="Description" name="description" placeholder="Enter course description">
+                        <x-textarea title="Description" name="description" placeholder="Enter course description"
+                            value="">
                             {{ $course->description }}</x-textarea>
                     </div>
                 </x-card-form>

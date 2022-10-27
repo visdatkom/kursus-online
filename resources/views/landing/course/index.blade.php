@@ -4,7 +4,7 @@
     <!-- hero section -->
     <x-landing.hero-section title="Course"
         subtitle="Kumpulan video tutorial yang dapat membantu proses belajar anda secara sistematis"
-        details="Disini kita akan mempelajarinya semua dari awal, jangan terlalu lama berfikir ! karena disi tidak hanya mengajarkan tentang fundamental tetapi dengan studi kasus didalamnya."
+        details="Disini kita akan mempelajarinya semua dari awal, jangan terlalu lama berfikir! karena disini tidak hanya mengajarkan tentang fundamental tetapi dengan studi kasus didalamnya."
         :data="$courses" cardtitle="Course">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-laptop w-10 h-10 md:w-20 md:h-20"
             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
@@ -21,7 +21,7 @@
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 container mx-auto my-5 items-start">
                 @foreach ($courses as $course)
-                    <x-landing.course-item :course="$course" />
+                    <x-landing.course-item :course="$course" :avgRating="$avgRating" />
                 @endforeach
             </div>
         </div>

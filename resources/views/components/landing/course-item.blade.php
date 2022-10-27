@@ -1,4 +1,4 @@
-@props(['course'])
+@props(['course', 'avgRating'])
 <div class="bg-slate-800 rounded-lg shadow-custom">
     <img class="rounded-t-lg" src="{{ $course->image }}" alt="product image">
     <div class="p-4 md:p-5 text-center">
@@ -7,7 +7,7 @@
             {{ $course->name }}
         </a>
         <div class="flex flex-row gap-3 text-xs justify-center my-4">
-            <div class="text-slate-400 flex items-center gap-2">
+            <div class="text-slate-400 flex items-center gap-1 align-bottom">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list w-5 h-5" width="24"
                     height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -21,7 +21,7 @@
                 </svg>
                 {{ $course->videos_count }} Episode
             </div>
-            <div class="text-slate-400 flex items-center gap-2 ">
+            <div class="text-slate-400 flex items-center gap-1 align-bottom">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users w-5 h-5"
                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
                     fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -33,7 +33,7 @@
                 </svg>
                 {{ $course->enrolled }} Member
             </div>
-            <div class="text-slate-400 flex items-center gap-2">
+            <div class="text-slate-400 flex items-center gap-1 align-bottom">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2 w-5 h-5"
                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
                     fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -48,8 +48,7 @@
             </div>
         </div>
         <div class="flex justify-between items-center mt-5">
-            <span
-                class="text-base p-1.5 border bg-red-800 text-white rounded font-semibold border-dashed border-red-700">
+            <span class="text-base p-2 border bg-red-800 text-white rounded font-semibold border-red-600">
                 Discount {{ $course->discount }}%
             </span>
             <div class="flex flex-col">
@@ -60,6 +59,32 @@
                     <sup>Rp</sup>{{ moneyFormat(discount($course->price, $course->discount)) }}
                 </span>
             </div>
+        </div>
+    </div>
+    <div class="border-t border-slate-700 border-dashed p-4 flex justify-between">
+        <div class="flex items-center gap-1 align-bottom">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-star w-5 h-5 fill-yellow-500 text-yellow-500" width="24"
+                height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z">
+                </path>
+            </svg>
+            <div class="text-slate-400 font-medium text-sm">{{ round($avgRating, 1) }}</div>
+        </div>
+        <div class="flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user-circle w-5 h-5 text-slate-400" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <circle cx="12" cy="12" r="9"></circle>
+                <circle cx="12" cy="10" r="3"></circle>
+                <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
+            </svg>
+            <div class="text-slate-400 font-medium text-sm">{{ $course->user->name }}</div>
         </div>
     </div>
 </div>

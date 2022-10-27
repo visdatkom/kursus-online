@@ -8,7 +8,7 @@
             @csrf
             <div class="input-group mb-3">
                 <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email"
-                    name="email">
+                    name="email" value="{{ old('email') }}">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-envelope"></span>
@@ -37,9 +37,6 @@
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
         </form>
         <div class="mt-4">
-            {{-- <p class="mb-1">
-                <a href="forgot-password.html">I forgot my password</a>
-            </p> --}}
             <p class="mb-0">
                 <a href="{{ route('register') }}" class="text-center">Create new account</a>
             </p>

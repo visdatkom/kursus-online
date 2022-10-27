@@ -34,7 +34,7 @@
                     <label class="text-base text-gray-700 font-medium">
                         Total Bayar
                     </label>
-                    <input type="email"
+                    <input type="text"
                         class="rounded-lg border p-2 text-sm text-gray-700 focus:outline-none bg-gray-100 cursor-not-allowed"
                         value="{{ $total }}" name="grand_total" readonly>
                 </div>

@@ -23,8 +23,11 @@ class CourseController extends Controller
             });
         }])->search('name')->latest()->get();
 
+        // jumlahkan nilai rata - rata "rating" yang dimana "course_id"nya sesuai dengan variabel $coruses kedalam varibel $avgRating.
+        $avgRating = Review::whereBelongsTo($courses)->avg('rating');
+
         // passing variabel $courses kedalam view.
-        return view('landing.course.index', compact('courses'));
+        return view('landing.course.index', compact('courses', 'avgRating'));
     }
 
     public function show(Course $course)
@@ -44,12 +47,16 @@ class CourseController extends Controller
         /*
             tampung data transaction yang memiliki status "success" dan "user_id" sesuai dengan user yang sedang login kedalam variabel $alreadyBought, kemudian kita memanggil relasi menggunakan with, selanjutnya pada saat melakukan pemanggilan relasi details, kita melakukan sebuah query untuk mengambil data transaction detail dengan "course_id" sesuai dengan variabel $course->id.
         */
-        $alreadyBought = Transaction::with('details.course')
-            ->where('status', 'success')
-            ->where('user_id', Auth::id())
-            ->whereHas('details', function($query) use($course){
-                $query->where('course_id', $course->id);
-            })->first();
+        if(Auth::user()){
+            $alreadyBought = Transaction::with('details.course')
+                ->where('status', 'success')
+                ->where('user_id', Auth::id())
+                ->whereHas('details', function($query) use($course){
+                    $query->where('course_id', $course->id);
+                })->first();
+        }else{
+            $alreadyBought = [];
+        }
 
         // passing variabel $course, $videos, $enrolled, dan $alreadyBought kedalam view.
         return view('landing.course.show', compact('course', 'videos', 'enrolled', 'alreadyBought'));
@@ -66,12 +73,16 @@ class CourseController extends Controller
         /*
             tampung data transaction yang memiliki status "success" dan "user_id" sesuai dengan user yang sedang login kedalam variabel $transaction, kemudian kita memanggil relasi menggunakan with, selanjutnya pada saat melakukan pemanggilan relasi details, kita melakukan sebuah query untuk mengambil data transaction detail dengan "course_id" sesuai dengan variabel $course->id.
         */
-        $transaction = Transaction::with('user', 'details.course')
-            ->where('user_id', $user->id)
-            ->where('status', 'success')
-            ->whereHas('details', function($query) use($course){
-                $query->where('course_id', $course->id);
-            })->get();
+        if($user){
+            $transaction = Transaction::with('user', 'details.course')
+                ->where('user_id', $user->id)
+                ->where('status', 'success')
+                ->whereHas('details', function($query) use($course){
+                    $query->where('course_id', $course->id);
+                })->get();
+        }else{
+            $transaction = [];
+        }
 
         // tampung data review dengan "course_id" sesuai dengan variabel $course->id kedalam variabel $reviews.
         $reviews = Review::where('course_id', $course->id)->get();

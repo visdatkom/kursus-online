@@ -10,7 +10,7 @@
                     </h1>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('member.mycourse') }}" method="GET" class="mb-3 mt-3">
+                    <form action="{{ route('admin.mycourse') }}" method="GET" class="mb-3 mt-3">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search by course title..."
                                 value="{{ request()->search }}" name="search">
@@ -42,7 +42,7 @@
                                     </button>
                                     <div class="modal fade" id="modal-default{{ $data->course->id }}">
                                         <div class="modal-dialog">
-                                            <form action="{{ route('member.review', $data->course->id) }}" method="POST">
+                                            <form action="{{ route('admin.review', $data->course->id) }}" method="POST">
                                                 @csrf
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -53,21 +53,17 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <x-select name="rating" title="Rating">
-                                                            <option value="1">1 </option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                        </x-select>
-                                                        <x-textarea title="Review" name="review"
-                                                            value="{{ old('review') }}" placeholder="" />
+                                                        <div class="form-group">
+                                                            <label for="name">Role Name</label>
+                                                            <input type="text" name="name" class="form-control"
+                                                                id="name" placeholder="Enter role name" value="">
+                                                        </div>
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                         <button type="button" class="btn btn-default"
                                                             data-dismiss="modal">Close</button>
-                                                        <button class="btn btn-success" type="submit">
-                                                            <i class="fas fa-check mr-1"></i> Save Review
+                                                        <button class="btn btn-primary" type="submit">
+                                                            <i class="fas fa-check mr-1"></i> Update role
                                                         </button>
                                                     </div>
                                                 </div>
@@ -89,7 +85,7 @@
                                     </button>
                                     <div class="modal fade" id="modal-lg{{ $data->course->id }}">
                                         <div class="modal-dialog modal-lg">
-                                            <form action="{{ route('member.review', $data->course->id) }}" method="POST">
+                                            <form action="{{ route('admin.review', $data->course->id) }}" method="POST">
                                                 @csrf
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -123,8 +119,7 @@
                                     </div>
                                     <div class="modal fade" id="modal-default{{ $data->course->id }}">
                                         <div class="modal-dialog">
-                                            <form action="{{ route('member.review', $data->course->id) }}"
-                                                method="POST">
+                                            <form action="{{ route('admin.review', $data->course->id) }}" method="POST">
                                                 @csrf
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -135,18 +130,21 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <div class="form-group">
-                                                            <label for="name">Role Name</label>
-                                                            <input type="text" name="name" class="form-control"
-                                                                id="name" placeholder="Enter role name"
-                                                                value="">
-                                                        </div>
+                                                        <x-select name="rating" title="Rating">
+                                                            <option value="1">1 </option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </x-select>
+                                                        <x-textarea title="Review" name="review"
+                                                            value="{{ old('review') }}" placeholder="" />
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                         <button type="button" class="btn btn-default"
                                                             data-dismiss="modal">Close</button>
-                                                        <button class="btn btn-primary" type="submit">
-                                                            <i class="fas fa-check mr-1"></i> Update role
+                                                        <button class="btn btn-success" type="submit">
+                                                            <i class="fas fa-check mr-1"></i> Save Review
                                                         </button>
                                                     </div>
                                                 </div>
@@ -170,21 +168,7 @@
                     @empty
                         <div class="row">
                             <div class="col-12 d-flex justify-content-center">
-                                <img src="{{ asset('course.svg') }}" class="img-fluid" width="30%">
-                            </div>
-                            <div class="col-12 my-4">
-                                <h5 class="text-center font-weight-bold text-md">
-                                    Anda belum memiliki course !
-                                </h5>
-                                <p class="text-center text-secondary text-sm">
-                                    Silahkan tambahkan playlist course anda, dan mulailah bangun diri anda sesuai dengan
-                                    yang anda impikan.
-                                </p>
-                                <div class="d-flex justify-content-center">
-                                    <a href="{{ route('home') }}" class="btn btn-dark btn-sm">
-                                        Lihat Daftar Course
-                                    </a>
-                                </div>
+                                <img src="{{ asset('course.svg') }}" class="img-fluid" width="60%">
                             </div>
                         </div>
                     @endforelse

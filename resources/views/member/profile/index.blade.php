@@ -49,7 +49,7 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="profile">
-                            <form class="form-horizontal" action="{{ route('admin.user.profile.update', $user->id) }}"
+                            <form class="form-horizontal" action="{{ route('member.profile.update', $user->id) }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -65,7 +65,8 @@
                                     placeholder="your github" />
                                 <x-input title="Instagram" type="text" name="instagram" :value="$user->instagram"
                                     placeholder="your instagram" />
-                                <x-textarea title="About Me" name="about" placeholder="Cuma Hooman yang suka Laravel">
+                                <x-textarea title="About Me" name="about" placeholder="Cuma Hooman yang suka Laravel"
+                                    value="">
                                     {{ $user->about }}</x-textarea>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">
@@ -75,7 +76,7 @@
                             </form>
                         </div>
                         <div class="tab-pane" id="password">
-                            <form class="form-horizontal" action="{{ route('admin.user.profile.password', $user->id) }}"
+                            <form class="form-horizontal" action="{{ route('member.profile.password', $user->id) }}"
                                 method="POST">
                                 @csrf
                                 @method('PUT')

@@ -3,30 +3,31 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Landing\CartController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\MyCourseController;
+use App\Http\Controllers\Admin\ShowcaseController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\NotificationDatabaseController;
 use App\Http\Controllers\Landing\CheckoutContoller;
 use App\Http\Controllers\Admin\PermissionController;
-use App\Http\Controllers\Admin\ReviewController;
-use App\Http\Controllers\Admin\ShowcaseController;
 use App\Http\Controllers\Admin\TransactionController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Landing\CourseController as LandingCourseController;
-use App\Http\Controllers\Landing\ReviewController as LandingReviewController;
-use App\Http\Controllers\Landing\ShowcaseController as LandingShowcaseController;
-use App\Http\Controllers\Landing\CategoryController as LandingCategoryController;
-use App\Http\Controllers\Member\MyCourseController as MemberMyCourseController;
+use App\Http\Controllers\Admin\NotificationDatabaseController;
+use App\Http\Controllers\Member\VideoController as MemberVideoController;
 use App\Http\Controllers\Member\CourseController as MemberCourseController;
 use App\Http\Controllers\Member\ReviewController as MemberReviewController;
-use App\Http\Controllers\Member\VideoController as MemberVideoController;
-use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
+use App\Http\Controllers\Landing\CourseController as LandingCourseController;
+use App\Http\Controllers\Landing\ReviewController as LandingReviewController;
 use App\Http\Controllers\Member\ProfileController as MemberProfileController;
-use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
+use App\Http\Controllers\Member\MyCourseController as MemberMyCourseController;
 use App\Http\Controllers\Member\ShowcaseController as MemberShowcaseController;
+use App\Http\Controllers\Landing\CategoryController as LandingCategoryController;
+use App\Http\Controllers\Landing\ShowcaseController as LandingShowcaseController;
+use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
+use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,7 @@ Route::get('/', HomeController::class)->name('home');
 Route::controller(LandingCourseController::class)->as('course.')->group(function(){
     Route::get('/course', 'index')->name('index');
     Route::get('/course/{course:slug}', 'show')->name('show');
-    Route::get('/course/{course:slug}/{video:episode}', 'video')->name('video')->middleware('auth');
+    Route::get('/course/{course:slug}/{video:episode}', 'video')->name('video');
 });
 // category route
 Route::get('/category/{category:slug}', LandingCategoryController::class)->name('category');
@@ -75,10 +76,14 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/category', CategoryController::class);
     // admin course route
     Route::resource('/course', CourseController::class);
+    Route::get('/my-course', MyCourseController::class)->name('mycourse');
     // admin showcase route
     Route::get('/showcase', ShowcaseController::class)->name('showcase.index');
     // admin review route
-    Route::get('/review', ReviewController::class)->name('review.index');
+    Route::controller(ReviewController::class)->group(function(){
+        Route::get('/review', 'index')->name('review.index');
+        Route::post('/review/{course}', 'store')->name('review');
+    });
     //admin user route
     Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
     Route::put('/user/profile/{user}', [UserController::class, 'profileUpdate'])->name('user.profile.update');

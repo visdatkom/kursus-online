@@ -5,6 +5,7 @@
         <div class="col-10">
             <form action="{{ route('admin.course.update', $course->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <x-card-form title="EDIT COURSE" url="{{ route('admin.course.index') }}" titleBtn="Update Course">
                     <div class="card-body">
                         <x-input title="Title" type="text" name="name" placeholder="Enter course title"
@@ -36,7 +37,8 @@
                             </div>
                         </div>
                         <x-upload-file title="Cover" name="image" value="{{ $course->image }}" />
-                        <x-textarea title="Description" name="description" placeholder="Enter course description">
+                        <x-textarea title="Description" name="description" placeholder="Enter course description"
+                            value="{{ old('description') }}">
                             {{ $course->description }}</x-textarea>
                     </div>
                 </x-card-form>

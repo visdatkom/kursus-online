@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Models\Course;
+use App\Models\Review;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,10 +12,8 @@ class CategoryController extends Controller
 {
     public function __invoke(Category $category)
     {
-        // tampung data course kedalam variabel $courses, yang dimana "category_id"nya sama dengan variabel $category, kemudian data course kita urutan dari yang paling terbaru.
         /*
-            tampung semua data course kedalam variabel $courses, kemudian kita memanggil relasi menggunakan withcount,
-            selanjutnya pada saat melakukan pemanggilan relasi details yang kita ubah namanya menjadi enrolled, disini kita melakukan sebuah query untuk mengambil data transaksi yang memiliki status "success", disini kita juga menambahkan method search yang kita dapatkan dari sebuah trait hasScope, dan juga kita urutkan datanya dari yang paling baru.
+            tampung semua data course yang dimana "category_id" sesuai dengan variabel $category kedalam variabel $courses, kemudian kita memanggil relasi menggunakan withcount, selanjutnya pada saat melakukan pemanggilan relasi details yang kita ubah namanya menjadi enrolled, disini kita melakukan sebuah query untuk mengambil data transaksi yang memiliki status "success", disini kita juga menambahkan method search yang kita dapatkan dari sebuah trait hasScope, dan juga kita urutkan datanya dari yang paling baru.
         */
         $courses = Course::withCount(['videos', 'reviews', 'details as enrolled' => function($query){
             $query->whereHas('transaction', function($query){
@@ -22,7 +21,10 @@ class CategoryController extends Controller
             });
         }])->where('category_id', $category->id)->search('name')->latest()->get();
 
-        // passing variabel $course dan $category kedalam view.
-        return view('landing.category.show', compact('courses', 'category'));
+        // jumlahkan nilai rata - rata "rating" yang dimana "course_id"nya sesuai dengan variabel $coruses kedalam varibel $avgRating
+        $avgRating = Review::whereBelongsTo($courses)->avg('rating');
+
+        // passing variabel $course, $category, dan $avgRating kedalam view.
+        return view('landing.category.show', compact('courses', 'category', 'avgRating'));
     }
 }
