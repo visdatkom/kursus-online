@@ -21,7 +21,7 @@ class CategoryController extends Controller
             });
         }])->where('category_id', $category->id)->search('name')->latest()->get();
 
-        // jumlahkan nilai rata - rata "rating" yang dimana "course_id"nya sesuai dengan variabel $coruses kedalam varibel $avgRating
+        // jumlahkan nilai rata - rata "rating" yang dimana "course_id"nya sesuai dengan variabel $coruses kedalam varibel $avgRating.
         $avgRating = Review::whereBelongsTo($courses)->avg('rating');
 
         // passing variabel $course, $category, dan $avgRating kedalam view.
