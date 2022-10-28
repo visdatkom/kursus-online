@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Course;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -20,12 +21,10 @@ class HomeController extends Controller
             });
         },])->limit(6)->latest()->get();
 
-         // jumlahkan nilai rata - rata "rating" yang dimana "course_id"nya sesuai dengan variabel $coruses kedalam varibel $avgRating.
-        $avgRating = Review::whereBelongsTo($courses)->avg('rating');
         // tampung seluruh data user yang memiliki role "member" kedalam variabel $user.
         $user = User::role('member')->get();
 
         // passing variable $course, $user, $avgRating kedalam view.
-        return view('landing.home', compact('courses', 'user', 'avgRating'));
+        return view('landing.home', compact('courses', 'user'));
     }
 }

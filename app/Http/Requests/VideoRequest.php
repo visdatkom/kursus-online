@@ -26,13 +26,13 @@ class VideoRequest extends FormRequest
         if(request()->isMethod('POST')){
             $data = [
                 'name' => 'required',
-                'episode' => 'required|unique:videos',
+                'episode' => 'required','unique:videos',
                 'video_code' => 'required',
             ];
         }elseif(request()->isMethod('PUT')){
             $data = [
                 'name' => 'required',
-                'episode' => 'required|unique:videos,episode'.$this->id,
+                'episode' => 'required','unique:videos,episode'.$this->id,
                 'video_code' => 'required',
             ];
         }

@@ -61,19 +61,7 @@
             </div>
         </div>
     </div>
-    <div class="border-t border-slate-700 border-dashed p-4 flex justify-between">
-        <div class="flex items-center gap-1 align-bottom">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-star w-5 h-5 fill-yellow-500 text-yellow-500" width="24"
-                height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z">
-                </path>
-            </svg>
-            <div class="text-slate-400 font-medium text-sm">{{ round($avgRating, 1) }}</div>
-        </div>
+    <div class="border-t border-slate-700 border-dashed p-4">
         <div class="flex items-center gap-1">
             <svg xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-user-circle w-5 h-5 text-slate-400" width="24" height="24"

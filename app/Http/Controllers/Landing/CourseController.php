@@ -23,11 +23,8 @@ class CourseController extends Controller
             });
         }])->search('name')->latest()->get();
 
-        // jumlahkan nilai rata - rata "rating" yang dimana "course_id"nya sesuai dengan variabel $coruses kedalam varibel $avgRating.
-        $avgRating = Review::whereBelongsTo($courses)->avg('rating');
-
         // passing variabel $courses kedalam view.
-        return view('landing.course.index', compact('courses', 'avgRating'));
+        return view('landing.course.index', compact('courses'));
     }
 
     public function show(Course $course)

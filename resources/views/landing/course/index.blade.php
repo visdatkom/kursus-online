@@ -21,7 +21,7 @@
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 container mx-auto my-5 items-start">
                 @foreach ($courses as $course)
-                    <x-landing.course-item :course="$course" :avgRating="$avgRating" />
+                    <x-landing.course-item :course="$course" />
                 @endforeach
             </div>
         </div>
