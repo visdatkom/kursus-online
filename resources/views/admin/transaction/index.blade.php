@@ -1,4 +1,4 @@
-@extends('layouts.backend.app', ['title' => 'Category'])
+@extends('layouts.backend.app', ['title' => 'Transaction'])
 
 @section('content')
     <div class="row">

@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\Storage;
@@ -55,11 +53,11 @@ class CategoryController extends Controller
         // masukan data baru category kedalam database.
         Category::create([
             'name' => $request->name,
-            'image' => $request->file('image') ? $image->hashName() : null,
+            'image' => $image->hashName(),
         ]);
 
         // kembali kehalaman admin/category/index dengan membawa toastr.
-        return redirect(route('admin.category.index'))->with('toast_success');
+        return redirect(route('admin.category.index'))->with('toast_success', 'Category Created');
     }
 
     /**

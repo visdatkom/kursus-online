@@ -31,8 +31,12 @@
                                     <button class="btn btn-primary btn-sm" disabled>Pembayaran Telah Diverifikasi
                                         Sistem</button>
                                 @elseif($transaction->status == 'pending')
-                                    <button id="pay-button" class="btn btn-danger btn-sm">
+                                    <button id="pay-button" class="btn btn-info btn-sm">
                                         Lanjutkan Pembayaran
+                                    </button>
+                                @else
+                                    <button class="btn btn-danger btn-sm" disabled>
+                                        pembayaran untuk pesanan Anda sudah kedaluwarsa
                                     </button>
                                 @endif
                             </td>

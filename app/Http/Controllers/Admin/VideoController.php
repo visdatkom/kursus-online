@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Video;
 use App\Models\Course;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Requests\VideoRequest;
 use App\Http\Controllers\Controller;
 
@@ -44,8 +42,8 @@ class VideoController extends Controller
             'video_code' => $request->video_code,
         ]);
 
-        // kembali kehalaman admin/course/index dengan membawa toastr.
-        return redirect(route('admin.course.index'))->with('toast_success', 'Video Created');
+        // kembali kehalaman admin/video/index dengan membawa toastr.
+        return redirect(route('admin.video.index', $course))->with('toast_success', 'Video Created');
     }
 
     public function edit($slug, Video $video)

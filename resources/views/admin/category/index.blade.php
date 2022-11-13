@@ -31,6 +31,7 @@
                     </tbody>
                 </table>
             </x-card>
+            <div class="d-flex justify-content-end">{{ $categories->links() }}</div>
         </div>
     </div>
 @endsection

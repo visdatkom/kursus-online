@@ -17,11 +17,10 @@ class ShowcaseController extends Controller
     public function __invoke(Request $request)
     {
         /*
-            tampung seluruh data showcase kedalam variabel $showcases, selanjutnya
-            kita pecah data showcase yang kita tampilkan hanya 9 per halaman
+            tampung seluruh data showcase kedalam variabel $showcases, kemudian kita memanggil relasi menggunakan with, selanjutnya kita pecah data showcase yang kita tampilkan hanya 9 per halaman
             dengan urutan terbaru.
         */
-        $showcases = Showcase::latest()->paginate(9);
+        $showcases = Showcase::with('user', 'course')->latest()->paginate(9);
 
         // passing variabel $showcases kedalam view.
         return view('admin.showcase.index', compact('showcases'));

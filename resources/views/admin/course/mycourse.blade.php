@@ -53,17 +53,21 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <div class="form-group">
-                                                            <label for="name">Role Name</label>
-                                                            <input type="text" name="name" class="form-control"
-                                                                id="name" placeholder="Enter role name" value="">
-                                                        </div>
+                                                        <x-select name="rating" title="Rating">
+                                                            <option value="1">1 </option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </x-select>
+                                                        <x-textarea title="Review" name="review"
+                                                            value="{{ old('review') }}" placeholder="" />
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                         <button type="button" class="btn btn-default"
                                                             data-dismiss="modal">Close</button>
-                                                        <button class="btn btn-primary" type="submit">
-                                                            <i class="fas fa-check mr-1"></i> Update role
+                                                        <button class="btn btn-success" type="submit">
+                                                            <i class="fas fa-check mr-1"></i> Save Review
                                                         </button>
                                                     </div>
                                                 </div>

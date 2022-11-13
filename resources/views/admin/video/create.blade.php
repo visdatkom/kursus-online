@@ -5,7 +5,7 @@
         <div class="col-10">
             <form action="{{ route('admin.video.store', $course->slug) }}" method="POST">
                 @csrf
-                <x-card-form title="CREATE NEW EPISODE" :url="route('admin.video.index', $course->id)" titleBtn="Create Episode">
+                <x-card-form title="CREATE NEW EPISODE" :url="route('admin.video.index', $course->slug)" titleBtn="Create Episode">
                     <x-input title="Title" name="name" type="text" placeholder="Enter episode title" :value="old('name')" />
                     <div class="row">
                         <div class="col-6">

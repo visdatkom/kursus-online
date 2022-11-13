@@ -6,7 +6,7 @@
             <form action="{{ route('admin.video.update', [$course->slug, $video->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <x-card-form title="EDIT EPISODE" :url="route('admin.video.index', $course->id)" titleBtn="Update Episode">
+                <x-card-form title="EDIT EPISODE" :url="route('admin.video.index', $course->slug)" titleBtn="Update Episode">
                     <x-input title="Title" name="name" type="text" placeholder="Enter episode title" :value="$video->name" />
                     <div class="row">
                         <div class="col-6">
