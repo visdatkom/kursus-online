@@ -1,10 +1,10 @@
-@extends('layouts.frontend.app', ['title' => 'Showcase'])
+@extends('layouts.frontend.app', ['title' => 'Projek'])
 
 @section('content')
     <!-- hero section -->
-    <x-landing.hero-section title="Showcase" subtitle="Kumpulan showcase project dari para member yang sudah belajar disini"
-        details="Disini project para member yang sudah belajar kami tampilkan agar mampu meningkatkan motivasi belajar para member untuk saling sharing project dan menjadi inspirasi dalam membangun sebuah project."
-        :data="$showcases" cardtitle="Showcase">
+    <x-landing.hero-section title="Projek" subtitle="Kumpulan projek dari para pengguna yang sudah belajar disini"
+        details="Disini projek para pengguna yang sudah belajar kami tampilkan agar mampu meningkatkan motivasi belajar para pengguna untuk saling sharing projek dan menjadi inspirasi dalam membangun sebuah projek."
+        :data="$showcases" cardtitle="Projek">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-source-code w-10 h-10 md:w-20 md:h-20"
             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
             stroke-linecap="round" stroke-linejoin="round">
@@ -41,7 +41,7 @@
                                     <line x1="12" y1="8" x2="12.01" y2="8"></line>
                                     <polyline points="11 12 12 12 12 16 13 16"></polyline>
                                 </svg>
-                                Tentang Showcase :
+                                Tentang Projek :
                             </p>
                             <p>{{ $showcase->description }}</p>
                         </div>

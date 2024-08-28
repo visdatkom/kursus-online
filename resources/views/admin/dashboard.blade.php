@@ -16,7 +16,7 @@
                     <h3>
                         <sup>Rp</sup> {{ moneyFormat($revenue) }}
                     </h3>
-                    <p>Revenue</p>
+                    <p>Pendapatan</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="48"
@@ -30,7 +30,7 @@
                     </svg>
                 </div>
                 <a href="{{ route('admin.transaction.index') }}" class="small-box-footer">
-                    More info <i class="fas fa-arrow-circle-right"></i>
+                    Info lebih lanjut <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -40,7 +40,7 @@
                     <h3>
                         {{ $course }}
                     </h3>
-                    <p>Course</p>
+                    <p>Kursus</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-laptop"
@@ -52,7 +52,7 @@
                     </svg>
                 </div>
                 <a href="{{ route('admin.course.index') }}" class="small-box-footer">
-                    More info <i class="fas fa-arrow-circle-right"></i>
+                    Info lebih lanjut <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -62,7 +62,7 @@
                     <h3>
                         {{ $category }}
                     </h3>
-                    <p>Category</p>
+                    <p>Kategori</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-2" width="48"
@@ -76,7 +76,7 @@
                     </svg>
                 </div>
                 <a href="{{ route('admin.category.index') }}" class="small-box-footer">
-                    More info <i class="fas fa-arrow-circle-right"></i>
+                    Info lebih lanjut <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -86,7 +86,7 @@
                     <h3>
                         {{ $showcase }}
                     </h3>
-                    <p>Showcase</p>
+                    <p>Projek</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-source-code " width="48"
@@ -99,7 +99,7 @@
                     </svg>
                 </div>
                 <a href="{{ route('admin.showcase.index') }}" class="small-box-footer">
-                    More info <i class="fas fa-arrow-circle-right"></i>
+                    Info lebih lanjut <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -109,7 +109,7 @@
                     <h3>
                         {{ $review }}
                     </h3>
-                    <p>Review</p>
+                    <p>Feedback</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2" width="48"
@@ -124,7 +124,7 @@
                     </svg>
                 </div>
                 <a href="{{ route('admin.review.index') }}" class="small-box-footer">
-                    More info <i class="fas fa-arrow-circle-right"></i>
+                    Info lebih lanjut <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -134,7 +134,7 @@
                     <h3>
                         {{ $transaction }}
                     </h3>
-                    <p>Transaction</p>
+                    <p>Transaksi</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt" width="48"
@@ -147,7 +147,7 @@
                     </svg>
                 </div>
                 <a href="{{ route('admin.transaction.index') }}" class="small-box-footer">
-                    More info <i class="fas fa-arrow-circle-right"></i>
+                    Info lebih lanjut <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -157,7 +157,7 @@
                     <h3>
                         {{ $member }}
                     </h3>
-                    <p>Member</p>
+                    <p>Pengguna</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users text-secondary"
@@ -171,7 +171,7 @@
                     </svg>
                 </div>
                 <a href="{{ route('admin.user.index') }}" class="small-box-footer">
-                    More info <i class="fas fa-arrow-circle-right"></i>
+                    Info lebih lanjut <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -181,7 +181,7 @@
                     <h3>
                         {{ $author }}
                     </h3>
-                    <p>Author</p>
+                    <p>Pembuat Materi</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check"
@@ -194,14 +194,14 @@
                     </svg>
                 </div>
                 <a href="{{ route('admin.user.index') }}" class="small-box-footer">
-                    More info <i class="fas fa-arrow-circle-right"></i>
+                    Info lebih lanjut <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
         <div class="col-12">
             <div class="card card-maroon card-outline collapsed-card">
                 <div class="card-header">
-                    <h3 class="card-title">Best Course</h3>
+                    <h3 class="card-title">Kursus terbaik</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">

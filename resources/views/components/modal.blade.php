@@ -14,7 +14,7 @@
                     {{ $slot }}
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
                     <button class="btn btn-success" type="submit">
                         <i class="fas fa-check mr-1"></i> {{ $titleBtn }}
                     </button>

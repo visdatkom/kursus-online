@@ -1,4 +1,4 @@
-@extends('layouts.frontend.app', ['title' => 'Homepage'])
+@extends('layouts.frontend.app', ['title' => 'Detail Kursus'])
 
 @section('content')
     <div class="w-full bg-slate-700 p-5 md:p-20">
@@ -30,7 +30,7 @@
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                 <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                             </svg>
-                            {{ $enrolled }} Member
+                            {{ $enrolled }} Pengguna
                         </div>
                         <div class="text-slate-400 flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2 w-5 h-5"
@@ -42,7 +42,7 @@
                                 </path>
                                 <line x1="8" y1="9" x2="16" y2="9"></line>
                                 <line x1="8" y1="13" x2="14" y2="13"></line>
-                            </svg> {{ $course->reviews()->count() }} Review
+                            </svg> {{ $course->reviews()->count() }} Ulasan
                         </div>
                     </div>
                     <h1 class="text-lg font-semibold lg:text-2xl py-4 text-white text-center md:text-start">
@@ -50,10 +50,16 @@
                     </h1>
                     <p class="text-sm text-center md:text-base md:text-justify text-gray-400">{{ $course->description }}
                     </p>
+                    
                     <div class="mt-5">
-                        <h1 class="text-3xl md:text-6xl text-green-500 font-mono text-center md:text-start">
-                            <sup>Rp</sup>{{ moneyFormat(discount($course->price, $course->discount)) }}
-                        </h1>
+                        <div class="flex items-center justify-center md:justify-start">
+                            <h1 class="text-3xl md:text-6xl text-green-500 font-mono text-center md:text-start">
+                                <sup>Rp</sup>{{ moneyFormat(discount($course->price, $course->discount)) }}
+                            </h1>
+                            <span class="ml-4 text-base p-2 border bg-red-800 text-white rounded font-semibold border-red-600">
+                                Discount {{ $course->discount }}%
+                            </span>
+                        </div>
                         <div class="flex flex-row gap-4 items-center my-6 justify-center md:justify-start">
                             @if ($alreadyBought)
                                 <div
@@ -102,6 +108,7 @@
                                 Lihat Demo
                             </a>
                         </div>
+                        
                     </div>
                 </div>
                 <div

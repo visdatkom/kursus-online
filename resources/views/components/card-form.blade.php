@@ -7,7 +7,7 @@
     </div>
     <div class="card-footer">
         <a href="{{ $url }}" class="btn btn-danger">
-            <i class="fas fa-arrow-left"></i> Go Back
+            <i class="fas fa-arrow-left"></i> Kembali
         </a>
         <button type="submit" class="btn btn-success">
             <i class="fas fa-check mr-1"></i> {{ $titleBtn }}

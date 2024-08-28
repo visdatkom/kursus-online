@@ -13,18 +13,34 @@
                         <line x1="13" y1="15" x2="16" y2="15"></line>
                         <rect x="4" y="4" width="16" height="16" rx="4"></rect>
                     </svg>
-                    LaraDev
+                    UndipDev
                 </h1>
                 <p class="text-sm md:text-lg text-center md:text-start text-gray-100">
-                    Website Belajar Coding bahasa Indonesia terlengkap dan mudah dipahami, seperti
-                    <span class="underline text-[#F55246]">Laravel</span>,
-                    <span class="text-[#41B883] underline">Vue</span>,
-                    <span class="text-[#00D8FF] underline">React</span>,
-                    <span class="text-[#0BA5E9] underline">Tailwind CSS</span> dan
-                    <span class="underline text-blue-500">banyak lagi</span>.
+                    Website Belajar Coding terlengkap dan mudah dipahami ini dirancang khusus untuk membantu siapa saja yang ingin belajar coding dari nol hingga mahir. Di sini, Anda bisa memulai dengan dasar-dasar seperti
+                    <span class=" text-[#F55246]">HTML</span>
+                    untuk membuat struktur halaman web,
+                    <span class="text-[#41B883] ">CSS</span>
+                    untuk mendesain tampilan, dan
+                    <span class="text-[#00D8FF] ">Javascript</span>
+                    untuk menambahkan interaktivitas.
+                    
+                    <br>
+                    <br>
+                    Selain itu, kami juga menyediakan tutorial lengkap tentang
+                    <span class="text-[#0BA5E9] ">PHP</span>, 
+                    yang berguna untuk pengembangan web dinamis, serta Laravel, sebuah framework PHP yang populer dan memudahkan dalam pembuatan aplikasi web. Anda juga bisa belajar tentang teknologi lain yang sering digunakan dalam pengembangan web seperti 
+                    <span class="text-[#46b883] ">Bootstrap</span>, 
+                    untuk membuat tampilan responsif, 
+                    <span class="text-[#8bc849] ">jQuery</span>, 
+                    untuk memudahkan manipulasi DOM, dan cara kerja 
+                    <span class="text-[#c84984] ">API</span>, 
+                    untuk menghubungkan aplikasi dengan layanan lain.
+                    <br>
+                    <br>
+                    Semua materi disusun dengan penjelasan yang sederhana dan disertai contoh-contoh praktis, sehingga Anda dapat mengikuti langkah demi langkah dengan mudah. Baik Anda seorang pemula yang baru mengenal coding atau seorang developer yang ingin memperdalam ilmu, website ini adalah tempat yang tepat untuk memulai dan mengembangkan keterampilan coding Anda.
                 </p>
                 <div class="flex flex-row gap-4 items-center justify-center md:justify-start">
-                    <a href="{{ route('course.index') }}"
+                    {{-- <a href="{{ route('course.index') }}"
                         class="px-4 py-2 rounded-lg bg-cyan-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border border-cyan-600">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="icon icon-tabler icon-tabler-device-laptop w-5 h-5" width="24" height="24"
@@ -34,9 +50,9 @@
                             <line x1="3" y1="19" x2="21" y2="19"></line>
                             <rect x="5" y="6" width="14" height="10" rx="1"></rect>
                         </svg>
-                        Lihat Course
-                    </a>
-                    <a href="{{ route('showcase') }}"
+                        Lihat Kursus
+                    </a> --}}
+                    {{-- <a href="{{ route('showcase') }}"
                         class="px-4 py-2 rounded-lg bg-red-800 text-white hover:scale-110 hover:duration-200 flex items-center gap-2 text-sm border border-red-600">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-source-code w-5 h-5"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -46,7 +62,7 @@
                             <path d="M6 5l-2 2l2 2"></path>
                             <path d="M10 9l2 -2l-2 -2"></path>
                         </svg>
-                        Lihat Showcase
+                        Lihat Projek --}}
                     </a>
                 </div>
             </div>

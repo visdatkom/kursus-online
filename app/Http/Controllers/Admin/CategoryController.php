@@ -57,7 +57,7 @@ class CategoryController extends Controller
         ]);
 
         // kembali kehalaman admin/category/index dengan membawa toastr.
-        return redirect(route('admin.category.index'))->with('toast_success', 'Category Created');
+        return redirect(route('admin.category.index'))->with('toast_success', 'Kategori Dibuat');
     }
 
     /**
@@ -101,7 +101,7 @@ class CategoryController extends Controller
         }
 
         // kembali kehalaman admin/category/index dengan membawa toastr.
-        return redirect(route('admin.category.index'))->with('toast_success', 'Category Updated');
+        return redirect(route('admin.category.index'))->with('toast_success', 'Kategori DiUpdate');
     }
 
     /**
@@ -119,6 +119,6 @@ class CategoryController extends Controller
         $category->delete();
 
         // kembali kehalaman sebelumnya dengan membawa toastr.
-        return back()->with('toast_success', 'Category Deleted');
+        return back()->with('toast_success', 'Kategori Dihapus');
     }
 }

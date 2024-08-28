@@ -44,8 +44,10 @@ class CourseController extends Controller
      */
     public function create()
     {
+        // tampung seluruh data category kedalam variabel $categories.
         $categories = Category::all();
 
+        // passing variabel $categories kedalam view.
         return view('member.course.create', compact('categories'));
     }
 
@@ -57,9 +59,12 @@ class CourseController extends Controller
      */
     public function store(CourseRequest $request)
     {
+        // tampung request file image kedalam variable $image.
         $image = $request->file('image');
+        // request yang telah kita tampung kedalam variabel, kita masukan kedalam folder public/course.
         $image->storeAs('public/course', $image->hashName());
 
+        // masukan data baru course dengan user_id sesuai dengan user yang sedang memberikan request
         $request->user()->courses()->create([
             'name' => $request->name,
             'image' => $request->file('image') ? $image->hashName() : null,
@@ -69,6 +74,7 @@ class CourseController extends Controller
             'category_id' => $request->category_id,
             'discount' => $request->discount,
         ]);
+        // kembali kehalaman admin/course/index dengan membawa toastr.
         return redirect(route('member.course.index'))->with('toast_success', 'Course Created');
     }
 
@@ -80,8 +86,10 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
+        // tampung seluruh data category kedalam variabel $categories.
         $categories = Category::all();
 
+        // passing variabel $categories dan $course kedalam view.
         return view('member.course.edit', compact('categories', 'course'));
     }
 
@@ -94,6 +102,7 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
+        // update data course berdasarkan id.
         $course->update([
             'name' => $request->name,
             'price' => $request->price,
@@ -103,17 +112,21 @@ class CourseController extends Controller
             'discount' => $request->discount,
         ]);
 
+        // cek apakah user mengirimkan request file image.
         if($request->file('image')){
+            // hapus image course yang sebelumnya.
             Storage::disk('local')->delete('public/course/'.basename($course->image));
-
+            // tampung request file image kedalam variabel $image.
             $image = $request->file('image');
+            // request yang telah kita tampung kedalam variabel kita masukan kedalam folder public/course.
             $image->storeAs('public/course', $image->hashName());
-
+            // update data course image berdasrkan id.
             $course->update([
                 'image' => $image->hashName(),
             ]);
         }
 
+        // kembali kehalaman admin/course/index dengan membawa toastr.
         return redirect(route('member.course.index'))->with('toast_success', 'Course Updated');
     }
 
@@ -125,10 +138,13 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
+         // hapus image course berdasarkan id
         Storage::disk('local')->delete('public/course/'.basename($course->image));
 
+        // hapus data course bedasarkan id
         $course->delete();
 
+        // kembali kehalaman sebelumnya dengan membawa toastr
         return back()->with('toast_success', 'Course Deleted');
     }
 }

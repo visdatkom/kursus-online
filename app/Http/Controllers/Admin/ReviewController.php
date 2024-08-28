@@ -49,6 +49,6 @@ class ReviewController extends Controller
         ]);
 
         // kembali kehalaman sebelumnya dengan membawa toastr.
-        return back()->with('toast_success', 'Review Created');
+        return back()->with('toast_success', 'Ulasan Dibuat');
     }
 }

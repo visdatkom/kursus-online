@@ -1,4 +1,4 @@
-@extends('layouts.backend.app', ['title' => 'Course'])
+@extends('layouts.backend.app', ['title' => 'Kursus'])
 
 @section('content')
     <div class="row">
@@ -16,16 +16,16 @@
                         </h3>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Enrolled</b> <span class="float-right text-bold">{{ $course->enrolled }}</span>
+                                <b>Terdaftar</b> <span class="float-right text-bold">{{ $course->enrolled }}</span>
                             </li>
                             <li class="list-group-item">
-                                <b>Discount</b>
+                                <b>Diskon</b>
                                 <span class="float-right text-danger">
                                     {{ $course->discount }} %
                                 </span>
                             </li>
                             <li class="list-group-item">
-                                <b>Episodes</b>
+                                <b>Episode</b>
                                 <span class="float-right text-dark">
                                     {{ $course->video }} <a href="">
                                     </a>
@@ -34,7 +34,7 @@
                         </ul>
                         <a href="{{ Route('member.video.index', $course->slug) }}" class="btn btn-warning btn-sm">
                             <i class="fas fa-list"></i>
-                            List Eps
+                            Daftar Eps
                         </a>
                         <a href="{{ route('member.course.edit', $course->id) }}" class="btn btn-info btn-sm">
                             <i class="fas fa-edit mr-1"></i>

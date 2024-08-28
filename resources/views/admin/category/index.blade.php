@@ -1,17 +1,17 @@
-@extends('layouts.backend.app', ['title' => 'Category'])
+@extends('layouts.backend.app', ['title' => 'Kategori'])
 
 @section('content')
     <div class="row">
         <div class="col-12">
-            <x-button-create title="ADD NEW CATEGORY" :url="route('admin.category.create')" />
-            <x-card title="LIST CATEGORY">
+            <x-button-create title="TAMBAH KATEGORI BARU" :url="route('admin.category.create')" />
+            <x-card title="DAFTAR KATEGORI">
                 <table class="table">
                     <thead>
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>NAME</th>
-                            <th>IMAGE</th>
-                            <th>ACTION</th>
+                            <th>NAMA</th>
+                            <th>GAMBAR</th>
+                            <th>AKSI</th>
                         </tr>
                     </thead>
                     <tbody>

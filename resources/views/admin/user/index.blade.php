@@ -1,4 +1,4 @@
-@extends('layouts.backend.app', ['title' => 'Role'])
+@extends('layouts.backend.app', ['title' => 'User'])
 
 @section('content')
     <div class="row">
@@ -6,15 +6,15 @@
             <x-input-search placeholder="Search user.." :url="route('admin.user.index')" />
         </div>
         <div class="col-12">
-            <x-card title="LIST USER">
+            <x-card title="DAFTAR USER">
                 <table class="table">
                     <thead>
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>NAME</th>
+                            <th>NAMA</th>
                             <th>EMAIL</th>
                             <th>ROLE</th>
-                            <th>ACTION</th>
+                            <th>AKSI</th>
                         </tr>
                     </thead>
                     <tbody>

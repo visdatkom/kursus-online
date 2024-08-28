@@ -7,19 +7,19 @@
                 @csrf
                 @method('PUT')
                 <x-card-form title="EDIT EPISODE" :url="route('member.video.index', $course->id)" titleBtn="Update Episode">
-                    <x-input title="Title" name="name" type="text" placeholder="Enter episode title" :value="$video->name" />
+                    <x-input title="Judul" name="name" type="text" placeholder="Masukkan judul episode" :value="$video->name" />
                     <div class="row">
                         <div class="col-6">
-                            <x-input title="Episode" name="episode" type="text" placeholder="Enter video episode"
+                            <x-input title="Episode" name="episode" type="text" placeholder="Masukkan episode video"
                                 :value="$video->episode" />
                         </div>
                         <div class="col-6">
-                            <x-input title="Video Code" name="video_code" type="text" placeholder="Enter video code"
+                            <x-input title="Url Video" name="video_code" type="text" placeholder="Masukkan url video"
                                 :value="$video->video_code" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="duration">Type</label>
+                        <label for="duration">Tipe</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="intro" value="0"
                                 @checked($video->intro == 0)>

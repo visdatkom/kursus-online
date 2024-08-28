@@ -51,7 +51,7 @@ class UserController extends Controller
         $user->syncRoles($request->roles);
 
         // kembali kehalaman sebelumnya dengan membawa toastr.
-        return back()->with('toast_success', 'User Role Updated');
+        return back()->with('toast_success', 'User Role DiUpdate');
     }
 
     /**
@@ -66,7 +66,7 @@ class UserController extends Controller
         $user->delete();
 
         // kembali kehalaman sebelumnya dengan membawa toastr.
-        return back()->with('toast_success', 'User Deleted');
+        return back()->with('toast_success', 'User Dihapus');
     }
 
     public function profile(Request $request)
@@ -104,7 +104,7 @@ class UserController extends Controller
         }
 
         // kembali kehalaman sebelumnya dengan membawa toastr.
-        return back()->with('toast_succes', 'Profile Updated');
+        return back()->with('toast_succes', 'Profile DiUpdate');
     }
 
     public function updatePassword(Request $request, User $user)
@@ -117,7 +117,7 @@ class UserController extends Controller
         // kita lakukan pengecekan apakah password yang lama sesuai dengan password yang kita masukan.
         if(!(Hash::check($request->get('current_password'), $user->password))){
             // kembali kehalaman sebelumnya dengan sebuah toastr.
-            return back()->with('toast_error', 'Your Old Password Wrong');
+            return back()->with('toast_error', 'Password Lama Kamu Salah');
         }else{
             // update data password user bedasarkan id.
             $user->update([
@@ -126,6 +126,6 @@ class UserController extends Controller
         }
 
         // kembali kehalaman sebelumnya dengan sebuah toastr.
-        return back()->with('toast_success', 'Password Changed');
+        return back()->with('toast_success', 'Password Berubah');
     }
 }

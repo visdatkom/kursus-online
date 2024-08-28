@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Lengkapi data anda</p>
 
         <form action="{{ route('login') }}" method="post">
             @csrf
@@ -34,11 +34,11 @@
                     </div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
         </form>
         <div class="mt-4">
             <p class="mb-0">
-                <a href="{{ route('register') }}" class="text-center">Create new account</a>
+                <a href="{{ route('register') }}" class="text-center">Belum punya akun</a>
             </p>
         </div>
     </div>

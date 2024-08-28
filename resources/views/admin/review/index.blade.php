@@ -1,20 +1,20 @@
-@extends('layouts.backend.app', ['title' => 'Review'])
+@extends('layouts.backend.app', ['title' => 'Ulasan'])
 
 @section('content')
     <div class="row">
         <div class="col-12">
-            <x-input-search :url="route('admin.review.index')" placeholder="Search rating/course/user.." />
+            <x-input-search :url="route('admin.review.index')" placeholder="Search..." />
         </div>
         <div class="col-12">
-            <x-card title="LIST REVIEW">
+            <x-card title="DAFTAR FEEDBACK">
                 <table class="table">
                     <thead>
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>COURSE</th>
+                            <th>KURSUS</th>
                             <th>USER</th>
-                            <th>RATING</th>
-                            <th>REVIEW</th>
+                            <th>PERINGKAT</th>
+                            <th>FEEDBACK</th>
                         </tr>
                     </thead>
                     <tbody>

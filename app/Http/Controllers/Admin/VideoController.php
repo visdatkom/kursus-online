@@ -43,7 +43,7 @@ class VideoController extends Controller
         ]);
 
         // kembali kehalaman admin/video/index dengan membawa toastr.
-        return redirect(route('admin.video.index', $course))->with('toast_success', 'Video Created');
+        return redirect(route('admin.video.index', $course))->with('toast_success', 'Video Dibuat');
     }
 
     public function edit($slug, Video $video)
@@ -69,7 +69,7 @@ class VideoController extends Controller
         ]);
 
         // kembali kehalaman admin/video/index dengan variabel $course dan toastr.
-        return redirect(route('admin.video.index', $course))->with('toast_success', 'Video Updated');
+        return redirect(route('admin.video.index', $course))->with('toast_success', 'Video DiUpdate');
     }
 
     public function destroy(Video $video)
@@ -78,6 +78,6 @@ class VideoController extends Controller
         $video->delete();
 
         // kembali kehalaman sebelumnya dengan membawa toastr
-        return back()->with('toast_success', 'Video Deleted');
+        return back()->with('toast_success', 'Video Dihapus');
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.backend.app', ['title' => 'Transaction'])
+@extends('layouts.backend.app', ['title' => 'Transaksi'])
 
 @section('content')
     <div class="row">
@@ -6,7 +6,7 @@
             <x-input-search :url="route('admin.transaction.index')" placeholder="Search status.." />
         </div>
         <div class="col-12">
-            <x-card title="LIST TRANSACTION">
+            <x-card title="DAFTAR TRANSAKSI">
                 <table class="table">
                     <thead>
                         <tr>
@@ -15,8 +15,8 @@
                             <th>EMAIL</th>
                             <th>TOTAL</th>
                             <th>STATUS</th>
-                            <th>DATE</th>
-                            <th>ACTION</th>
+                            <th>TANGGAL</th>
+                            <th>AKSI</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -1,9 +1,9 @@
-@extends('layouts.backend.app', ['title' => 'Transaction'])
+@extends('layouts.backend.app', ['title' => 'Transaksi'])
 
 @section('content')
     <div class="row">
         <div class="col-12">
-            <x-card title="MY TRANSACTION">
+            <x-card title="TRANSAKSI SAYA">
                 <table class="table">
                     <thead>
                         <tr>
@@ -12,7 +12,7 @@
                             <th>Email</th>
                             <th>Total</th>
                             <th>Status</th>
-                            <th>Date</th>
+                            <th>Tanggal</th>
                             <th>Detail</th>
                         </tr>
                     </thead>

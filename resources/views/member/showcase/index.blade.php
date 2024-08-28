@@ -1,18 +1,18 @@
-@extends('layouts.backend.app', ['title' => 'Showcase'])
+@extends('layouts.backend.app', ['title' => 'Projek'])
 
 @section('content')
     <div class="row">
         <div class="col-12">
-            <x-button-create title="ADD NEW SHOWCASE" :url="route('member.showcase.create')" />
-            <x-card title="MY SHOWCASE">
+            <x-button-create title="TAMBAH PROJEK BARU" :url="route('member.showcase.create')" />
+            <x-card title="PROJEK SAYA">
                 <table class="table">
                     <thead>
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>Project Name</th>
+                            <th>Nama Projek</th>
                             <th>Cover</th>
-                            <th>Description</th>
-                            <th>Action</th>
+                            <th>Deskripsi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

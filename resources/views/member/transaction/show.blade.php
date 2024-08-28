@@ -6,7 +6,7 @@
             <div class="card card-dark">
                 <div class="card-header">
                     <h1 class="card-title">
-                        DETAIL TRANSACTION
+                        DETAIL TRANSAKSI
                     </h1>
                 </div>
                 <div class="card-body p-0">
@@ -63,14 +63,14 @@
             <div class="card card-dark">
                 <div class="card-header">
                     <h1 class="card-title">
-                        DETAIL ITEMS
+                        DETAIL ITEM
                     </h1>
                 </div>
                 <div class="card-body p-0">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Course</th>
+                                <th>Kursus</th>
                                 <th class="text-right">Harga</th>
                             </tr>
                         </thead>

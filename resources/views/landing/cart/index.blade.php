@@ -1,4 +1,4 @@
-@extends('layouts.frontend.app', ['title' => 'Homepage'])
+@extends('layouts.frontend.app', ['title' => 'Cart'])
 
 @section('content')
     <div class="w-full p-2 md:p-16 bg-gray-500">

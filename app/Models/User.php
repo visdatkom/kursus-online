@@ -79,4 +79,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Showcase::class);
     }
+
+    public function quizAttempts()
+    {
+        return $this->hasMany(QuizAttempt::class);
+    }
 }

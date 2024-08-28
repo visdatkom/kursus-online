@@ -27,7 +27,7 @@
                         <path d="M8 9l3 3l-3 3"></path>
                         <line x1="13" y1="15" x2="16" y2="15"></line>
                         <rect x="4" y="4" width="16" height="16" rx="4"></rect>
-                    </svg>LaraDev
+                    </svg>UndipDev
                 </a>
             </div>
             @yield('content')

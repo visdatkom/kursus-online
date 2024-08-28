@@ -5,20 +5,20 @@
         <div class="col-10">
             <form action="{{ route('admin.video.store', $course->slug) }}" method="POST">
                 @csrf
-                <x-card-form title="CREATE NEW EPISODE" :url="route('admin.video.index', $course->slug)" titleBtn="Create Episode">
-                    <x-input title="Title" name="name" type="text" placeholder="Enter episode title" :value="old('name')" />
+                <x-card-form title="BUAT EPISODE BARU" :url="route('admin.video.index', $course->slug)" titleBtn="Buat Episode">
+                    <x-input title="Judul" name="name" type="text" placeholder="Masukkan judul episode" :value="old('name')" />
                     <div class="row">
                         <div class="col-6">
-                            <x-input title="Episode" name="episode" type="text" placeholder="Enter video episode"
+                            <x-input title="Episode" name="episode" type="text" placeholder="Masukkan episode video"
                                 :value="old('episode')" />
                         </div>
                         <div class="col-6">
-                            <x-input title="Video Code" name="video_code" type="text" placeholder="Enter video code"
+                            <x-input title="Url Video" name="video_code" type="text" placeholder="Masukkan url video"
                                 :value="old('video_code')" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="duration">Type</label>
+                        <label for="duration">Tipe</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="intro" value="0" checked>
                             <label class="form-check-label">Free</label>

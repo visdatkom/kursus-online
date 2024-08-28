@@ -54,4 +54,9 @@ class Course extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function quizes()
+    {
+        return $this->hasOne(Quiz::class);
+    }
 }

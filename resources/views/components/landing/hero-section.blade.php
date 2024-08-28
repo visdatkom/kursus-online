@@ -1,4 +1,4 @@
-@props(['data', 'category'])
+@props(['data'])
 <div class="w-full bg-slate-700 p-5 md:p-20">
     <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-4 md:gap-20">
@@ -11,7 +11,7 @@
                     {{ $subtitle }}
                 </p>
                 <p class="py-2 leading-relaxed text-xs text-justify md:text-sm md:text-start text-gray-400 max-w-4xl">
-                    {{ $details }}
+                    {!! $details !!}
                 </p>
             </div>
             <div

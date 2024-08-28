@@ -1,11 +1,11 @@
-@extends('layouts.frontend.app', ['title' => 'Course'])
+@extends('layouts.frontend.app', ['title' => 'Kategori'])
 
 @section('content')
     <!-- hero section -->
-    <x-landing.hero-section title="Category"
-        subtitle="Kumpulan video tutorial dengan category {{ str()->lower($category->name) }}"
+    <x-landing.hero-section title="Kategori"
+        subtitle="Kumpulan video tutorial dengan kategori {{ str()->lower($category->name) }}"
         details="Disini kita akan mempelajarinya semua dari awal, jangan terlalu lama berfikir! karena disini tidak hanya mengajarkan tentang fundamental tetapi dengan studi kasus didalamnya."
-        :data="$courses" cardtitle="Course">
+        :data="$courses" cardtitle="Kategori">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-2 h-10 w-10 md:w-20 md:h-20"
             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
             stroke-linecap="round" stroke-linejoin="round">

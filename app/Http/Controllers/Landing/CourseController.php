@@ -96,7 +96,6 @@ class CourseController extends Controller
             // tampung empty string kedalam variabel $alreadyBought
             $alreadyBought = '';
         }
-        // dd($transaction);
 
         // cek apakah data variabel $video dengan "intro" sama dengan 0 dan atau apakah data variabel $alreadyBounght memiliki nilai atau tidak
         if($alreadyBought || $video->intro == 0){

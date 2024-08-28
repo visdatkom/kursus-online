@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Models\Course;
-use App\Models\Review;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller

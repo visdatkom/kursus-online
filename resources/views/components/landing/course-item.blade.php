@@ -1,4 +1,4 @@
-@props(['course', 'avgRating'])
+@props(['course'])
 <div class="bg-slate-800 rounded-lg shadow-custom">
     <img class="rounded-t-lg" src="{{ $course->image }}" alt="product image">
     <div class="p-4 md:p-5 text-center">
@@ -31,7 +31,7 @@
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                     <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                 </svg>
-                {{ $course->enrolled }} Member
+                {{ $course->enrolled }} Pengguna
             </div>
             <div class="text-slate-400 flex items-center gap-1 align-bottom">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2 w-5 h-5"
@@ -44,7 +44,7 @@
                     <line x1="8" y1="9" x2="16" y2="9"></line>
                     <line x1="8" y1="13" x2="14" y2="13"></line>
                 </svg>
-                {{ $course->reviews_count }} Review
+                {{ $course->reviews_count }} Ulasan
             </div>
         </div>
         <div class="flex justify-between items-center mt-5">

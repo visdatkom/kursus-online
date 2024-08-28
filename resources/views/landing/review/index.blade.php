@@ -1,10 +1,10 @@
-@extends('layouts.frontend.app', ['title' => 'Review'])
+@extends('layouts.frontend.app', ['title' => 'Feedback'])
 
 @section('content')
     <!-- hero section -->
-    <x-landing.hero-section title="Review" subtitle="Kumpulan review dari para member yang sudah membeli premium disini"
-        details="Disini review yang diberikan kami tampilkan secara menyeluruh tanpa adanya perubahan review agar kami semakin baik dalam menyajikan konten - konten premium maupun gratis."
-        :data="$reviews" cardtitle="Review">
+    <x-landing.hero-section title="Feedback" subtitle="Kumpulan Feedback dari para pengguna yang sudah membeli premium disini"
+        details="Disini Feedback yang diberikan kami tampilkan secara menyeluruh tanpa adanya perubahan feedback agar kami semakin baik dalam menyajikan konten - konten premium."
+        :data="$reviews" cardtitle="Feedback">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2 w-10 h-10 md:w-20 md:h-20"
             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
             stroke-linecap="round" stroke-linejoin="round">
@@ -69,7 +69,7 @@
                                     <line x1="8" y1="9" x2="16" y2="9"></line>
                                     <line x1="8" y1="13" x2="14" y2="13"></line>
                                 </svg>
-                                Review Course :
+                                Feedback Kursus :
                             </p>
                             <a href="{{ route('course.show', $review->course->slug) }}"
                                 class="underline underline-offset-1 font-semibold">

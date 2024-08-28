@@ -1,4 +1,4 @@
-@extends('layouts.backend.app', ['title' => 'Showcase'])
+@extends('layouts.backend.app', ['title' => 'Projek'])
 
 @section('content')
     <div class="row">
@@ -23,7 +23,7 @@
                         <div>
                             <div>
                                 <i class="fas fa-circle text-xs"></i>
-                                Course
+                                Kursus
                             </div>
                             <p>{{ $showcase->course->name }}</p>
                         </div>

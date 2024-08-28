@@ -13,7 +13,7 @@
                             <line x1="13" y1="15" x2="16" y2="15"></line>
                             <rect x="4" y="4" width="16" height="16" rx="4"></rect>
                         </svg>
-                        LaraDev
+                        UndipDev
                     </a>
                 </li>
                 <li class="hidden lg:flex">
@@ -41,7 +41,22 @@
                             <line x1="3" y1="19" x2="21" y2="19"></line>
                             <rect x="5" y="6" width="14" height="10" rx="1"></rect>
                         </svg>
-                        Course
+                        Kursus
+                    </a>
+                </li>
+                <li class="hidden lg:flex">
+                    <a href="{{ route('showcase') }}"
+                        class="text-sm font-semibold text-white flex items-center gap-2 {{ activeNav('showcase') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-source-code w-5 h-5" width="24" height="24"
+                            viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M14.5 4h2.5a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-5"></path>
+                            <path d="M6 5l-2 2l2 2"></path>
+                            <path d="M10 9l2 -2l-2 -2"></path>
+                        </svg>
+                        Projek
                     </a>
                 </li>
                 <li class="hidden lg:flex">
@@ -58,7 +73,7 @@
                                 <circle cx="17" cy="17" r="3"></circle>
                                 <circle cx="7" cy="7" r="3"></circle>
                             </svg>
-                            Category
+                            Kategori
                             <svg xmlns="http://www.w3.org/2000/svg" x-show="!isOpen"
                                 class="icon icon-tabler icon-tabler-chevron-down w-4 h-4" width="24"
                                 height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -101,24 +116,10 @@
                             <line x1="8" y1="9" x2="16" y2="9"></line>
                             <line x1="8" y1="13" x2="14" y2="13"></line>
                         </svg>
-                        Review
+                        Feedback
                     </a>
                 </li>
-                <li class="hidden lg:flex">
-                    <a href="{{ route('showcase') }}"
-                        class="text-sm font-semibold text-white flex items-center gap-2 {{ activeNav('showcase') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-tabler icon-tabler-source-code w-5 h-5" width="24" height="24"
-                            viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M14.5 4h2.5a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-5"></path>
-                            <path d="M6 5l-2 2l2 2"></path>
-                            <path d="M10 9l2 -2l-2 -2"></path>
-                        </svg>
-                        Showcase
-                    </a>
-                </li>
+                
             </ul>
             <!-- NavProfile -->
             <div class="hidden md:flex items-center gap-2 text-white">
@@ -133,7 +134,7 @@
                             <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                             <path d="M16 11l2 2l4 -4"></path>
                         </svg>
-                        Sign In
+                        Masuk
                     </a>
                     <a href="{{ route('register') }}"
                         class="font-semibold text-white flex items-center border px-4 py-2 gap-2 rounded-lg text-xs bg-slate-700 border-slate-900">
@@ -145,7 +146,7 @@
                             <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                             <path d="M16 11h6m-3 -3v6"></path>
                         </svg>
-                        Sign Up
+                        Daftar
                     </a>
                 @endguest
                 @auth
@@ -271,7 +272,7 @@
                                         </path>
                                         <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
                                     </svg>
-                                    <span class="ml-2">Logout</span>
+                                    <span class="ml-2">Keluar</span>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                         class="d-none">
                                         @csrf
@@ -371,7 +372,7 @@
                                     <rect x="5" y="6" width="14" height="10"
                                         rx="1"></rect>
                                 </svg>
-                                Course
+                                Kursus
                             </a>
                         </li>
                         <li>
@@ -388,7 +389,7 @@
                                         <circle cx="17" cy="17" r="3"></circle>
                                         <circle cx="7" cy="7" r="3"></circle>
                                     </svg>
-                                    Category
+                                    Kategori
                                     <svg xmlns="http://www.w3.org/2000/svg" x-show="!isOpen"
                                         class="icon icon-tabler icon-tabler-chevron-down w-4 h-4" width="24"
                                         height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -431,7 +432,7 @@
                                     <line x1="8" y1="9" x2="16" y2="9"></line>
                                     <line x1="8" y1="13" x2="14" y2="13"></line>
                                 </svg>
-                                Review
+                                Feedback
                             </a>
                         </li>
                         <li>
@@ -447,7 +448,7 @@
                                     <path d="M6 5l-2 2l2 2"></path>
                                     <path d="M10 9l2 -2l-2 -2"></path>
                                 </svg>
-                                Showcase
+                                Projek
                             </a>
                         </li>
                         @guest
@@ -463,7 +464,7 @@
                                         <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                                         <path d="M16 11l2 2l4 -4"></path>
                                     </svg>
-                                    <span class="ml-2">Login</span>
+                                    <span class="ml-2">Masuk</span>
                                 </a>
                             </li>
                             <li>
@@ -478,7 +479,7 @@
                                         <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                                         <path d="M16 11h6m-3 -3v6"></path>
                                     </svg>
-                                    <span class="ml-2">Register</span>
+                                    <span class="ml-2">Daftar</span>
                                 </a>
                             </li>
                         @endguest

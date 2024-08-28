@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="/" class="brand-link">
         <div class="text-center">
-            <span class="brand-text font-weight-bold">LaraDev</span>
+            <span class="brand-text font-weight-bold">UndipDev</span>
         </div>
     </a>
 
@@ -40,7 +40,7 @@
                                 <circle cx="7" cy="7" r="3"></circle>
                             </svg>
                             <p>
-                                Category
+                                Kategori
                             </p>
                         </a>
                     </li>
@@ -56,7 +56,7 @@
                                 </rect>
                             </svg>
                             <p>
-                                Course
+                                Kursus
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -67,13 +67,12 @@
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="icon icon-tabler icon-tabler-corner-down-right-double nav-icon"
                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
-                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                        stroke-linejoin="round">
+                                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <path d="M4 5v6a3 3 0 0 0 3 3h7"></path>
                                         <path d="M10 10l4 4l-4 4m5 -8l4 4l-4 4"></path>
                                     </svg>
-                                    <p>List Course</p>
+                                    <p>Daftar Kursus</p>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -88,10 +87,28 @@
                                         <path d="M4 5v6a3 3 0 0 0 3 3h7"></path>
                                         <path d="M10 10l4 4l-4 4m5 -8l4 4l-4 4"></path>
                                     </svg>
-                                    <p>Add New Course</p>
+                                    <p>Tambah Kursus Baru</p>
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.quiz.index') }}" class="nav-link {{ active('admin.quiz*') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-devices-question nav-icon">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M15 20h-1a1 1 0 0 1 -1 -1v-10a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v2" />
+                                <path d="M18 8v-3a1 1 0 0 0 -1 -1h-13a1 1 0 0 0 -1 1v12a1 1 0 0 0 1 1h9" />
+                                <path d="M19 22v.01" />
+                                <path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />
+                                <path d="M16 9h2" />
+                            </svg>
+                            <p>
+                                Quiz
+                            </p>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('admin.showcase.index') }}" class="nav-link {{ active('admin.showcase*') }} ">
@@ -105,7 +122,7 @@
                                 <path d="M10 9l2 -2l-2 -2"></path>
                             </svg>
                             <p>
-                                Showcase
+                                Projek
                             </p>
                         </a>
                     </li>
@@ -123,13 +140,13 @@
                                 <line x1="8" y1="13" x2="14" y2="13"></line>
                             </svg>
                             <p>
-                                Review
+                                Feedback
                             </p>
                         </a>
                     </li>
-                    <li class="nav-header">LEARN</li>
+                    <li class="nav-header">BELAJAR</li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.mycourse') }}" class="nav-link {{ active('member.mycourse*') }} ">
+                        <a href="{{ route('admin.mycourse') }}" class="nav-link {{ active('admin.mycourse*') }} ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-devices nav-icon"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -138,13 +155,14 @@
                                 </rect>
                                 <path d="M18 8v-3a1 1 0 0 0 -1 -1h-13a1 1 0 0 0 -1 1v12a1 1 0 0 0 1 1h9"></path>
                                 <line x1="16" y1="9" x2="18" y2="9"></line>
+
                             </svg>
                             <p>
-                                My Course
+                                Kursus saya
                             </p>
                         </a>
                     </li>
-                    <li class="nav-header">Transaction</li>
+                    <li class="nav-header">Transaksi</li>
                     <li class="nav-item">
                         <a href="{{ route('admin.transaction.index') }}"
                             class="nav-link {{ active('admin.transaction*') }}">
@@ -157,11 +175,11 @@
                                 </path>
                             </svg>
                             <p>
-                                Transaction
+                                Transaksi
                             </p>
                         </a>
                     </li>
-                    <li class="nav-header">User Management</li>
+                    <li class="nav-header">Pengaturan</li>
                     <li class="nav-item">
                         <a href="{{ route('admin.user.index') }}" class="nav-link {{ active('admin.user.index') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users nav-icon"
@@ -174,7 +192,7 @@
                                 <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                             </svg>
                             <p>
-                                Users
+                                Pengguna
                             </p>
                         </a>
                     </li>
@@ -228,7 +246,7 @@
                                     </rect>
                                 </svg>
                                 <p>
-                                    Course
+                                    Kursus
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -245,7 +263,7 @@
                                             <path d="M4 5v6a3 3 0 0 0 3 3h7"></path>
                                             <path d="M10 10l4 4l-4 4m5 -8l4 4l-4 4"></path>
                                         </svg>
-                                        <p>List Course</p>
+                                        <p>Daftar kursus</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -260,13 +278,13 @@
                                             <path d="M4 5v6a3 3 0 0 0 3 3h7"></path>
                                             <path d="M10 10l4 4l-4 4m5 -8l4 4l-4 4"></path>
                                         </svg>
-                                        <p>Add New Course</p>
+                                        <p>Tambah kursus baru</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                     @endcan
-                    <li class="nav-header">LEARN</li>
+                    <li class="nav-header">BELAJAR</li>
                     <li class="nav-item">
                         <a href="{{ route('member.mycourse') }}" class="nav-link {{ active('member.mycourse*') }} ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-devices nav-icon"
@@ -279,7 +297,7 @@
                                 <line x1="16" y1="9" x2="18" y2="9"></line>
                             </svg>
                             <p>
-                                My Course
+                                Kursus saya
                             </p>
                         </a>
                     </li>
@@ -296,11 +314,12 @@
                                 <path d="M10 9l2 -2l-2 -2"></path>
                             </svg>
                             <p>
-                                Showcase
+                                Projek
                             </p>
                         </a>
                     </li>
-                    <li class="nav-header">TRANSACTION</li>
+
+                    <li class="nav-header">TRANSAKSI</li>
                     <li class="nav-item">
                         <a href="{{ route('member.transaction.index') }}"
                             class="nav-link {{ active('member.transaction*') }}">
@@ -313,11 +332,11 @@
                                 </path>
                             </svg>
                             <p>
-                                Transaction
+                                Transaksi
                             </p>
                         </a>
                     </li>
-                    <li class="nav-header">CONFIGURATION</li>
+                    <li class="nav-header">PENGATURAN</li>
                     <li class="nav-item">
                         <a href="{{ route('member.profile.index') }}"
                             class="nav-link {{ active('member.profile.index') }}">
@@ -336,7 +355,7 @@
                         </a>
                     </li>
                 @endrole
-                <li class="nav-header">SYSTEM</li>
+                <li class="nav-header">SISTEM</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -349,7 +368,7 @@
                             <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
                         </svg>
                         <p>
-                            Sign Out
+                            Keluar
                         </p>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf

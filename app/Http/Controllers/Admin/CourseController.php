@@ -70,7 +70,7 @@ class CourseController extends Controller
         ]);
 
         // kembali kehalaman admin/course/index dengan membawa toastr.
-        return redirect(route('admin.course.index'))->with('toast_success', 'Course Created');
+        return redirect(route('admin.course.index'))->with('toast_success', 'Kursus Dibuat');
     }
 
     /**
@@ -122,7 +122,7 @@ class CourseController extends Controller
         }
 
         // kembali kehalaman admin/course/index dengan membawa toastr.
-        return redirect(route('admin.course.index'))->with('toast_success', 'Course Updated');
+        return redirect(route('admin.course.index'))->with('toast_success', 'Kursus DiUpdate');
     }
 
     /**
@@ -140,6 +140,6 @@ class CourseController extends Controller
         $course->delete();
 
         // kembali kehalaman sebelumnya dengan membawa toastr
-        return back()->with('toast_success', 'Course Deleted');
+        return back()->with('toast_success', 'Kursus Terhapus');
     }
 }

@@ -18,7 +18,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header">
-                    {{ Auth::user()->unreadNotifications->count() }} Notifications
+                    {{ Auth::user()->unreadNotifications->count() }} Notifikasi
                 </span>
                 <div class="dropdown-divider"></div>
                 @foreach (Auth::user()->notifications as $notification)
@@ -36,7 +36,7 @@
                         <div class="dropdown-divider"></div>
                         <form action="{{ route('admin.markAllRead') }}" method="POST">
                             @csrf
-                            <button type="submit" class="dropdown-item dropdown-footer">Mark as Read</button>
+                            <button type="submit" class="dropdown-item dropdown-footer">Telah dibaca</button>
                         </form>
                     @endif
                 @endforeach

@@ -42,7 +42,7 @@
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Ya, tolong!',
-                cancelButtonText: 'Nope!',
+                cancelButtonText: 'Tidak!',
                 reverseButtons: true
             }).then((result) => {
                 if (result.value) {

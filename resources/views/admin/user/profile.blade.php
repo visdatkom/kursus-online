@@ -54,7 +54,7 @@
                                 @csrf
                                 @method('PUT')
                                 <x-upload-file title="Avatar" name="avatar" :value="$user->avatar" />
-                                <x-input title="Full Name" type="text" name="name" :value="$user->name" placeholder="" />
+                                <x-input title="Nama Lengkap" type="text" name="name" :value="$user->name" placeholder="" />
                                 <x-input title="Username" type="text" name="username" :value="$user->username" placeholder="" />
                                 <div class="form-group">
                                     <label>Email</label>
@@ -62,10 +62,10 @@
                                         disabled>
                                 </div>
                                 <x-input title="Github" type="text" name="github" :value="$user->github"
-                                    placeholder="your github" />
+                                    placeholder="github kamu" />
                                 <x-input title="Instagram" type="text" name="instagram" :value="$user->instagram"
-                                    placeholder="your instagram" />
-                                <x-textarea title="About Me" name="about" placeholder="Cuma Hooman yang suka Laravel"
+                                    placeholder="instagram kamu" />
+                                <x-textarea title="Tentang saya" name="about" placeholder="Cuma Hooman yang suka Laravel"
                                     value="">
                                     {{ $user->about }}</x-textarea>
                                 <div class="form-group">

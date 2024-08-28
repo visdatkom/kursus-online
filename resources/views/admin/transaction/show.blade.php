@@ -1,9 +1,9 @@
-@extends('layouts.backend.app', ['title' => 'Transaction Detail'])
+@extends('layouts.backend.app', ['title' => 'Detail Transaksi'])
 
 @section('content')
     <div class="row">
         <div class="col-12">
-            <x-card title="DETAIL TRANSACTION">
+            <x-card title="DETAIL TRANSAKSI">
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
@@ -56,8 +56,8 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>COURSE</th>
-                            <th class="text-right">PRICE</th>
+                            <th>kURSUS</th>
+                            <th class="text-right">HARGA</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,7 +72,7 @@
                             </tr>
                         @endforeach
                         <tr>
-                            <td class="font-weight-bold">GRAND TOTAL</td>
+                            <td class="font-weight-bold">TOTAL</td>
                             <td class="text-right text-success font-weight-bold">
                                 <sup>Rp</sup> {{ moneyFormat($grandTotal) }}
                             </td>

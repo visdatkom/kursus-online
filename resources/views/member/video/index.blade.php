@@ -2,18 +2,18 @@
 
 @section('content')
     <a href="{{ route('member.course.index') }}" class="btn btn-danger mb-3">
-        <i class="fas fa-arrow-left mr-1"></i> GO BACK
+        <i class="fas fa-arrow-left mr-1"></i> KEMBALI
     </a>
-    <x-button-create title="ADD NEW EPISODE" :url="route('member.video.create', $course->slug)" />
+    <x-button-create title="TAMBAH EPISODE BARU" :url="route('member.video.create', $course->slug)" />
 
-    <x-card title="LIST EPISODE - {{ $course->name }}">
+    <x-card title="DAFTAR EPISODE EPISODE - {{ $course->name }}">
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th width="10">EPS</th>
-                    <th>TITLE</th>
-                    <th>TYPE</th>
-                    <th>ACTION</th>
+                    <th>JUDUL</th>
+                    <th>TIPE</th>
+                    <th>AKSI</th>
                 </tr>
             </thead>
             <tbody>

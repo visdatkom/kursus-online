@@ -16,7 +16,7 @@
                     <h3>
                         {{ $course }}
                     </h3>
-                    <p>Course</p>
+                    <p>Kursus</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-laptop" width="48"
@@ -35,7 +35,7 @@
                     <h3>
                         {{ $showcase }}
                     </h3>
-                    <p>Showcase</p>
+                    <p>Projek</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-source-code " width="48"
@@ -55,7 +55,7 @@
                     <h3>
                         {{ $review }}
                     </h3>
-                    <p>Review</p>
+                    <p>Feedback</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2" width="48"
@@ -77,7 +77,7 @@
                     <h3>
                         {{ $transaction }}
                     </h3>
-                    <p>Transaction</p>
+                    <p>Transaksi</p>
                 </div>
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt" width="48"

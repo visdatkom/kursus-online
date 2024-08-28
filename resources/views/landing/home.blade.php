@@ -1,14 +1,14 @@
-@extends('layouts.frontend.app', ['title' => 'Homepage'])
+@extends('layouts.frontend.app', ['title' => 'Home'])
 
 @section('content')
     @include('layouts.frontend.partials.hero')
     <section
         class="p-8 text-center bg-slate-800 font-semibold text-white text-lg md:text-2xl border-t border-b border-dashed border-slate-700">
-        <span class="text-red-500">{{ $user->count() }}</span> ORANG TELAH BELAJAR KURSUS DI LARADEV
+        <span class="text-red-500">{{ $user->count() }}</span> ORANG TELAH BELAJAR KURSUS DI UNDIPDEV
     </section>
     <section class="bg-slate-600 p-10 w-full">
         <div class="flex flex-col gap-2 text-center items-center mb-10">
-            <h1 class="text-2xl text-white font-semibold">COURSE</h1>
+            <h1 class="text-2xl text-white font-semibold">KURSUS</h1>
             <p class="text-sm text-gray-400 lg:mx-96">
                 Kami menyediakan berbagai macam pembahasan dengan studi kasus yang dapat membantu menjadi seorang Developer
                 Profesional.
@@ -23,7 +23,7 @@
         <div class="flex justify-center text-center mt-14">
             <a href="{{ route('course.index') }}"
                 class="px-4 py-2 rounded-lg bg-slate-800 text-white hover:bg-red-800 hover:duration-200 flex items-center gap-2 text-lg border border-slate-500 hover:border-red-600 hover:transition-colors">
-                Lihat Semua Course
+                Lihat Semua Kursus
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right w-5 h-5"
                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
                     fill="none" stroke-linecap="round" stroke-linejoin="round">

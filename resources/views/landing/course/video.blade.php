@@ -117,6 +117,7 @@
                             @endforeach
                         </div>
                     </div>
+
                     <div class="p-4 flex justify-end gap-2">
                         <a href="#review"
                             class="px-4 py-2 rounded-lg bg-cyan-800 text-white flex items-center gap-2 text-sm border border-cyan-600">
@@ -130,7 +131,7 @@
                                 <line x1="8" y1="9" x2="16" y2="9"></line>
                                 <line x1="8" y1="13" x2="14" y2="13"></line>
                             </svg>
-                            {{ $course->reviews->count() }} Review
+                            {{ $course->reviews->count() }} Feedback
                         </a>
                         @if ($alreadyBought)
                             <div
@@ -174,9 +175,9 @@
         <div class="container mx-auto">
             <div class="p-4">
                 <div class="flex flex-col gap-2 text-center items-center mb-10">
-                    <h1 class="text-2xl text-white font-semibold">Review</h1>
+                    <h1 class="text-2xl text-white font-semibold">Feedback</h1>
                     <p class="text-sm text-gray-400 lg:mx-96">
-                        Kumpulan review dari para member yang telah membeli course ini
+                        Kumpulan feedback dari para pengguna yang telah membeli kursus ini
                     </p>
                     <div class="w-60 bg-gray-700 h-1 mt-2"></div>
                 </div>

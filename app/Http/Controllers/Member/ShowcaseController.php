@@ -112,7 +112,8 @@ class ShowcaseController extends Controller
     public function update(ShowcaseRequest $request, Showcase $showcase)
     {
         // update data showcase berdasrkan showcase id dan "user_id" sesuai dengan user yang sedang login
-        $request->user()->showcases()->update([
+        $showcase->update([
+            'user_id' => $request->user()->id,
             'course_id' => $request->course_id,
             'title' => $request->title,
             'description' => $request->description

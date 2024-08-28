@@ -1,13 +1,13 @@
-@extends('layouts.auth.app', ['title' => 'Login'])
+@extends('layouts.auth.app', ['title' => 'Register'])
 
 @section('content')
     <div class="card-body">
-        <p class="login-box-msg">Sign up to start your session</p>
+        <p class="login-box-msg">Lengkapi data anda</p>
 
         <form action="{{ route('register') }}" method="post">
             @csrf
             <div class="input-group mb-3">
-                <input type="name" class="form-control @error('name') is-invalid @enderror" placeholder="Full Name"
+                <input type="name" class="form-control @error('name') is-invalid @enderror" placeholder="Nama lengkap"
                     name="name" value="{{ old('name') }}">
                 <div class="input-group-append">
                     <div class="input-group-text">
@@ -62,11 +62,11 @@
                     </div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
         </form>
         <div class="mt-4">
             <p class="mb-0">
-                <a href="{{ route('login') }}" class="text-center">Already have one</a>
+                <a href="{{ route('login') }}" class="text-center">Sudah punya akun</a>
             </p>
         </div>
     </div>
